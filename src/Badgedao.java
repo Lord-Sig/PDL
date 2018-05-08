@@ -33,7 +33,7 @@ public class Badgedao {
 	 * @param badge
 	 * @return none
 	 */
-	public static int ajouter(int idpersonne) {
+	public int ajouter(int idpersonne) {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int retour = 0;
@@ -65,7 +65,7 @@ public class Badgedao {
 	 * @param badge
 	 * @return none
 	 */
-	public static int supprime(int idbadge) {
+	public int supprime(int idbadge) {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int retour = 0;

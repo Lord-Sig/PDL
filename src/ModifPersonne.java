@@ -16,8 +16,10 @@ import javax.swing.Box;
 import java.util.List;
 
 public class ModifPersonne extends JFrame implements ActionListener {
- 
+	
 	private static final long serialVersionUID = 1L;
+	
+	private HubProg Hub =new HubProg();
 	
 	private JPanel containerPanel;
 
@@ -51,11 +53,11 @@ public class ModifPersonne extends JFrame implements ActionListener {
 	
 	private JButton boutonValider;
 	
-	JTextArea zoneTextListConnection;
+	private JTextArea zoneTextListConnection;
 
 	//private JLabel labelConnection;
 
-	JScrollPane zoneDefilement;
+	private JScrollPane zoneDefilement;
 	
 	public ModifPersonne() {
 		
@@ -147,7 +149,7 @@ public void actionPerformed(ActionEvent ae) {
 		try {
 			
 			if(ae.getSource() == boutonValider) {
-				HubProg.modifPersonne3(textFieldNom.getText(), textFieldPrenom.getText(), textFieldFonction.getText(), textFieldDateDeNaissanceJ.getText(), textFieldDateDeNaissanceM.getText(), textFieldDateDeNaissanceA.getText(), textFieldProfil.getText(),SelectionPersonneM.getID());
+				Hub.modifPersonne3(textFieldNom.getText(), textFieldPrenom.getText(), textFieldFonction.getText(), textFieldDateDeNaissanceJ.getText(), textFieldDateDeNaissanceM.getText(), textFieldDateDeNaissanceA.getText(), textFieldProfil.getText(),SelectionPersonneM.getID());
 			}else {
 				
 				

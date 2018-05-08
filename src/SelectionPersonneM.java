@@ -19,6 +19,8 @@ public class SelectionPersonneM extends JFrame implements ActionListener{
  
 	private static final long serialVersionUID = 1L;
 	
+	private HubProg Hub =new HubProg();
+	
 	private JPanel containerPanel;
 
 	private JTextField textFieldNom;
@@ -49,11 +51,11 @@ public class SelectionPersonneM extends JFrame implements ActionListener{
 	
 	public static int id;
 	
-	JTextArea zoneTextListConnection;
+	private JTextArea zoneTextListConnection;
 
 	//private JLabel labelConnection;
 
-	JScrollPane zoneDefilement;
+	private JScrollPane zoneDefilement;
 	
 	public SelectionPersonneM() {
 		
@@ -138,7 +140,7 @@ public void actionPerformed(ActionEvent ae) {
 		try {
 			
 			if(ae.getSource() == boutonValider) {
-				id=HubProg.modifPersonne2(textFieldNom.getText(), textFieldPrenom.getText(), textFieldDateDeNaissanceJ.getText(), textFieldDateDeNaissanceM.getText(),textFieldDateDeNaissanceA.getText());
+				id=Hub.modifPersonne2(textFieldNom.getText(), textFieldPrenom.getText(), textFieldDateDeNaissanceJ.getText(), textFieldDateDeNaissanceM.getText(),textFieldDateDeNaissanceA.getText());
 			}else {
 				
 				

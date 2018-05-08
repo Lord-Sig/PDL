@@ -19,6 +19,8 @@ public class SelectionPersonneB extends JFrame implements ActionListener{
  
 	private static final long serialVersionUID = 1L;
 	
+	private HubProg Hub =new HubProg();
+	
 	private JPanel containerPanel;
 
 	private JTextField textFieldNom;
@@ -43,11 +45,11 @@ public class SelectionPersonneB extends JFrame implements ActionListener{
 	
 	private JButton boutonValider;
 	
-	JTextArea zoneTextListConnection;
+	private JTextArea zoneTextListConnection;
 
 	//private JLabel labelConnection;
 
-	JScrollPane zoneDefilement;
+	private JScrollPane zoneDefilement;
 	
 	public SelectionPersonneB() {
 		
@@ -127,7 +129,7 @@ public void actionPerformed(ActionEvent ae) {
 		try {
 			
 			if(ae.getSource() == boutonValider) {
-				HubProg.creeBadge2(textFieldNom.getText(), textFieldPrenom.getText(), textFieldDateDeNaissanceJ.getText(), textFieldDateDeNaissanceM.getText(), textFieldDateDeNaissanceA.getText());
+				Hub.creeBadge2(textFieldNom.getText(), textFieldPrenom.getText(), textFieldDateDeNaissanceJ.getText(), textFieldDateDeNaissanceM.getText(), textFieldDateDeNaissanceA.getText());
 			}else {
 				
 				

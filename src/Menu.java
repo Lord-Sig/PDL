@@ -20,6 +20,7 @@ public class Menu extends JFrame implements ActionListener {
 	
 	private static final long serialVersionUID = 1L;
 
+	private HubProg Hub =new HubProg();
 	
 	private JPanel containerPanel;
 	
@@ -31,11 +32,11 @@ public class Menu extends JFrame implements ActionListener {
 	
 	private JButton boutonMenu4;
 	
-	JTextArea zoneTextListConnection;
+	private JTextArea zoneTextListConnection;
 
 	//private JLabel labelConnection;
 
-	JScrollPane zoneDefilement;
+	private JScrollPane zoneDefilement;
 	
 	public Menu() {
 		
@@ -78,9 +79,9 @@ public class Menu extends JFrame implements ActionListener {
 				
 				
 			}else if(ae.getSource() == boutonMenu2) {
-				HubProg.gerePersonne();
+				Hub.gerePersonne();
 			}else if(ae.getSource() == boutonMenu3) {
-			HubProg.gereBadge();
+			Hub.gereBadge();
 					
 					
 			}else if(ae.getSource() == boutonMenu4) {

@@ -17,6 +17,7 @@ import java.util.List;
 
 public class ConnectionFen extends JFrame implements ActionListener{
 
+	private HubProg Hub =new HubProg();
 	
 	private JPanel containerPanel;
 
@@ -93,7 +94,7 @@ public class ConnectionFen extends JFrame implements ActionListener{
 		try {
 			
 			if(ae.getSource() == boutonConnexion) {
-			HubProg.authentification(textFieldIdentifiant.getText(),textFieldMotDePasse.getText());
+			Hub.authentification(textFieldIdentifiant.getText(),textFieldMotDePasse.getText());
 				
 			
 		}

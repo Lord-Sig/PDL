@@ -20,6 +20,7 @@ public class MenuBadge extends JFrame implements ActionListener {
 	
 	private static final long serialVersionUID = 1L;
 
+	private HubProg Hub =new HubProg();
 	
 	private JPanel containerPanel;
 	
@@ -27,9 +28,9 @@ public class MenuBadge extends JFrame implements ActionListener {
 	
 	private JButton boutonMenu2;
 	
-	JTextArea zoneTextListConnection;
+	private JTextArea zoneTextListConnection;
 
-	JScrollPane zoneDefilement;
+	private JScrollPane zoneDefilement;
 	
 	public MenuBadge() {
 		
@@ -64,9 +65,9 @@ public class MenuBadge extends JFrame implements ActionListener {
 	try {
 			
 			if(ae.getSource() == boutonMenu) {
-				HubProg.creeBadge1();
+				Hub.creeBadge1();
 			}else if(ae.getSource() == boutonMenu2) {
-				HubProg.supreBadge1();
+				Hub.supreBadge1();
 			}
 	
 		

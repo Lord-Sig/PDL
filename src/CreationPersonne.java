@@ -19,6 +19,8 @@ public class CreationPersonne extends JFrame implements ActionListener{
  
 	private static final long serialVersionUID = 1L;
 	
+	private HubProg Hub =new HubProg();
+	
 	private JPanel containerPanel;
 
 	private JTextField textFieldNom;
@@ -51,11 +53,11 @@ public class CreationPersonne extends JFrame implements ActionListener{
 	
 	private JButton boutonValider;
 	
-	JTextArea zoneTextListConnection;
+	private JTextArea zoneTextListConnection;
 
 	//private JLabel labelConnection;
 
-	JScrollPane zoneDefilement;
+	private JScrollPane zoneDefilement;
 	
 	public CreationPersonne() {
 		
@@ -147,7 +149,7 @@ public void actionPerformed(ActionEvent ae) {
 		try {
 			
 			if(ae.getSource() == boutonValider) {
-				HubProg.creePersonne2(textFieldNom.getText(), textFieldPrenom.getText(), textFieldFonction.getText(), textFieldDateDeNaissanceJ.getText(), textFieldDateDeNaissanceM.getText(), textFieldDateDeNaissanceA.getText(), textFieldProfil.getText());
+				Hub.creePersonne2(textFieldNom.getText(), textFieldPrenom.getText(), textFieldFonction.getText(), textFieldDateDeNaissanceJ.getText(), textFieldDateDeNaissanceM.getText(), textFieldDateDeNaissanceA.getText(), textFieldProfil.getText());
 				
 			}else {
 				

@@ -19,6 +19,8 @@ public class SupressionBadge extends JFrame implements ActionListener{
  
 	private static final long serialVersionUID = 1L;
 	
+	private HubProg Hub =new HubProg();
+	
 	private JPanel containerPanel;
 
 	private JTextField textFieldIdBadge;
@@ -27,11 +29,11 @@ public class SupressionBadge extends JFrame implements ActionListener{
 	
 	private JButton boutonValider;
 	
-	JTextArea zoneTextListConnection;
+	private JTextArea zoneTextListConnection;
 
 	//private JLabel labelConnection;
 
-	JScrollPane zoneDefilement;
+	private JScrollPane zoneDefilement;
 	
 	public SupressionBadge() {
 		
@@ -78,7 +80,7 @@ public void actionPerformed(ActionEvent ae) {
 		try {
 			
 			if(ae.getSource() == boutonValider) {
-				HubProg.supreBadge2(Integer.parseInt(textFieldIdBadge.getText()));
+				Hub.supreBadge2(Integer.parseInt(textFieldIdBadge.getText()));
 			}else {
 				
 				

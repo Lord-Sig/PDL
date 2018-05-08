@@ -20,6 +20,7 @@ public class MenuPersonne extends JFrame implements ActionListener {
 	
 	private static final long serialVersionUID = 1L;
 
+	private HubProg Hub =new HubProg();
 	
 	private JPanel containerPanel;
 	
@@ -33,10 +34,10 @@ public class MenuPersonne extends JFrame implements ActionListener {
 	private JButton boutonMenuPers3;
 	
 	
-	JTextArea zoneTextListConnection;
+	private JTextArea zoneTextListConnection;
 	
 
-	JScrollPane zoneDefilement;
+	private JScrollPane zoneDefilement;
 	
 	public MenuPersonne() {
 		
@@ -81,12 +82,12 @@ public class MenuPersonne extends JFrame implements ActionListener {
 		try {
 				
 				if(ae.getSource() == boutonMenuPers) {
-					HubProg.creePersonne1();
+					Hub.creePersonne1();
 				}else if (ae.getSource() == boutonMenuPers2){
-					HubProg.modifPersonne1();
+					Hub.modifPersonne1();
 					
 				}else if (ae.getSource()== boutonMenuPers3){					
-					HubProg.suprefPersonne1();
+					Hub.suprefPersonne1();
 				}
 						
 		}catch (Exception e) {	

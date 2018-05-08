@@ -32,7 +32,7 @@ public class Personnedao {
 	 * @param personne
 	 * @return none
 	 */
-	public static void ajouter(String nomp,String prenomp,String fonction,String joursp,String moisp,String annep,String idprofil) {
+	public void ajouter(String nomp,String prenomp,String fonction,String joursp,String moisp,String annep,String idprofil) {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int retour = 0; 
@@ -68,7 +68,7 @@ public class Personnedao {
 	 * @param personne
 	 * @return
 	 */
-	public static int supprime(int idpersonnep) {
+	public int supprime(int idpersonnep) {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int retour = 0;
@@ -101,7 +101,7 @@ public class Personnedao {
 	 * @param idpersonnep  id de la personne a modifié 
 	 * @return
 	 */
-public static int modifie(String nomp,String prenomp,String fonction,String joursp,String moisp,String annep,String idprofil, int idpersonnep ) {
+public  int modifie(String nomp,String prenomp,String fonction,String joursp,String moisp,String annep,String idprofil, int idpersonnep ) {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int retour = 0;
@@ -185,7 +185,7 @@ public ArrayList<Personne> Trouvepersonne(String nomp,String prenomp,String fonc
  * @param joursp
  * @return
  */
-public static int getIdpersonne(String nomp,String prenomp,String annep,String moisp,String joursp) {
+public int getIdpersonne(String nomp,String prenomp,String annep,String moisp,String joursp) {
 	int idpersonner = 0 ;
 	java.sql.Connection con = null;
 	PreparedStatement ps = null;

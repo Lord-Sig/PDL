@@ -28,7 +28,7 @@ public class Connection {
 	 * @param code
 	 * @return true si le nom de compte et le code sont juste false sinon
 	 */
-	public static boolean VerrifieCompte(String compte, String code) {
+	public  boolean VerrifieCompte(String compte, String code) {
 		String alpha=null; 
 		String beta=null;
 		java.sql.Connection con = null;

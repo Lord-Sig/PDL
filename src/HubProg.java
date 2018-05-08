@@ -4,18 +4,24 @@ import javax.swing.JOptionPane;
 
 public class HubProg {
 	private static final Component ErreurecoF = null;
-	static ConnectionFen ConnectionFen;
-	static Menu Menu;
-	static MenuPersonne MenuPersonne;
-	static SelectionPersonneS SelectionPersonneS;
-	static SelectionPersonneM SelectionPersonneM;
-	static SelectionPersonneB SelectionPersonneB;
-	static CreationPersonne CreationPersonne;
-	static MenuBadge MenuBadge;
-	static ModifPersonne ModifPersonne;
-	static SupressionBadge SupressionBadge;
+	private ConnectionFen ConnectionFen;
+	private Menu Menu;
+	private MenuPersonne MenuPersonne;
+	private SelectionPersonneS SelectionPersonneS;
+	private SelectionPersonneM SelectionPersonneM;
+	private SelectionPersonneB SelectionPersonneB;
+	private CreationPersonne CreationPersonne;
+	private MenuBadge MenuBadge;
+	private ModifPersonne ModifPersonne;
+	private SupressionBadge SupressionBadge;
+	private Connection Connection;
+	private Personnedao Personnedao;
+	private Badgedao Badgedao;
 	
 	public HubProg() {
+	}
+	public void init() {
+
 		ConnectionFen= new ConnectionFen(); 
 		ConnectionFen.setVisible(true); 
 	}
@@ -24,7 +30,7 @@ public class HubProg {
 	 * @param compte
 	 * @param code
 	 */
-	public static void authentification (String compte, String code) {
+	public void authentification (String compte, String code) {
 		boolean verif=Connection.VerrifieCompte(compte,code);
 		if ( verif == false) {
 			JOptionPane.showMessageDialog(ErreurecoF, "erreur connexion !",
@@ -39,7 +45,7 @@ public class HubProg {
 		}
 		return;
 	}
-	public static void gerePersonne() {
+	public void gerePersonne() {
 		Menu.setVisible(false);
 		MenuPersonne= new MenuPersonne();
 		Menu.dispose();
@@ -47,14 +53,14 @@ public class HubProg {
 		
 	}
 	
-	public static void gereBadge() {
+	public void gereBadge() {
 		Menu.setVisible(false);
 		MenuBadge= new MenuBadge();
 		Menu.dispose();
 		return;
 	}
 
-	public static void creePersonne1(){
+	public void creePersonne1(){
 		MenuPersonne.setVisible(false);
 		 CreationPersonne= new CreationPersonne();
 		MenuPersonne.dispose();
@@ -71,7 +77,7 @@ public class HubProg {
 	 * @param anaissancep
 	 * @param string
 	 */
-	public static void creePersonne2(String pnom,String pprenom, String pfonction,String jnaissancep,String mnaissancep,String anaissancep, String Idfonction){
+	public void creePersonne2(String pnom,String pprenom, String pfonction,String jnaissancep,String mnaissancep,String anaissancep, String Idfonction){
 		CreationPersonne.setVisible(false);
 		Personnedao.ajouter( pnom, pprenom,  pfonction, jnaissancep, mnaissancep, anaissancep, Idfonction);
 		 Menu=new Menu();
@@ -81,19 +87,19 @@ public class HubProg {
 		return;
 	}
 	
-	public static void modifPersonne1() {
+	public void modifPersonne1() {
 		MenuPersonne.setVisible(false);
 		 SelectionPersonneM= new SelectionPersonneM();
 		MenuPersonne.dispose();
 		return;
 	}
-	public static int modifPersonne2(String pnom,String pprenom,String jnaissancep,String mnaissancep,String anaissancep) {
+	public int modifPersonne2(String pnom,String pprenom,String jnaissancep,String mnaissancep,String anaissancep) {
 		SelectionPersonneM.setVisible(false);
 		int id =Personnedao.getIdpersonne( pnom, pprenom, jnaissancep, mnaissancep, anaissancep);
 		ModifPersonne= new ModifPersonne();
 		return id;
 	}
-	public static void modifPersonne3(String pnom,String pprenom,String fonction,String jnaissancep,String mnaissancep,String anaissancep, String idprofil,int idpersonne) {
+	public void modifPersonne3(String pnom,String pprenom,String fonction,String jnaissancep,String mnaissancep,String anaissancep, String idprofil,int idpersonne) {
 		ModifPersonne.setVisible(false);
 		 Menu=new Menu();
 		Personnedao.modifie(pnom,pprenom,fonction,jnaissancep,mnaissancep,anaissancep,idprofil, idpersonne);
@@ -104,13 +110,13 @@ public class HubProg {
 		return;
 	}
 	////////////
-	public static void suprefPersonne1() {
+	public void suprefPersonne1() {
 		MenuPersonne.setVisible(false);
 		SelectionPersonneS= new SelectionPersonneS();
 		MenuPersonne.dispose();
 		return;
 	}
-	public static void suprePersonne2(String pnom,String pprenom,String jnaissancep,String mnaissancep,String anaissancep) {
+	public void suprePersonne2(String pnom,String pprenom,String jnaissancep,String mnaissancep,String anaissancep) {
 		SelectionPersonneS.setVisible(false);
 		int id =Personnedao.getIdpersonne( pnom, pprenom, anaissancep, mnaissancep, jnaissancep);
 		System.out.println(id);
@@ -122,14 +128,14 @@ public class HubProg {
 		return ;
 	}
 	//////////
-	public static  void creeBadge1() {
+	public  void creeBadge1() {
 		System.out.println("sssss");
 		MenuBadge.setVisible(false);
 		 SelectionPersonneB= new SelectionPersonneB();
 		MenuBadge.dispose();
 		return;
 	}
-	public static void creeBadge2(String pnom,String pprenom,String jnaissancep,String mnaissancep,String anaissancep) {
+	public void creeBadge2(String pnom,String pprenom,String jnaissancep,String mnaissancep,String anaissancep) {
 		SelectionPersonneB.setVisible(false);
 		int id =Personnedao.getIdpersonne( pnom, pprenom, jnaissancep, mnaissancep, anaissancep);
 		Badgedao.ajouter(id);
@@ -138,13 +144,13 @@ public class HubProg {
 		return;
 	}
 	////////
-	public static void supreBadge1() {
+	public void supreBadge1() {
 		MenuBadge.setVisible(false);
 		SupressionBadge = new SupressionBadge();
 		MenuBadge.dispose();
 		return;
 	}
-	public static void supreBadge2(int idbadge) {
+	public  void supreBadge2(int idbadge) {
 		Badgedao.supprime(idbadge);
 		 JOptionPane.showMessageDialog(ErreurecoF, "Badge Supprimé !",
 					"Info", JOptionPane.INFORMATION_MESSAGE);
