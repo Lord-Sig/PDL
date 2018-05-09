@@ -44,9 +44,17 @@ public class Profildao {
 		// à communiquer dans l'insertion
 		// les getters permettent de récupérer les valeurs des attributs
 		// souhaités
-		for(int i=0;i<acceslieu.size();i=i+1)
+		//d'abord je passe a la valeurs suivante 
+		ps = con.prepareStatement("INSERT INTO PROFIL (idprofil, nomprofil, acceslieu, heuredebut, heurefin) VALUES(PROFIL_SEQ .nextval,?,?,?,?)");
+		ps.setString(1, nomprofil);
+		ps.setString(2, acceslieu.get(0));
+		ps.setString(3, heuredebut);
+		ps.setString(4, heurefin);
+		// Exécution de la requête
+		retour = ps.executeUpdate();
+		while ( i<acceslieu.size())
 		{
-			ps = con.prepareStatement("INSERT INTO PROFIL (idprofil, nomprofil, acceslieu, heuredebut, heurefin) VALUES(PROFIL_SEQ .nextval,?,?,?,?)");
+			ps = con.prepareStatement("INSERT INTO PROFIL (idprofil, nomprofil, acceslieu, heuredebut, heurefin) VALUES(PROFIL_SEQ .currval,?,?,?,?)");
 			ps.setString(1, nomprofil);
 			ps.setString(2, acceslieu.get(i));
 			ps.setString(3, heuredebut);
@@ -68,7 +76,7 @@ public class Profildao {
 	 * @param personne
 	 * @return
 	 */
-	public  int supprime(int idpersonnep) {
+	public  int supprime(int idprofil) {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int retour = 0;
@@ -81,8 +89,8 @@ public class Profildao {
 		// les getters permettent de récupérer les valeurs des attributs
 		// souhaités
 		System.out.println("ok");
-		ps = con.prepareStatement("DELETE FROM PERSONNE WHERE idpersonne=?");
-		ps.setInt(1, idpersonnep);
+		ps = con.prepareStatement("DELETE FROM PERSONNE WHERE idprofil=?");
+		ps.setInt(1, idprofil);
 		// Exécution de la requête
 		retour = ps.executeUpdate();
 		System.out.println("ok");
@@ -101,10 +109,11 @@ public class Profildao {
 	 * @param idpersonnep  id de la personne a modifié 
 	 * @return
 	 */
-public  int modifie(String nomp,String prenomp,String fonction,String joursp,String moisp,String annep,String idprofil, int idpersonnep ) {
+public  int modifie(String nomprofil,ArrayList<String> acceslieu,String heuredebut,String heurefin, int idprofil ) {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int retour = 0;
+		int i=0;
 		// connexion à la base de données
 		try {
 		// tentative de connexion
@@ -113,17 +122,12 @@ public  int modifie(String nomp,String prenomp,String fonction,String joursp,Str
 		// à communiquer dans l'insertion
 		// les getters permettent de récupérer les valeurs des attributs
 		// souhaités
-		ps = con.prepareStatement("UPDATE PERSONNE SET nomp=?, prenomp=?, fonction=?,annep=?,moisp=?,joursp=?,idprofil=? WHERE idpersonne=?");
-		ps.setString(1,nomp);
-		ps.setString(2, prenomp);
-		ps.setString(3, fonction);
-		ps.setString(4, annep);
-		ps.setString(5, moisp);
-		ps.setString(6, joursp);
-		ps.setString(7,idprofil);
-		ps.setInt(8, idpersonnep);
-		// Exécution de la requête
-		retour = ps.executeUpdate();
+		//d'abord je passe a la valeurs suivante 
+		ps = con.prepareStatement("INSERT INTO PROFIL (idprofil, nomprofil, acceslieu, heuredebut, heurefin) VALUES(PROFIL_SEQ .nextval,?,?,?,?)");
+		ps.setString(1, nomprofil);
+		ps.setString(2, acceslieu.get(0));
+		ps.setString(3, heuredebut);
+		ps.setString(4, heurefin);
 		} catch (Exception e) {
 		e.printStackTrace();
 		} finally {
@@ -133,5 +137,34 @@ public  int modifie(String nomp,String prenomp,String fonction,String joursp,Str
 		}
 		return retour;
 		}
+public int getIdprofil(String nomprofil,String heuredebut,String heurefin) {
+	int idprofil = 0 ;
+	java.sql.Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
+	// connexion à la base de données
+	try {
+	con = DriverManager.getConnection(URL, LOGIN, PASS);
+	ps = con.prepareStatement("SELECT idprofil FROM PROFIL WHERE nomprofil=? and heuredebut=? and heurefin=?");
+	ps.setString(1, nomprofil);
+	ps.setString(2, heuredebut);
+	ps.setString(3, heurefin);
+	//rs contient un pointeur situé jusute avant la première ligne
+	//retournée
+	rs= ps.executeQuery();
+	if (rs.next())
+		idprofil=rs.getInt("idprofil");
+		return idprofil;
+		
+	} catch (Exception ee) {
+		ee.printStackTrace();
+		} finally {
+		// fermeture du rs, du preparedStatement et de la connexion
+		try { if (rs != null) rs.close();} catch (Exception ignore) {}
+		try { if (ps != null) ps.close();} catch (Exception ignore) {}
+		try { if (con != null) con.close();} catch (Exception ignore) {}
+		}
+		return 0;
+}
 
 }
