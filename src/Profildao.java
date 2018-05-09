@@ -36,6 +36,7 @@ public class Profildao {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int retour = 0; 
+		int i=0;
 		// connexion à la base de données
 		try {
 		// tentative de connexion
@@ -52,6 +53,7 @@ public class Profildao {
 		ps.setString(4, heurefin);
 		// Exécution de la requête
 		retour = ps.executeUpdate();
+		i=i+1;
 		while ( i<acceslieu.size())
 		{
 			ps = con.prepareStatement("INSERT INTO PROFIL (idprofil, nomprofil, acceslieu, heuredebut, heurefin) VALUES(PROFIL_SEQ .currval,?,?,?,?)");
@@ -61,6 +63,7 @@ public class Profildao {
 			ps.setString(4, heurefin);
 			// Exécution de la requête
 			retour = ps.executeUpdate();
+			i=i+1;
 		}
 		} catch (Exception e) {
 		e.printStackTrace();
@@ -115,6 +118,7 @@ public  int modifie(String nomprofil,ArrayList<String> acceslieu,String heuredeb
 		int retour = 0;
 		int i=0;
 		// connexion à la base de données
+		//je trouve l'idduprofil a modif
 		try {
 		// tentative de connexion
 		con = DriverManager.getConnection(URL, LOGIN, PASS);
@@ -123,11 +127,25 @@ public  int modifie(String nomprofil,ArrayList<String> acceslieu,String heuredeb
 		// les getters permettent de récupérer les valeurs des attributs
 		// souhaités
 		//d'abord je passe a la valeurs suivante 
-		ps = con.prepareStatement("INSERT INTO PROFIL (idprofil, nomprofil, acceslieu, heuredebut, heurefin) VALUES(PROFIL_SEQ .nextval,?,?,?,?)");
-		ps.setString(1, nomprofil);
-		ps.setString(2, acceslieu.get(0));
-		ps.setString(3, heuredebut);
-		ps.setString(4, heurefin);
+		ps = con.prepareStatement("INSERT INTO PROFIL (idprofil, nomprofil, acceslieu, heuredebut, heurefin) VALUES(?,?,?,?,?)");
+		ps.setInt(1, idprofil);
+		ps.setString(2, nomprofil);
+		ps.setString(3, acceslieu.get(0));
+		ps.setString(4, heuredebut);
+		ps.setString(5, heurefin);
+		i=i+1;
+		while ( i<acceslieu.size())
+		{
+			ps = con.prepareStatement("INSERT INTO PROFIL (idprofil, nomprofil, acceslieu, heuredebut, heurefin) VALUES(?,?,?,?,?)");
+			ps.setInt(1, idprofil);
+			ps.setString(2, nomprofil);
+			ps.setString(3, acceslieu.get(0));
+			ps.setString(4, heuredebut);
+			ps.setString(5, heurefin);
+			// Exécution de la requête
+			retour = ps.executeUpdate();
+			i=i+1;
+		}
 		} catch (Exception e) {
 		e.printStackTrace();
 		} finally {
@@ -137,7 +155,7 @@ public  int modifie(String nomprofil,ArrayList<String> acceslieu,String heuredeb
 		}
 		return retour;
 		}
-public int getIdprofil(String nomprofil,String heuredebut,String heurefin) {
+public int getIdprofil(String nomprofil) {
 	int idprofil = 0 ;
 	java.sql.Connection con = null;
 	PreparedStatement ps = null;
@@ -145,10 +163,8 @@ public int getIdprofil(String nomprofil,String heuredebut,String heurefin) {
 	// connexion à la base de données
 	try {
 	con = DriverManager.getConnection(URL, LOGIN, PASS);
-	ps = con.prepareStatement("SELECT idprofil FROM PROFIL WHERE nomprofil=? and heuredebut=? and heurefin=?");
+	ps = con.prepareStatement("SELECT idprofil FROM PROFIL WHERE nomprofil=? ");
 	ps.setString(1, nomprofil);
-	ps.setString(2, heuredebut);
-	ps.setString(3, heurefin);
 	//rs contient un pointeur situé jusute avant la première ligne
 	//retournée
 	rs= ps.executeQuery();
