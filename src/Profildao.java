@@ -32,7 +32,7 @@ public class Profildao {
 	 * @param personne
 	 * @return none
 	 */
-	public void ajouter(String nomp,String prenomp,String fonction,String joursp,String moisp,String annep,String idprofil) {
+	public void ajouter(String nomprofil,ArrayList<String> acceslieu,String heuredebut,String heurefin) {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int retour = 0; 
@@ -44,16 +44,16 @@ public class Profildao {
 		// à communiquer dans l'insertion
 		// les getters permettent de récupérer les valeurs des attributs
 		// souhaités
-		ps = con.prepareStatement("INSERT INTO PROFIL (nomp, prenomp, fonction, joursp, moisp, annep, idpersonne, idprofil) VALUES(?,?,?,?,?,?,PERSONNE_SEQ.nextval,?)");
-		ps.setString(1, nomp);
-		ps.setString(2, prenomp);
-		ps.setString(3, fonction);
-		ps.setString(4, annep);
-		ps.setString(5, moisp);
-		ps.setString(6, joursp);
-		ps.setString(7, idprofil);
-		// Exécution de la requête
-		retour = ps.executeUpdate();
+		for(int i=0;i<acceslieu.size();i=i+1)
+		{
+			ps = con.prepareStatement("INSERT INTO PROFIL (idprofil, nomprofil, acceslieu, heuredebut, heurefin) VALUES(PROFIL_SEQ .nextval,?,?,?,?)");
+			ps.setString(1, nomprofil);
+			ps.setString(2, acceslieu.get(i));
+			ps.setString(3, heuredebut);
+			ps.setString(4, heurefin);
+			// Exécution de la requête
+			retour = ps.executeUpdate();
+		}
 		} catch (Exception e) {
 		e.printStackTrace();
 		} finally {
