@@ -46,9 +46,9 @@ public class Profildao {
 		// les getters permettent de récupérer les valeurs des attributs
 		// souhaités
 		//d'abord je passe a la valeurs suivante 
-		ps = con.prepareStatement("INSERT INTO PROFIL (idprofil, nomprofil, acceslieu, heuredebut, heurefin) VALUES(PROFIL_SEQ .nextval,?,?,?,?)");
+		ps = con.prepareStatement("INSERT INTO PROFIL (idprofil, nomprofil, acceslieu, heuredebut, heurefin) VALUES(PROFIL_SEQ .nextval,?,?,TO_DATE(?, 'HH24'),TO_DATE(?, 'HH24'))");
 		ps.setString(1, nomprofil);
-		ps.setString(2, acceslieu.get(0));
+		ps.setString(2, acceslieu.get(i));
 		ps.setString(3, heuredebut);
 		ps.setString(4, heurefin);
 		// Exécution de la requête
@@ -56,7 +56,7 @@ public class Profildao {
 		i=i+1;
 		while ( i<acceslieu.size())
 		{
-			ps = con.prepareStatement("INSERT INTO PROFIL (idprofil, nomprofil, acceslieu, heuredebut, heurefin) VALUES(PROFIL_SEQ .currval,?,?,?,?)");
+			ps = con.prepareStatement("INSERT INTO PROFIL (idprofil, nomprofil, acceslieu, heuredebut, heurefin) VALUES(PROFIL_SEQ .currval,?,?,TO_DATE(?, 'HH24'),TO_DATE(?, 'HH24'))");
 			ps.setString(1, nomprofil);
 			ps.setString(2, acceslieu.get(i));
 			ps.setString(3, heuredebut);
@@ -127,7 +127,7 @@ public  int modifie(String nomprofil,ArrayList<String> acceslieu,String heuredeb
 		// les getters permettent de récupérer les valeurs des attributs
 		// souhaités
 		//d'abord je passe a la valeurs suivante 
-		ps = con.prepareStatement("INSERT INTO PROFIL (idprofil, nomprofil, acceslieu, heuredebut, heurefin) VALUES(?,?,?,?,?)");
+		ps = con.prepareStatement("INSERT INTO PROFIL (idprofil, nomprofil, acceslieu, heuredebut, heurefin) VALUES(?,?,?,TO_CHAR(?, 'HH24'),TO_CHAR(?, 'HH24'))");
 		ps.setInt(1, idprofil);
 		ps.setString(2, nomprofil);
 		ps.setString(3, acceslieu.get(0));
@@ -136,7 +136,7 @@ public  int modifie(String nomprofil,ArrayList<String> acceslieu,String heuredeb
 		i=i+1;
 		while ( i<acceslieu.size())
 		{
-			ps = con.prepareStatement("INSERT INTO PROFIL (idprofil, nomprofil, acceslieu, heuredebut, heurefin) VALUES(?,?,?,?,?)");
+			ps = con.prepareStatement("INSERT INTO PROFIL (idprofil, nomprofil, acceslieu, heuredebut, heurefin) VALUES(?,?,?,TO_CHAR(?, 'HH24'),TO_CHAR(?, 'HH24'))");
 			ps.setInt(1, idprofil);
 			ps.setString(2, nomprofil);
 			ps.setString(3, acceslieu.get(0));
