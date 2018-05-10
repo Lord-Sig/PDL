@@ -91,12 +91,10 @@ public class Profildao {
 		// à communiquer dans l'insertion
 		// les getters permettent de récupérer les valeurs des attributs
 		// souhaités
-		System.out.println("ok");
-		ps = con.prepareStatement("DELETE FROM PERSONNE WHERE idprofil=?");
+		ps = con.prepareStatement("DELETE FROM PROFIL WHERE idprofil=?");
 		ps.setInt(1, idprofil);
 		// Exécution de la requête
 		retour = ps.executeUpdate();
-		System.out.println("ok");
 		} catch (Exception e) {
 		e.printStackTrace();
 		} finally {
@@ -127,7 +125,7 @@ public  int modifie(String nomprofil,ArrayList<String> acceslieu,String heuredeb
 		// les getters permettent de récupérer les valeurs des attributs
 		// souhaités
 		//d'abord je passe a la valeurs suivante 
-		ps = con.prepareStatement("INSERT INTO PROFIL (idprofil, nomprofil, acceslieu, heuredebut, heurefin) VALUES(?,?,?,TO_CHAR(?, 'HH24'),TO_CHAR(?, 'HH24'))");
+		ps = con.prepareStatement("INSERT INTO PROFIL (idprofil, nomprofil, acceslieu, heuredebut, heurefin) VALUES(?,?,?,TO_DATE(?, 'HH24'),TO_DATE(?, 'HH24'))");
 		ps.setInt(1, idprofil);
 		ps.setString(2, nomprofil);
 		ps.setString(3, acceslieu.get(0));
@@ -136,10 +134,10 @@ public  int modifie(String nomprofil,ArrayList<String> acceslieu,String heuredeb
 		i=i+1;
 		while ( i<acceslieu.size())
 		{
-			ps = con.prepareStatement("INSERT INTO PROFIL (idprofil, nomprofil, acceslieu, heuredebut, heurefin) VALUES(?,?,?,TO_CHAR(?, 'HH24'),TO_CHAR(?, 'HH24'))");
+			ps = con.prepareStatement("INSERT INTO PROFIL (idprofil, nomprofil, acceslieu, heuredebut, heurefin) VALUES(?,?,?,TO_DATE(?, 'HH24'),TO_DATE(?, 'HH24'))");
 			ps.setInt(1, idprofil);
 			ps.setString(2, nomprofil);
-			ps.setString(3, acceslieu.get(0));
+			ps.setString(3, acceslieu.get(i));
 			ps.setString(4, heuredebut);
 			ps.setString(5, heurefin);
 			// Exécution de la requête

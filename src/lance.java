@@ -10,16 +10,17 @@ public class lance {
 		Profildao profil =new Profildao();
 		ArrayList<String> pl = new ArrayList<String>();
 		
-		pl.add("a");
-		pl.add("b");
-		pl.add("c");
-		pl.add("d");
-		pl.add("e");
+		pl.add("p");
+		pl.add("o");
+		pl.add("m");
+		pl.add("r");
+		pl.add("g");
 		
 		System.out.println(pl);
-		profil.ajouter("nomp", pl, "11", "11");
-		//profil.supprime(idprofil);
-		
+		//profil.ajouter("nomp", pl, "11", "11");
+		//profil.supprime(13);
+		//profil.ajouter("nomp", pl, "12", "13");
+		profil.modifie("bite", pl, "10", "9",15);
 		/////commande marche 
 		
 		/*
