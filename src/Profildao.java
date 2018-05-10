@@ -181,5 +181,127 @@ public int getIdprofil(String nomprofil) {
 		}
 		return 0;
 }
+public String getheuredebut(int idprofil) {
+	java.sql.Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
+	String heuredebut = null;
+	// connexion à la base de données
+	try {
+	con = DriverManager.getConnection(URL, LOGIN, PASS);
+	ps = con.prepareStatement("SELECT TO_DATE('HEUREDEBUT', 'HH24') FROM PROFIL WHERE idprofil=? ");
+	ps.setInt(1, idprofil);
+	//rs contient un pointeur situé jusute avant la première ligne
+	//retournée
+	rs= ps.executeQuery();
+	if (rs.next())
+		heuredebut=rs.getString("heuredebut");
+		return heuredebut;
+		
+	} catch (Exception ee) {
+		ee.printStackTrace();
+		} finally {
+		// fermeture du rs, du preparedStatement et de la connexion
+		try { if (rs != null) rs.close();} catch (Exception ignore) {}
+		try { if (ps != null) ps.close();} catch (Exception ignore) {}
+		try { if (con != null) con.close();} catch (Exception ignore) {}
+		}
+		return "null";
+}
+public String getheurefin(int idprofil) {
+	java.sql.Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
+	String heurefin = null;
+	// connexion à la base de données
+	try {
+	con = DriverManager.getConnection(URL, LOGIN, PASS);
+	ps = con.prepareStatement("SELECT TO_DATE('HEUREFIN', 'HH24') FROM PROFIL WHERE idprofil=? ");
+	ps.setInt(1, idprofil);
+	//rs contient un pointeur situé jusute avant la première ligne
+	//retournée
+	rs= ps.executeQuery();
+	if (rs.next())
+		heurefin=rs.getString("heurefin");
+		return heurefin;
+		
+	} catch (Exception ee) {
+		ee.printStackTrace();
+		} finally {
+		// fermeture du rs, du preparedStatement et de la connexion
+		try { if (rs != null) rs.close();} catch (Exception ignore) {}
+		try { if (ps != null) ps.close();} catch (Exception ignore) {}
+		try { if (con != null) con.close();} catch (Exception ignore) {}
+		}
+		return "null";
+}
+/*
+public  int modifielieu(ArrayList<String> acceslieu , int idprofil,String nomp) {
+	Connection con = null;
+	PreparedStatement ps = null;
+	int retour = 0;
+	int i=0;
+	
+	this.supprime(idprofil);
+	// connexion à la base de données
+	//je trouve l'idduprofil a modif
+	try {
+	// tentative de connexion
+	con = DriverManager.getConnection(URL, LOGIN, PASS);
+	// préparation de l'instruction SQL, chaque ? représente une valeur
+	// à communiquer dans l'insertion
+	// les getters permettent de récupérer les valeurs des attributs
+	// souhaités
+	//d'abord je passe a la valeurs suivante 
+	ps = con.prepareStatement("INSERT INTO PROFIL (idprofil, nomprofil, acceslieu, heuredebut, heurefin) VALUES(?,?,?,TO_DATE(?, 'HH24'),TO_DATE(?, 'HH24'))");
+	
+	i=i+1;
+	while ( i<acceslieu.size())
+	{
+		ps = con.prepareStatement("INSERT INTO PROFIL (idprofil, nomprofil, acceslieu, heuredebut, heurefin) VALUES(?,?,?,TO_DATE(?, 'HH24'),TO_DATE(?, 'HH24'))");
+		
+		// Exécution de la requête
+		retour = ps.executeUpdate();
+		i=i+1;
+	}
+	} catch (Exception e) {
+	e.printStackTrace();
+	} finally {
+	// fermeture du preparedStatement et de la connexion
+	try {if (ps != null) ps.close(); } catch (Exception ignore) {}
+	try {if (con != null) con.close();} catch (Exception ignore) {}
+	}
+	return retour;*
+	}*/
+public ArrayList<Personne> ListePersonneparProfil(int profil) {
+	ArrayList<Personne> personnetrouve =new ArrayList<Personne>();
+	java.sql.Connection con = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
+	// connexion à la base de données
+	try {
+	con = DriverManager.getConnection(URL, LOGIN, PASS);
+	ps = con.prepareStatement("SELECT * FROM PERSONNE WHERE IDPROFIL=?");
+	ps.setInt(1, profil);
+	//on exécute la requête
+	//rs contient un pointeur situé jusute avant la première ligne
+	//retournée
+	rs= ps.executeQuery();
+	while (rs.next())
+		personnetrouve.add(new Personne (rs.getString("nomp"),rs.getString("prenomp"),rs.getString("fonction"),rs.getInt("annep"),rs.getInt("moisp"),rs.getInt("joursp"),rs.getInt("idpersonne"),rs.getInt("idprofil")));
+		
+	} catch (Exception ee) {
+		ee.printStackTrace();
+		} finally {
+		// fermeture du rs, du preparedStatement et de la connexion
+		try { if (rs != null) rs.close();} catch (Exception ignore) {}
+		try { if (ps != null) ps.close();} catch (Exception ignore) {}
+		try { if (con != null) con.close();} catch (Exception ignore) {}
+		}
+		return personnetrouve;
+	
+}
+
+
 
 }
