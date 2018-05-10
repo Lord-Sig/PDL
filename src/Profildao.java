@@ -115,6 +115,7 @@ public  int modifie(String nomprofil,ArrayList<String> acceslieu,String heuredeb
 		PreparedStatement ps = null;
 		int retour = 0;
 		int i=0;
+		this.supprime(idprofil);
 		// connexion à la base de données
 		//je trouve l'idduprofil a modif
 		try {
