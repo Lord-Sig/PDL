@@ -44,13 +44,13 @@ public class Personnedao {
 		// à communiquer dans l'insertion
 		// les getters permettent de récupérer les valeurs des attributs
 		// souhaités
-		ps = con.prepareStatement("INSERT INTO PERSONNE (nomp, prenomp, fonction, joursp, moisp, annep, idpersonne, idprofil) VALUES(?,?,?,?,?,?,PERSONNE_SEQ.nextval,?)");
+		ps = con.prepareStatement("INSERT INTO PERSONNE (nomp, prenomp, fonction, joursp, moisp, annep, idpersonne, idprofil) VALUES(?,?,?,TO_DATE (?/?/?, 'DD/MM/RRRR'),PERSONNE_SEQ.nextval,?)");
 		ps.setString(1, nomp);
 		ps.setString(2, prenomp);
 		ps.setString(3, fonction);
-		ps.setString(4, annep);
+		ps.setString(4, joursp);
 		ps.setString(5, moisp);
-		ps.setString(6, joursp);
+		ps.setString(6, annep);
 		ps.setString(7, idprofil);
 		// Exécution de la requête
 		retour = ps.executeUpdate();
@@ -113,13 +113,13 @@ public  int modifie(String nomp,String prenomp,String fonction,String joursp,Str
 		// à communiquer dans l'insertion
 		// les getters permettent de récupérer les valeurs des attributs
 		// souhaités
-		ps = con.prepareStatement("UPDATE PERSONNE SET nomp=?, prenomp=?, fonction=?,annep=?,moisp=?,joursp=?,idprofil=? WHERE idpersonne=?");
+		ps = con.prepareStatement("UPDATE PERSONNE SET nomp=?, prenomp=?, fonction=?,TO_DATE (?/?/?, 'DD/MM/RRRR'),idprofil=? WHERE idpersonne=?");
 		ps.setString(1,nomp);
 		ps.setString(2, prenomp);
 		ps.setString(3, fonction);
-		ps.setString(4, annep);
+		ps.setString(6, annep);
 		ps.setString(5, moisp);
-		ps.setString(6, joursp);
+		ps.setString(4, joursp);
 		ps.setString(7,idprofil);
 		ps.setInt(8, idpersonnep);
 		// Exécution de la requête
@@ -193,7 +193,7 @@ public int getIdpersonne(String nomp,String prenomp,String annep,String moisp,St
 	// connexion à la base de données
 	try {
 	con = DriverManager.getConnection(URL, LOGIN, PASS);
-	ps = con.prepareStatement("SELECT idpersonne FROM PERSONNE WHERE nomp=? and prenomp=? and annep=? and moisp=? and joursp=?");
+	ps = con.prepareStatement("SELECT idpersonne FROM PERSONNE WHERE nomp=? and prenomp=? and naissance=TO_DATE (?/?/?, 'DD/MM/RRRR')");
 	ps.setString(1, nomp);
 	ps.setString(2, prenomp);
 	ps.setString(3, annep);
