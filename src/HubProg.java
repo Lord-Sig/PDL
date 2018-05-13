@@ -71,9 +71,9 @@ public class HubProg {
 	 * @param anaissancep
 	 * @param string
 	 */
-	public static void creePersonne2(String pnom,String pprenom, String pfonction,String jnaissancep,String mnaissancep,String anaissancep, String Idfonction){
+	public static void creePersonne2(String pnom,String pprenom, String pfonction,String jnaissancep,String mnaissancep,String anaissancep){
 		CreationPersonne.setVisible(false);
-		Personnedao.ajouter( pnom, pprenom,  pfonction, jnaissancep, mnaissancep, anaissancep, Idfonction);
+		Personnedao.ajouter( pnom, pprenom,  pfonction, jnaissancep, mnaissancep, anaissancep);
 		 Menu=new Menu();
 		CreationPersonne.dispose();
 		JOptionPane.showMessageDialog(ErreurecoF, "Création faite !",
@@ -93,10 +93,10 @@ public class HubProg {
 		ModifPersonne= new ModifPersonne();
 		return id;
 	}
-	public static void modifPersonne3(String pnom,String pprenom,String fonction,String jnaissancep,String mnaissancep,String anaissancep, String idprofil,int idpersonne) {
+	public static void modifPersonne3(String pnom,String pprenom,String fonction,String jnaissancep,String mnaissancep,String anaissancep,int idpersonne) {
 		ModifPersonne.setVisible(false);
 		 Menu=new Menu();
-		Personnedao.modifie(pnom,pprenom,fonction,jnaissancep,mnaissancep,anaissancep,idprofil, idpersonne);
+		Personnedao.modifie(pnom,pprenom,fonction,jnaissancep,mnaissancep,anaissancep, idpersonne);
 		ModifPersonne.dispose();
 		SelectionPersonneM.dispose();
 		JOptionPane.showMessageDialog(ErreurecoF, "Modification faite !",

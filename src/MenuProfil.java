@@ -31,6 +31,8 @@ public class MenuProfil extends JFrame implements ActionListener {
 	
 	private JButton boutonMenu4;
 	
+	private JButton boutonMenu5;
+	
 	JTextArea zoneTextListConnection;
 
 	JScrollPane zoneDefilement;
@@ -53,6 +55,7 @@ public class MenuProfil extends JFrame implements ActionListener {
 	boutonMenu2 = new JButton("Modfier profil");
 	boutonMenu3 = new JButton("Supression profil");
 	boutonMenu4 = new JButton("Liste Persone par profil");
+	boutonMenu4 = new JButton("Modifié ou associé un profil a une personne");
 	
 	containerPanel.add(boutonMenu);
 	containerPanel.add(boutonMenu2);
@@ -71,12 +74,13 @@ public class MenuProfil extends JFrame implements ActionListener {
 			
 			if(ae.getSource() == boutonMenu) {
 				
-				
 			}else if(ae.getSource() == boutonMenu2) {
 				
 			}else if(ae.getSource() == boutonMenu3) {
 				
 			}else if(ae.getSource() == boutonMenu4) {
+				
+			}else if(ae.getSource() == boutonMenu5) {
 				
 			}
 		

@@ -33,8 +33,6 @@ public class CreationPersonne extends JFrame implements ActionListener{
 	
 	private JTextField textFieldFonction;
 	
-	private JTextField textFieldProfil;
-	
 	private JLabel labelNom;
 	
 	private JLabel labelIdprofil;
@@ -80,7 +78,6 @@ public class CreationPersonne extends JFrame implements ActionListener{
 		textFieldDateDeNaissanceM = new JTextField();
 		textFieldDateDeNaissanceA = new JTextField();
 		textFieldFonction = new JTextField();
-		textFieldProfil = new JTextField();
 		//textFieldConnection = new JTextField();
 		boutonValider = new JButton("Valider");
 		
@@ -127,11 +124,6 @@ public class CreationPersonne extends JFrame implements ActionListener{
 		containerPanel.add(textFieldFonction);
 		containerPanel.add(Box.createRigidArea(new Dimension(0, 10)));
 		
-		containerPanel.add(labelIdprofil);
-		containerPanel.add(Box.createRigidArea(new Dimension(0, 10)));
-		containerPanel.add(textFieldProfil);
-		containerPanel.add(Box.createRigidArea(new Dimension(0, 10)));
-		
 		containerPanel.add(boutonValider);
 		
 		boutonValider.addActionListener(this);
@@ -147,7 +139,7 @@ public void actionPerformed(ActionEvent ae) {
 		try {
 			
 			if(ae.getSource() == boutonValider) {
-				HubProg.creePersonne2(textFieldNom.getText(), textFieldPrenom.getText(), textFieldFonction.getText(), textFieldDateDeNaissanceA.getText(), textFieldDateDeNaissanceM.getText(),  textFieldDateDeNaissanceJ.getText(), textFieldProfil.getText());
+				HubProg.creePersonne2(textFieldNom.getText(), textFieldPrenom.getText(), textFieldFonction.getText(), textFieldDateDeNaissanceA.getText(), textFieldDateDeNaissanceM.getText(),  textFieldDateDeNaissanceJ.getText());
 				
 			}else {
 				

@@ -35,8 +35,6 @@ public class ModifPersonne extends JFrame implements ActionListener {
 	
 	private JTextField textFieldProfil;
 	
-	private JLabel labelIdprofil;
-	
 	private JLabel labelNom;
 
 	private JLabel labelPrenom;
@@ -93,7 +91,6 @@ public class ModifPersonne extends JFrame implements ActionListener {
 		labelDateDeNaissanceM = new JLabel("Mois de naissance :");
 		labelDateDeNaissanceA = new JLabel("Année de naissance :");
 		labelFonction = new JLabel("Fonction :");
-		labelIdprofil = new JLabel("Idprofil :");
 		
 		//labelConnection = new JLabel(":");
 		
@@ -127,11 +124,6 @@ public class ModifPersonne extends JFrame implements ActionListener {
 		containerPanel.add(textFieldFonction);
 		containerPanel.add(Box.createRigidArea(new Dimension(0, 10)));
 		
-		containerPanel.add(labelIdprofil);
-		containerPanel.add(Box.createRigidArea(new Dimension(0, 10)));
-		containerPanel.add(textFieldProfil);
-		containerPanel.add(Box.createRigidArea(new Dimension(0, 10)));
-		
 		containerPanel.add(boutonValider);
 		
 		boutonValider.addActionListener(this);
@@ -147,7 +139,7 @@ public void actionPerformed(ActionEvent ae) {
 		try {
 			
 			if(ae.getSource() == boutonValider) {
-				HubProg.modifPersonne3(textFieldNom.getText(), textFieldPrenom.getText(), textFieldFonction.getText(), textFieldDateDeNaissanceJ.getText(), textFieldDateDeNaissanceM.getText(), textFieldDateDeNaissanceA.getText(), textFieldProfil.getText(),SelectionPersonneM.getID());
+				HubProg.modifPersonne3(textFieldNom.getText(), textFieldPrenom.getText(), textFieldFonction.getText(), textFieldDateDeNaissanceJ.getText(), textFieldDateDeNaissanceM.getText(), textFieldDateDeNaissanceA.getText(),SelectionPersonneM.getID());
 			}else {
 				
 				

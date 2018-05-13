@@ -33,10 +33,9 @@ public class Personnedao {
 	 * @param personne
 	 * @return none
 	 */
-	public static void ajouter(String nomp,String prenomp,String fonction,String joursp,String moisp,String annep,String idprofils) {
+	public static void ajouter(String nomp,String prenomp,String fonction,String joursp,String moisp,String annep) {
 		Connection con = null;
 		PreparedStatement ps = null;
-		int idprofil =Integer.parseInt(idprofils);
 		int retour = 0;  
 		// connexion à la base de données
 		try {
@@ -47,12 +46,11 @@ public class Personnedao {
 		// les getters permettent de récupérer les valeurs des attributs
 		// souhaités
 		String date = joursp +"/"+moisp+"/"+annep;
-		ps = con.prepareStatement("INSERT INTO PERSONNE (nomp, prenomp, fonction, naissance, idpersonne, idprofil) VALUES(?,?,?,TO_DATE(?, 'DD/MM/YYYY'),PERSONNE_SEQ.nextval,?)");
+		ps = con.prepareStatement("INSERT INTO PERSONNE (nomp, prenomp, fonction, naissance, idpersonne) VALUES(?,?,?,TO_DATE(?, 'DD/MM/YYYY'),PERSONNE_SEQ.nextval)");
 		ps.setString(1, nomp);
 		ps.setString(2, prenomp);
 		ps.setString(3, fonction);
 		ps.setString(4, date);
-		ps.setInt(5, idprofil);
 		// Exécution de la requête
 		retour = ps.executeUpdate();
 		} catch (Exception e) {
@@ -102,12 +100,10 @@ public class Personnedao {
 	 * @param idpersonnep  id de la personne a modifié 
 	 * @return
 	 */
-public static int modifie(String nomp,String prenomp,String fonction,String joursp,String moisp,String annep,String idprofils, int idpersonnep ) {
+public static int modifie(String nomp,String prenomp,String fonction,String joursp,String moisp,String annep, int idpersonnep ) {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int retour = 0;
-
-		int idprofil =Integer.parseInt(idprofils);
 		// connexion à la base de données
 		try {
 		// tentative de connexion
@@ -118,13 +114,12 @@ public static int modifie(String nomp,String prenomp,String fonction,String jour
 
 		String date = joursp +"/"+moisp+"/"+annep;
 		// souhaités
-		ps = con.prepareStatement("UPDATE PERSONNE SET nomp=?, prenomp=?, fonction=?,naissance=TO_DATE(?, 'DD/MM/YYYY'),idprofil=? WHERE idpersonne=?");
+		ps = con.prepareStatement("UPDATE PERSONNE SET nomp=?, prenomp=?, fonction=?,naissance=TO_DATE(?, 'DD/MM/YYYY') WHERE idpersonne=?");
 		ps.setString(1,nomp);
 		ps.setString(2, prenomp);
 		ps.setString(3, fonction);
 		ps.setString(4, date);;
-		ps.setInt(5,idprofil);
-		ps.setInt(6, idpersonnep);
+		ps.setInt(5, idpersonnep);
 		// Exécution de la requête
 		retour = ps.executeUpdate();
 		} catch (Exception e) {
