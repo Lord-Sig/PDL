@@ -2,6 +2,7 @@ import java.sql.*;
 import java.sql.Connection;
 import java.util.ArrayList;
 
+// penser a elever profil de personne dans cr�� et modif
 public class Personnedao {
 	/**
 	 * url de connection a la BDD
@@ -32,26 +33,26 @@ public class Personnedao {
 	 * @param personne
 	 * @return none
 	 */
-	public static void ajouter(String nomp,String prenomp,String fonction,String joursp,String moisp,String annep,String idprofil) {
+	public static void ajouter(String nomp,String prenomp,String fonction,String joursp,String moisp,String annep,String idprofils) {
 		Connection con = null;
 		PreparedStatement ps = null;
-		int retour = 0; 
+		int idprofil =Integer.parseInt(idprofils);
+		int retour = 0;  
 		// connexion à la base de données
 		try {
-		// tentative de connexion
+		// tentative de connexion 
 		con = DriverManager.getConnection(URL, LOGIN, PASS);
 		// préparation de l'instruction SQL, chaque ? représente une valeur
 		// à communiquer dans l'insertion
 		// les getters permettent de récupérer les valeurs des attributs
 		// souhaités
-		ps = con.prepareStatement("INSERT INTO PERSONNE (nomp, prenomp, fonction, joursp, moisp, annep, idpersonne, idprofil) VALUES(?,?,?,?,?,?,PERSONNE_SEQ.nextval,?)");
+		String date = joursp +"/"+moisp+"/"+annep;
+		ps = con.prepareStatement("INSERT INTO PERSONNE (nomp, prenomp, fonction, naissance, idpersonne, idprofil) VALUES(?,?,?,TO_DATE(?, 'DD/MM/YYYY'),PERSONNE_SEQ.nextval,?)");
 		ps.setString(1, nomp);
 		ps.setString(2, prenomp);
 		ps.setString(3, fonction);
-		ps.setString(4, annep);
-		ps.setString(5, moisp);
-		ps.setString(6, joursp);
-		ps.setString(7, idprofil);
+		ps.setString(4, date);
+		ps.setInt(5, idprofil);
 		// Exécution de la requête
 		retour = ps.executeUpdate();
 		} catch (Exception e) {
@@ -101,10 +102,12 @@ public class Personnedao {
 	 * @param idpersonnep  id de la personne a modifié 
 	 * @return
 	 */
-public static int modifie(String nomp,String prenomp,String fonction,String joursp,String moisp,String annep,String idprofil, int idpersonnep ) {
+public static int modifie(String nomp,String prenomp,String fonction,String joursp,String moisp,String annep,String idprofils, int idpersonnep ) {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int retour = 0;
+
+		int idprofil =Integer.parseInt(idprofils);
 		// connexion à la base de données
 		try {
 		// tentative de connexion
@@ -112,16 +115,16 @@ public static int modifie(String nomp,String prenomp,String fonction,String jour
 		// préparation de l'instruction SQL, chaque ? représente une valeur
 		// à communiquer dans l'insertion
 		// les getters permettent de récupérer les valeurs des attributs
+
+		String date = joursp +"/"+moisp+"/"+annep;
 		// souhaités
-		ps = con.prepareStatement("UPDATE PERSONNE SET nomp=?, prenomp=?, fonction=?,annep=?,moisp=?,joursp=?,idprofil=? WHERE idpersonne=?");
+		ps = con.prepareStatement("UPDATE PERSONNE SET nomp=?, prenomp=?, fonction=?,naissance=TO_DATE(?, 'DD/MM/YYYY'),idprofil=? WHERE idpersonne=?");
 		ps.setString(1,nomp);
 		ps.setString(2, prenomp);
 		ps.setString(3, fonction);
-		ps.setString(4, annep);
-		ps.setString(5, moisp);
-		ps.setString(6, joursp);
-		ps.setString(7,idprofil);
-		ps.setInt(8, idpersonnep);
+		ps.setString(4, date);;
+		ps.setInt(5,idprofil);
+		ps.setInt(6, idpersonnep);
 		// Exécution de la requête
 		retour = ps.executeUpdate();
 		} catch (Exception e) {
@@ -190,15 +193,14 @@ public static int getIdpersonne(String nomp,String prenomp,String annep,String m
 	java.sql.Connection con = null;
 	PreparedStatement ps = null;
 	ResultSet rs = null;
+	String date = joursp +"/"+moisp+"/"+annep;
 	// connexion à la base de données
 	try {
 	con = DriverManager.getConnection(URL, LOGIN, PASS);
-	ps = con.prepareStatement("SELECT idpersonne FROM PERSONNE WHERE nomp=? and prenomp=? and annep=? and moisp=? and joursp=?");
+	ps = con.prepareStatement("SELECT idpersonne FROM PERSONNE WHERE nomp=? and prenomp=? and naissance=TO_DATE(?, 'DD/MM/YYYY') ");
 	ps.setString(1, nomp);
 	ps.setString(2, prenomp);
-	ps.setString(3, annep);
-	ps.setString(4, moisp);
-	ps.setString(5, joursp);
+	ps.setString(3, date);
 	//on exécute la requête
 	//rs contient un pointeur situé jusute avant la première ligne
 	//retournée

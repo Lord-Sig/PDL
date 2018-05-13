@@ -81,7 +81,7 @@ public class HubProg {
 		return;
 	}
 	
-	public static void modifPersonne1() {
+	public static void modifPersonne1() {  
 		MenuPersonne.setVisible(false);
 		 SelectionPersonneM= new SelectionPersonneM();
 		MenuPersonne.dispose();

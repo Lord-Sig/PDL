@@ -147,7 +147,7 @@ public void actionPerformed(ActionEvent ae) {
 		try {
 			
 			if(ae.getSource() == boutonValider) {
-				HubProg.creePersonne2(textFieldNom.getText(), textFieldPrenom.getText(), textFieldFonction.getText(), textFieldDateDeNaissanceJ.getText(), textFieldDateDeNaissanceM.getText(), textFieldDateDeNaissanceA.getText(), textFieldProfil.getText());
+				HubProg.creePersonne2(textFieldNom.getText(), textFieldPrenom.getText(), textFieldFonction.getText(), textFieldDateDeNaissanceA.getText(), textFieldDateDeNaissanceM.getText(),  textFieldDateDeNaissanceJ.getText(), textFieldProfil.getText());
 				
 			}else {
 				
