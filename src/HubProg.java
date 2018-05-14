@@ -1,4 +1,5 @@
 import java.awt.Component;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
@@ -14,6 +15,12 @@ public class HubProg {
 	static MenuBadge MenuBadge;
 	static ModifPersonne ModifPersonne;
 	static SupressionBadge SupressionBadge;
+	static MenuProfil MenuProfil;
+	static CréeProfil CréeProfil;
+	static Profildao Profildao;
+	static selectionProfil selectionProfil;
+	static selectionProfilS selectionProfilS;
+	static ModifProfil ModifProfil;
 	
 	public HubProg() {
 		ConnectionFen= new ConnectionFen(); 
@@ -152,6 +159,67 @@ public class HubProg {
 		 SupressionBadge.dispose();
 		return;
 	}
-	//teste
-	
+	public static void gererProfil() {
+		Menu.setVisible(false);
+		MenuProfil =new MenuProfil(); 
+		Menu.dispose();
+		return;
+	}
+	public static void CréeProfil() {
+		MenuProfil.setVisible(false);
+		CréeProfil = new CréeProfil();
+		return;
+	}
+	public static void CréeProfil2(String nomp, String lieu ,String heuredebut,String heurefin) {
+		//CréeProfil.setVisible(false);
+		String  mots[] = lieu.split("/");
+		ArrayList<String> Lieu= new ArrayList<String>();
+		for (int i = 0; i < mots.length; i++) {
+			Lieu.add(mots[i]);
+			System.out.println(mots[i]);
+        }
+		System.out.println(nomp);
+		System.out.println(heuredebut);
+		System.out.println(heurefin);
+		Menu = new Menu();
+		Profildao.ajouter(nomp, Lieu, heuredebut, heurefin);
+		CréeProfil.dispose();
+	}
+	public static void ModifProfil() {
+		MenuProfil.setVisible(false);
+		selectionProfil = new selectionProfil();
+		return;
+	}
+	public static int ModifProfil2(String nomp) {
+		selectionProfil.setVisible(false);
+		ModifProfil= new ModifProfil();
+		int id =Profildao.getIdprofil(nomp);
+		return id;
+	}
+	public static void ModifProfil3(String nomp, String lieu ,String heuredebut,String heurefin,int  idprofil) {
+		ModifProfil.setVisible(false);
+		String  mots[] = lieu.split("/");
+		ArrayList<String> Lieu= new ArrayList<String>();
+		for (int i = 0; i < mots.length; i++) {
+			Lieu.add(mots[i]);
+			System.out.println(mots[i]);
+        }
+		Profildao.modifie(nomp, Lieu, heuredebut, heurefin, idprofil);
+		ModifProfil.dispose();
+		selectionProfil.dispose();
+		return;
+	}
+	public static void SupreProfil() {
+		MenuProfil.setVisible(false);
+		selectionProfilS = new selectionProfilS();
+		return;
+	}
+	public static void SupreProfil2(String nomp) {
+		selectionProfil.setVisible(false);
+		Menu =new Menu();
+		Profildao.supprime(Profildao.getIdprofil(nomp));
+		selectionProfil.dispose();
+		return;
+	}
 }
+

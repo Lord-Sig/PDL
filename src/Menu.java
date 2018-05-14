@@ -75,7 +75,7 @@ public class Menu extends JFrame implements ActionListener {
 	try {
 			
 			if(ae.getSource() == boutonMenu) {
-				
+			HubProg.gererProfil();
 				
 			}else if(ae.getSource() == boutonMenu2) {
 				HubProg.gerePersonne();

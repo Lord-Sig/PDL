@@ -55,16 +55,22 @@ public class MenuProfil extends JFrame implements ActionListener {
 	boutonMenu2 = new JButton("Modfier profil");
 	boutonMenu3 = new JButton("Supression profil");
 	boutonMenu4 = new JButton("Liste Persone par profil");
-	boutonMenu4 = new JButton("Modifié ou associé un profil a une personne");
+	boutonMenu5 = new JButton("Modifié ou associé un profil a une personne");
 	
 	containerPanel.add(boutonMenu);
 	containerPanel.add(boutonMenu2);
+	containerPanel.add(boutonMenu3);
+	containerPanel.add(boutonMenu4);
+	containerPanel.add(boutonMenu5);
 	
 	
 	boutonMenu.addActionListener(this);
 	boutonMenu2.addActionListener(this);
+	boutonMenu3.addActionListener(this);
+	boutonMenu4.addActionListener(this);
+	boutonMenu5.addActionListener(this);
 	
-	this.setTitle("Menu Badge");
+	this.setTitle("Menu Profil");
 	this.setVisible(true);
 	
 	}
@@ -73,11 +79,12 @@ public class MenuProfil extends JFrame implements ActionListener {
 	try {
 			
 			if(ae.getSource() == boutonMenu) {
+				HubProg.CréeProfil();
 				
 			}else if(ae.getSource() == boutonMenu2) {
-				
+				HubProg.ModifProfil();
 			}else if(ae.getSource() == boutonMenu3) {
-				
+				HubProg.SupreProfil();
 			}else if(ae.getSource() == boutonMenu4) {
 				
 			}else if(ae.getSource() == boutonMenu5) {
