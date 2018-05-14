@@ -17,7 +17,6 @@ public class HubProg {
 	static SupressionBadge SupressionBadge;
 	static MenuProfil MenuProfil;
 	static CréeProfil CréeProfil;
-	static Profildao Profildao;
 	static selectionProfil selectionProfil;
 	static selectionProfilS selectionProfilS;
 	static ModifProfil ModifProfil;
@@ -217,6 +216,7 @@ public class HubProg {
 	public static void SupreProfil2(String nomp) {
 		selectionProfil.setVisible(false);
 		Menu =new Menu();
+		System.out.println("a");
 		Profildao.supprime(Profildao.getIdprofil(nomp));
 		selectionProfil.dispose();
 		return;

@@ -32,7 +32,7 @@ public class Profildao {
 	 * @param personne
 	 * @return none
 	 */
-	public void ajouter(String nomprofil,ArrayList<String> acceslieu,String heuredebut,String heurefin) {
+	public static void ajouter(String nomprofil,ArrayList<String> acceslieu,String heuredebut,String heurefin) {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int retour = 0; 
@@ -79,7 +79,7 @@ public class Profildao {
 	 * @param personne	
 	 * @return
 	 */
-	public  int supprime(int idprofil) {
+	public static int supprime(int idprofil) {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int retour = 0;
@@ -110,12 +110,12 @@ public class Profildao {
 	 * @param idpersonnep  id de la personne a modifié 
 	 * @return
 	 */
-public  int modifie(String nomprofil,ArrayList<String> acceslieu,String heuredebut,String heurefin, int idprofil ) {
+public static int modifie(String nomprofil,ArrayList<String> acceslieu,String heuredebut,String heurefin, int idprofil ) {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int retour = 0;
 		int i=0;
-		this.supprime(idprofil);
+		Profildao.supprime(idprofil);
 		// connexion à la base de données
 		//je trouve l'idduprofil a modif
 		try {
@@ -155,7 +155,7 @@ public  int modifie(String nomprofil,ArrayList<String> acceslieu,String heuredeb
 		}
 		return retour;
 		}
-public int getIdprofil(String nomprofil) {
+public static int getIdprofil(String nomprofil) {
 	int idprofil = 0 ;
 	java.sql.Connection con = null;
 	PreparedStatement ps = null;
@@ -274,7 +274,7 @@ public  int modifielieu(ArrayList<String> acceslieu , int idprofil,String nomp) 
 	}
 	return retour;*
 	}*/
-public ArrayList<Personne> ListePersonneparProfil(int profil) {
+public static ArrayList<Personne> ListePersonneparProfil(int profil) {
 	ArrayList<Personne> personnetrouve =new ArrayList<Personne>();
 	java.sql.Connection con = null;
 	PreparedStatement ps = null;
