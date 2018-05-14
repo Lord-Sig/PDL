@@ -20,15 +20,25 @@ public class Menu extends JFrame implements ActionListener {
 	
 	private static final long serialVersionUID = 1L;
 
-	
+	/**
+	 * Le panel qui contient les objets
+	 */
 	private JPanel containerPanel;
-	
+	/**
+	 * C'est le bouton qui va a gérer profil
+	 */
 	private JButton boutonMenu;
-	
+	/**
+	 * C'est le bouton qui va a gérer personne
+	 */
 	private JButton boutonMenu2;
-	
+	/**
+	 * C'est le bouton qui va a gérer badge
+	 */
 	private JButton boutonMenu3;
-	
+	/**
+	 * C'est le bouton qui va a gérer lieu
+	 */
 	private JButton boutonMenu4;
 	
 	JTextArea zoneTextListConnection;
@@ -36,7 +46,9 @@ public class Menu extends JFrame implements ActionListener {
 	//private JLabel labelConnection;
 
 	JScrollPane zoneDefilement;
-	
+	/** 
+	 * classe constructeur
+	 */
 	public Menu() {
 		
 	
@@ -70,6 +82,9 @@ public class Menu extends JFrame implements ActionListener {
 	this.setVisible(true);
 	
 	}
+	/**
+	 * Cette fonction attend qu'on apuis sur le bouton et va a gérer lieu/personne/badge/profil
+	 */
 	public void actionPerformed(ActionEvent ae) {
 		
 	try {

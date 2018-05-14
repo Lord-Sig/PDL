@@ -18,35 +18,65 @@ import java.util.List;
 public class ModifPersonne extends JFrame implements ActionListener {
  
 	private static final long serialVersionUID = 1L;
-	
+	/**
+	 * Le panel qui contient les objets
+	 */
 	private JPanel containerPanel;
-
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JTextField textFieldNom;
-
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JTextField textFieldPrenom;
-
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JTextField textFieldDateDeNaissanceJ;
-	
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JTextField textFieldDateDeNaissanceM;
-	
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JTextField textFieldDateDeNaissanceA;
-	
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JTextField textFieldFonction;
-	
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JTextField textFieldProfil;
-	
+	/**
+	 * C'est du texte qu'on va afficher
+	 */
 	private JLabel labelNom;
-
+	/**
+	 * C'est du texte qu'on va afficher
+	 */
 	private JLabel labelPrenom;
-	
+	/**
+	 * C'est du texte qu'on va afficher
+	 */
 	private JLabel labelDateDeNaissanceJ;
-	
+	/**
+	 * C'est du texte qu'on va afficher
+	 */
 	private JLabel labelDateDeNaissanceM;
-	
+	/**
+	 * C'est du texte qu'on va afficher
+	 */
 	private JLabel labelDateDeNaissanceA;
-	
+	/**
+	 * C'est du texte qu'on va afficher
+	 */
 	private JLabel labelFonction;
-	
+	/**
+	 *Bouton qui valide la selection personne
+	 */
 	private JButton boutonValider;
 	
 	JTextArea zoneTextListConnection;
@@ -54,7 +84,9 @@ public class ModifPersonne extends JFrame implements ActionListener {
 	//private JLabel labelConnection;
 
 	JScrollPane zoneDefilement;
-	
+	/** 
+	 * classe constructeur
+	 */
 	public ModifPersonne() {
 		
 		// on fixe le titre
@@ -133,7 +165,9 @@ public class ModifPersonne extends JFrame implements ActionListener {
 		this.setVisible(true);
 		
 	}
-	
+	/**
+	 * Cette methode attend que l'on apuis sur le bouton pour passer et retourne au menu apres que l'on est appuyé sur le bouton 
+	 */
 public void actionPerformed(ActionEvent ae) {
 		
 		try {

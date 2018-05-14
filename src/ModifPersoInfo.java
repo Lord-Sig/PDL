@@ -18,7 +18,9 @@ public class ModifPersoInfo extends JFrame {
    * 
    */
   private JLabel label = new JLabel("Personne Modifié");
-
+/** 
+ * classe créateur
+ */
   public ModifPersoInfo(){
     this.setTitle("Animation");
     this.setSize(300, 75);

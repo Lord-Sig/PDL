@@ -20,16 +20,23 @@ public class MenuPersonne extends JFrame implements ActionListener {
 	
 	private static final long serialVersionUID = 1L;
 
-	
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JPanel containerPanel;
-	
+	/**
+	 * cette variable stock l'id de la personne selectionné
+	 */
 	private JButton boutonMenuPers;
-	
+	/**
+	 * cette variable stock l'id de la personne selectionné
+	 */
 	private JButton boutonMenuPers2;
 
-	
-	//private JButton boutonMenuPers2;
-	
+
+	/**
+	 * cette variable stock l'id de la personne selectionné
+	 */	
 	private JButton boutonMenuPers3;
 	
 	
@@ -37,7 +44,9 @@ public class MenuPersonne extends JFrame implements ActionListener {
 	
 
 	JScrollPane zoneDefilement;
-	
+	/**
+	 * classe constructeur
+	 */
 	public MenuPersonne() {
 		
 	
@@ -75,7 +84,9 @@ public class MenuPersonne extends JFrame implements ActionListener {
 	
 	}
 	
-	
+	/**
+	 * Cette fonction attend qu'on apuis sur le bouton et va vers crée personne modif personne ou supre personne
+	 */
 	public void actionPerformed(ActionEvent ae) {
 		
 		try {

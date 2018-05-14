@@ -16,25 +16,45 @@ import javax.swing.JTextField;
 public class ModifProfil extends JFrame implements ActionListener{
  
 	private static final long serialVersionUID = 1L;
-	
+	/**
+	 * Ce panel contient les objets
+	 */
 	private JPanel containerPanel;
-
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JTextField textFieldNom;
-
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JTextField textFieldLieu;
-
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JTextField textFieldheuredébut;
-	
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JTextField textFieldheurefin;
-	
+	/**
+	 * C'est du texte qu'on va afficher
+	 */
 	private JLabel labelNom;
-	
+	/**
+	 * C'est du texte qu'on va afficher
+	 */
 	private JLabel labelheuredebut;
-	
+	/**
+	 * C'est du texte qu'on va afficher
+	 */
 	private JLabel labelheurefin;
-	
+	/**
+	 * C'est du texte qu'on va afficher
+	 */
 	private JLabel labelLieu;
-	
+	/**
+	 * C'est le bouton qui valida la modification 
+	 */
 	private JButton boutonValider;
 	
 	JTextArea zoneTextListConnection;
@@ -42,7 +62,9 @@ public class ModifProfil extends JFrame implements ActionListener{
 	//private JLabel labelConnection;
 
 	JScrollPane zoneDefilement;
-	
+	/**
+	 * Classe créateur
+	 */
 	public ModifProfil() {
 		
 		// on fixe le titre
@@ -107,6 +129,9 @@ public class ModifProfil extends JFrame implements ActionListener{
 		
 		
 	}
+	/** 
+	 * Cette méthode attend que l'on apuis sur le bouton 
+	 */
 public void actionPerformed(ActionEvent ae) {
 		
 		try {

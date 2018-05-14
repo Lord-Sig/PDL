@@ -132,7 +132,7 @@ public static int modifie(String nomp,String prenomp,String fonction,String jour
 		return retour;
 		}
 /**
- * 
+ *  Cette commande Retourne les personne corespondant a une entré
  * @param nomp
  * @param prenomp
  * @param fonction

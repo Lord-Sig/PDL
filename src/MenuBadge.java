@@ -20,17 +20,25 @@ public class MenuBadge extends JFrame implements ActionListener {
 	
 	private static final long serialVersionUID = 1L;
 
-	
+	/**
+	 * Le panel qui contient les objets
+	 */
 	private JPanel containerPanel;
-	
+	/**
+	 * C'est le bouton qui va a Création Badge
+	 */
 	private JButton boutonMenu;
-	
+	/**
+	 * C'est le bouton qui va a Supression Badge
+	 */
 	private JButton boutonMenu2;
 	
 	JTextArea zoneTextListConnection;
 
 	JScrollPane zoneDefilement;
-	
+	/**
+	 * classe constructeur
+	 */
 	public MenuBadge() {
 		
 	
@@ -59,6 +67,9 @@ public class MenuBadge extends JFrame implements ActionListener {
 	this.setVisible(true);
 	
 	}
+	/**
+	 * Cette fonction attend qu'on apuis sur le bouton et envois sur créer badge ou suprimer badge
+	 */
 	public void actionPerformed(ActionEvent ae) {
 		
 	try {

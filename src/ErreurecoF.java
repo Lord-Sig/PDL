@@ -18,7 +18,9 @@ public class ErreurecoF extends JFrame {
    * 
    */
   private JLabel label = new JLabel("Erreure dans le code/nom de compte");
-
+/**
+ * classe constructeur
+ */
   public ErreurecoF(){
     this.setTitle("Animation");
     this.setSize(300, 75);

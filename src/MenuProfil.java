@@ -20,23 +20,37 @@ public class MenuProfil extends JFrame implements ActionListener {
 	
 	private static final long serialVersionUID = 1L;
 
-	
+	/**
+	 * Le panel qui contient les objets
+	 */
 	private JPanel containerPanel;
-	
+	/**
+	 * C'est le bouton qui valide la selection de la personne
+	 */
 	private JButton boutonMenu;
-	
+	/**
+	 * C'est le bouton qui valide la selection de la personne
+	 */
 	private JButton boutonMenu2;
-	
+	/**
+	 * C'est le bouton qui valide la selection de la personne
+	 */
 	private JButton boutonMenu3;
-	
+	/**
+	 * C'est le bouton qui valide la selection de la personne
+	 */
 	private JButton boutonMenu4;
-	
+	/**
+	 * C'est le bouton qui valide la selection de la personne
+	 */
 	private JButton boutonMenu5;
 	
 	JTextArea zoneTextListConnection;
 
 	JScrollPane zoneDefilement;
-	
+	/**
+	 * classe créateur
+	 */
 	public MenuProfil() {
 		
 	
@@ -74,6 +88,9 @@ public class MenuProfil extends JFrame implements ActionListener {
 	this.setVisible(true);
 	
 	}
+	/**
+	 * Cette méthode attend que l'on apuis sur un bouto pour passer un menu de gestion
+	 */
 	public void actionPerformed(ActionEvent ae) {
 		
 	try {

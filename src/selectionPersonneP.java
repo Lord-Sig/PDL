@@ -73,7 +73,9 @@ public class selectionPersonneP extends JFrame implements ActionListener{
 	 * C'est le bouton qui valide la selection de la personne
 	 */
 	private JButton boutonValider;
-	
+	/**
+	 * cette variable stock l'id de la personne selectionné
+	 */
 	public static int id;
 	
 	JTextArea zoneTextListConnection;
