@@ -81,6 +81,7 @@ public void actionPerformed(ActionEvent ae) {
 		try {
 			
 			if(ae.getSource() == boutonValider) {
+
 				HubProg.SupreProfil2(textFieldNom.getText());
 				
 			}else {
@@ -91,8 +92,6 @@ public void actionPerformed(ActionEvent ae) {
 			
 		}
 }
-public static int getID() {
-	return id;
-}
+
 	
 }

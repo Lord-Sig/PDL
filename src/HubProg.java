@@ -16,9 +16,11 @@ public class HubProg {
 	static ModifPersonne ModifPersonne;
 	static SupressionBadge SupressionBadge;
 	static MenuProfil MenuProfil;
+	static selectionPersonneP selectionPersonneP;
 	static CréeProfil CréeProfil;
 	static selectionProfil selectionProfil;
 	static selectionProfilS selectionProfilS;
+	static selectionProfilP selectionProfilP;
 	static ModifProfil ModifProfil;
 	
 	public HubProg() {
@@ -203,6 +205,8 @@ public class HubProg {
 			Lieu.add(mots[i]);
 			System.out.println(mots[i]);
         }
+		System.out.println(idprofil);
+		Menu = new Menu();
 		Profildao.modifie(nomp, Lieu, heuredebut, heurefin, idprofil);
 		ModifProfil.dispose();
 		selectionProfil.dispose();
@@ -216,10 +220,33 @@ public class HubProg {
 	public static void SupreProfil2(String nomp) {
 		selectionProfil.setVisible(false);
 		Menu =new Menu();
-		System.out.println("a");
-		Profildao.supprime(Profildao.getIdprofil(nomp));
+		int id =Profildao.getIdprofil(nomp);
+		System.out.println(id);
+		Profildao.supprime(id);
 		selectionProfil.dispose();
 		return;
 	}
+	public static void setProfil() {
+		Menu.setVisible(false);
+		selectionPersonneP= new selectionPersonneP();
+		Menu.dispose();
+		return ;
+	}
+	public static int setProfil2(String nomp, String prenom, String anne, String mois, String jour) {
+		selectionPersonneP.setVisible(false);
+		int id =Personnedao.getIdpersonne(nomp, prenom, anne, mois, jour);
+		selectionProfilP = new selectionProfilP();
+		return id;
+		
+	}
+	public static void setProfil3(String  profil, int idpersonne) {
+		selectionProfilP.setVisible(false);
+		int idprofils= Profildao.getIdprofil(profil);
+		Profildao.modifieprofilpersonne(idprofils, idpersonne);
+		Menu= new Menu();
+		selectionProfilP.dispose();
+		return;
+	}
+	
 }
 

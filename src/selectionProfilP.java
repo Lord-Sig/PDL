@@ -13,7 +13,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class selectionProfil extends JFrame implements ActionListener{
+public class selectionProfilP extends JFrame implements ActionListener{
  
 	private static final long serialVersionUID = 1L;
 	
@@ -33,7 +33,7 @@ public class selectionProfil extends JFrame implements ActionListener{
 
 	JScrollPane zoneDefilement;
 	
-	public selectionProfil() {
+	public selectionProfilP() {
 		
 		// on fixe le titre
 		this.setTitle("Menu selection profil");
@@ -81,7 +81,7 @@ public void actionPerformed(ActionEvent ae) {
 		try {
 			
 			if(ae.getSource() == boutonValider) {
-				id=HubProg.ModifProfil2(textFieldNom.getText());
+				HubProg.setProfil3(textFieldNom.getText(), selectionPersonneP.getID());
 				
 			}else {
 				
@@ -90,9 +90,7 @@ public void actionPerformed(ActionEvent ae) {
 		}catch (Exception e) {
 			
 		}
-}
-public static int getID() {
-	return id;
+
 }
 	
 }

@@ -302,11 +302,10 @@ public static ArrayList<Personne> ListePersonneparProfil(int profil) {
 		return personnetrouve;
 	
 }
-public static int modifieprofilpersonne(String idprofils, int idpersonnep ) {
+public static int modifieprofilpersonne(int idprofils, int idpersonnep ) {
 	Connection con = null;
 	PreparedStatement ps = null;
 	int retour = 0;
-	int idprofil = Integer.parseInt(idprofils);
 	// connexion à la base de données
 	try {
 	// tentative de connexion
@@ -316,8 +315,8 @@ public static int modifieprofilpersonne(String idprofils, int idpersonnep ) {
 	// les getters permettent de récupérer les valeurs des attributs
 	// souhaités
 	ps = con.prepareStatement("UPDATE PERSONNE SET idprofil=? WHERE idpersonne=?");
-	ps.setInt(1,idprofil);
-	ps.setInt(5, idpersonnep);
+	ps.setInt(1,idprofils);
+	ps.setInt(2, idpersonnep);
 	// Exécution de la requête
 	retour = ps.executeUpdate();
 	} catch (Exception e) {

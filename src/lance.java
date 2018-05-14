@@ -20,9 +20,10 @@ public class lance {
 		for (int i = 0; i < mots.length; i++) {
 			Lieu.add(mots[i]);
         }*/
-		Profildao Profildao= new Profildao();
-		Profildao.modifie("ytytyt",Lieu , "02", "11",21);
+		//Profildao Profildao= new Profildao();
+		//Profildao.modifie("stud",Lieu , "02", "11",23);
 		//Profildao Profildao =new Profildao();
 		//HubProg.CréeProfil2("eleve", "a/z/er/t", "01", "11");
+		//Profildao.modifieprofilpersonne(23, 92);
 	}
 }
