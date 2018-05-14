@@ -16,15 +16,25 @@ import javax.swing.JTextField;
 public class selectionProfilS extends JFrame implements ActionListener{
  
 	private static final long serialVersionUID = 1L;
-	
+	/**
+	 * Le panel qui contient les objets
+	 */
 	private JPanel containerPanel;
-
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JTextField textFieldNom;
-	
+	/**
+	 * C'est du texte qu'on va afficher
+	 */
 	private JLabel labelNom;
-	
+	/**
+	 * cette variable stock l'id de la personne selectionné
+	 */
 	private static int id;
-	
+	/**
+	 * C'est le bouton qui valide la selection ddu profil
+	 */
 	private JButton boutonValider;
 	
 	JTextArea zoneTextListConnection;
@@ -32,7 +42,9 @@ public class selectionProfilS extends JFrame implements ActionListener{
 	//private JLabel labelConnection;
 
 	JScrollPane zoneDefilement;
-	
+	/**
+	 * classe constructeur
+	 */
 	public selectionProfilS() {
 		
 		// on fixe le titre
@@ -76,6 +88,9 @@ public class selectionProfilS extends JFrame implements ActionListener{
 		
 		
 	}
+	/**
+	 * Cette fonction attend qu'on apuis sur le bouton et supprim profil
+	 */
 public void actionPerformed(ActionEvent ae) {
 		
 		try {
