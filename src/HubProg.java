@@ -5,27 +5,87 @@ import javax.swing.JOptionPane;
 
 public class HubProg {
 	private static final Component ErreurecoF = null;
+	/**
+	 * initialiser une fenêtre
+	 */
 	static ConnectionFen ConnectionFen;
+	/**
+	 * initialiser une fenêtre
+	 */
 	static Menu Menu;
+	/**
+	 * initialiser une fenêtre
+	 */
 	static MenuPersonne MenuPersonne;
+	/**
+	 * initialiser une fenêtre
+	 */
 	static SelectionPersonneS SelectionPersonneS;
+	/**
+	 * initialiser une fenêtre
+	 */
 	static SelectionPersonneM SelectionPersonneM;
+	/**
+	 * initialiser une fenêtre
+	 */
 	static SelectionPersonneB SelectionPersonneB;
+	/**
+	 * initialiser une fenêtre
+	 */
 	static CreationPersonne CreationPersonne;
+	/**
+	 * initialiser une fenêtre
+	 */
 	static MenuBadge MenuBadge;
+	/**
+	 * initialiser une fenêtre
+	 */
 	static ModifPersonne ModifPersonne;
+	/**
+	 * initialiser une fenêtre
+	 */
 	static SupressionBadge SupressionBadge;
+	/**
+	 * initialiser une fenêtre
+	 */
 	static MenuProfil MenuProfil;
+	/**
+	 * initialiser une fenêtre
+	 */
 	static selectionPersonneP selectionPersonneP;
+	/**
+	 * initialiser une fenêtre
+	 */
 	static CréeProfil CréeProfil;
+	/**
+	 * initialiser une fenêtre
+	 */
 	static selectionProfil selectionProfil;
+	/**
+	 * initialiser une fenêtre
+	 */
 	static selectionProfilS selectionProfilS;
+	/**
+	 * initialiser une fenêtre
+	 */
 	static selectionProfilP selectionProfilP;
+	/**
+	 * initialiser une fenêtre
+	 */
 	static ModifProfil ModifProfil;
+	/**
+	 * initialiser une fenêtre
+	 */
 	static selectionProfilL selectionProfilL;
+	/**
+	 * initialiser une fenêtre
+	 */
 	static selectionProfilL2 selectionProfilL2;
 	//static selectionProfilL3 selectionProfilL3;
 	
+	/**
+	 * Classe constructeur
+	 */
 	public HubProg() {
 		ConnectionFen= new ConnectionFen(); 
 		ConnectionFen.setVisible(true); 
@@ -50,6 +110,9 @@ public class HubProg {
 		}
 		return;
 	}
+	/**
+	 * Cette fonction envois dans le menu gerer personne
+	 */
 	public static void gerePersonne() {
 		Menu.setVisible(false);
 		MenuPersonne= new MenuPersonne();
@@ -57,14 +120,18 @@ public class HubProg {
 		return;
 		
 	}
-	
+	/**
+	 * Cette fonction envois dans le menu gerer badge
+	 */
 	public static void gereBadge() {
 		Menu.setVisible(false);
 		MenuBadge= new MenuBadge();
 		Menu.dispose();
 		return;
 	}
-
+	/**
+	 * Ouvre la fenêtre crée personne
+	 */
 	public static void creePersonne1(){
 		MenuPersonne.setVisible(false);
 		 CreationPersonne= new CreationPersonne();
@@ -72,7 +139,7 @@ public class HubProg {
 		return;
 	}
 	/**
-	 * action du bouton validé de crée personne 
+	 * action du bouton validé de crée personne et retourne sur la fenêtre menu
 	 * il ordone de mettre les donné dans la dao
 	 * @param pnom
 	 * @param pprenom
@@ -92,18 +159,42 @@ public class HubProg {
 		return;
 	}
 	
+	/**
+	 * ouvre la fenêtre selection personne
+	 */
 	public static void modifPersonne1() {  
 		MenuPersonne.setVisible(false);
 		 SelectionPersonneM= new SelectionPersonneM();
 		MenuPersonne.dispose();
 		return;
 	}
+	/**
+	 * selectionne la personne a modif 
+	 * ouvre la fenêtre pour rentrer les infos de la personne apres modification 
+	 * @param pnom
+	 * @param pprenom
+	 * @param jnaissancep
+	 * @param mnaissancep
+	 * @param anaissancep
+	 * @return
+	 */
 	public static int modifPersonne2(String pnom,String pprenom,String jnaissancep,String mnaissancep,String anaissancep) {
 		SelectionPersonneM.setVisible(false);
 		int id =Personnedao.getIdpersonne( pnom, pprenom, jnaissancep, mnaissancep, anaissancep);
 		ModifPersonne= new ModifPersonne();
 		return id;
 	}
+	/**
+	 * modifie la personne 
+	 * retourne sur la fenêtre menu
+	 * @param pnom
+	 * @param pprenom
+	 * @param fonction
+	 * @param jnaissancep
+	 * @param mnaissancep
+	 * @param anaissancep
+	 * @param idpersonne
+	 */
 	public static void modifPersonne3(String pnom,String pprenom,String fonction,String jnaissancep,String mnaissancep,String anaissancep,int idpersonne) {
 		ModifPersonne.setVisible(false);
 		 Menu=new Menu();
@@ -114,13 +205,23 @@ public class HubProg {
 				"Info", JOptionPane.INFORMATION_MESSAGE);
 		return;
 	}
-	////////////
+	/**
+	 * ouvre la fenêtre selection personne
+	 */
 	public static void suprefPersonne1() {
 		MenuPersonne.setVisible(false);
 		SelectionPersonneS= new SelectionPersonneS();
 		MenuPersonne.dispose();
 		return;
 	}
+	/**
+	 * Suprime la personne et retourne a la fenêtre menu
+	 * @param pnom
+	 * @param pprenom
+	 * @param jnaissancep
+	 * @param mnaissancep
+	 * @param anaissancep
+	 */
 	public static void suprePersonne2(String pnom,String pprenom,String jnaissancep,String mnaissancep,String anaissancep) {
 		SelectionPersonneS.setVisible(false);
 		int id =Personnedao.getIdpersonne( pnom, pprenom, anaissancep, mnaissancep, jnaissancep);
@@ -132,14 +233,24 @@ public class HubProg {
 		SelectionPersonneS.dispose();
 		return ;
 	}
-	//////////
+	/**
+	 * ouvre la fenêtre crée badge 
+	 */
 	public static  void creeBadge1() {
-		System.out.println("sssss");
 		MenuBadge.setVisible(false);
 		 SelectionPersonneB= new SelectionPersonneB();
 		MenuBadge.dispose();
 		return;
 	}
+	/**
+	 * crée le badge
+	 * ouvre la fenêtre menu
+	 * @param pnom
+	 * @param pprenom
+	 * @param jnaissancep
+	 * @param mnaissancep
+	 * @param anaissancep
+	 */
 	public static void creeBadge2(String pnom,String pprenom,String jnaissancep,String mnaissancep,String anaissancep) {
 		SelectionPersonneB.setVisible(false);
 		int id =Personnedao.getIdpersonne( pnom, pprenom, jnaissancep, mnaissancep, anaissancep);
@@ -148,13 +259,20 @@ public class HubProg {
 		SelectionPersonneB.dispose();
 		return;
 	}
-	////////
+	/**
+	 * ouvre la fenêtre selection badge
+	 */
 	public static void supreBadge1() {
 		MenuBadge.setVisible(false);
 		SupressionBadge = new SupressionBadge();
 		MenuBadge.dispose();
 		return;
 	}
+	/**
+	 * supprime le badge 
+	 * ouvre la fenêtre menu
+	 * @param idbadge
+	 */
 	public static void supreBadge2(int idbadge) {
 		Badgedao.supprime(idbadge);
 		 JOptionPane.showMessageDialog(ErreurecoF, "Badge Supprimé !",
@@ -163,17 +281,31 @@ public class HubProg {
 		 SupressionBadge.dispose();
 		return;
 	}
+	/**
+	 * ouvre la fenêtre gerer profil 
+	 */
 	public static void gererProfil() {
 		Menu.setVisible(false);
 		MenuProfil =new MenuProfil(); 
 		Menu.dispose();
 		return;
 	}
+	/**
+	 * Ouvre la fenêtre crée un badge
+	 */
 	public static void CréeProfil() {
 		MenuProfil.setVisible(false);
 		CréeProfil = new CréeProfil();
 		return;
 	}
+	/**
+	 * crée un profil 
+	 * ouvre la fenêtre menu
+	 * @param nomp
+	 * @param lieu
+	 * @param heuredebut
+	 * @param heurefin
+	 */
 	public static void CréeProfil2(String nomp, String lieu ,String heuredebut,String heurefin) {
 		//CréeProfil.setVisible(false);
 		String  mots[] = lieu.split("/");
