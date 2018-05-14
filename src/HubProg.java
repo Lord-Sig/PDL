@@ -321,17 +321,35 @@ public class HubProg {
 		Profildao.ajouter(nomp, Lieu, heuredebut, heurefin);
 		CréeProfil.dispose();
 	}
+	/**
+	 * ouvre la fenêtre lection profil
+	 */
 	public static void ModifProfil() {
 		MenuProfil.setVisible(false);
 		selectionProfil = new selectionProfil();
 		return;
 	}
+	/**
+	 * selectionne le profil
+	 * ouvre la fenêtre modif profil
+	 * @param nomp
+	 * @return
+	 */
 	public static int ModifProfil2(String nomp) {
 		selectionProfil.setVisible(false);
 		ModifProfil= new ModifProfil();
 		int id =Profildao.getIdprofil(nomp);
 		return id;
 	}
+	/**
+	 * modifie la personne 
+	 * ovre la fenêtre menu
+	 * @param nomp
+	 * @param lieu
+	 * @param heuredebut
+	 * @param heurefin
+	 * @param idprofil
+	 */
 	public static void ModifProfil3(String nomp, String lieu ,String heuredebut,String heurefin,int  idprofil) {
 		ModifProfil.setVisible(false);
 		String  mots[] = lieu.split("/");
@@ -347,11 +365,19 @@ public class HubProg {
 		selectionProfil.dispose();
 		return;
 	}
+	/**
+	 * ouvre la fenêtre selection profil
+	 */
 	public static void SupreProfil() {
 		MenuProfil.setVisible(false);
 		selectionProfilS = new selectionProfilS();
 		return;
 	}
+	/**
+	 * suprime le profil
+	 * ouvre la fenêtre menu
+	 * @param nomp
+	 */
 	public static void SupreProfil2(String nomp) {
 		selectionProfil.setVisible(false);
 		Menu =new Menu();
@@ -361,12 +387,25 @@ public class HubProg {
 		selectionProfil.dispose();
 		return;
 	}
+	/**
+	 * ouvre la fenêtre selection personne
+	 */
 	public static void setProfil() {
 		Menu.setVisible(false);
 		selectionPersonneP= new selectionPersonneP();
 		Menu.dispose();
 		return ;
 	}
+	/**
+	 * selectionne la personne 
+	 * ouvre la fenêtre selection profil
+	 * @param nomp
+	 * @param prenom
+	 * @param anne
+	 * @param mois
+	 * @param jour
+	 * @return
+	 */
 	public static int setProfil2(String nomp, String prenom, String anne, String mois, String jour) {
 		selectionPersonneP.setVisible(false);
 		int id =Personnedao.getIdpersonne(nomp, prenom, anne, mois, jour);
@@ -374,6 +413,12 @@ public class HubProg {
 		return id;
 		
 	}
+	/**
+	 * ouvre la fenêtre menu
+	 * uptade le profil
+	 * @param profil
+	 * @param idpersonne
+	 */
 	public static void setProfil3(String  profil, int idpersonne) {
 		selectionProfilP.setVisible(false);
 		int idprofils= Profildao.getIdprofil(profil);
@@ -382,18 +427,29 @@ public class HubProg {
 		selectionProfilP.dispose();
 		return;
 	}
+	/**
+	 * ouvre la fenêtre selection profil
+	 */
 	public static void ListeProfil() {
 		Menu.setVisible(false);
 		selectionProfilL= new selectionProfilL();
 		Menu.dispose();
 		return ;
 	}
+	/**
+	 * ouvre la fenêtre affichage des personne
+	 * @param nomprof
+	 * @return
+	 */
 	public static int ListeProfil2(String nomprof) {
 		selectionProfilL.setVisible(false);
 		int id = Profildao.getIdprofil(nomprof);
 		selectionProfilL2= new selectionProfilL2(id);
 		return id;
 	}
+	/**
+	 * ouvre la fenêtre menu
+	 */
 	public static void 	ListeProfil3() {
 		selectionProfilL2.setVisible(false);
 		Menu = new Menu();
