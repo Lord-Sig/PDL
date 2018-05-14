@@ -53,6 +53,13 @@ public Personne(String pnom,String pprenom, String pfonction,int jnaissancep,int
 	idpersonne=pidpersonne;
 	idprofil=pidprofil;
 }
+public Personne(String pnom,String pprenom, String pfonction,int pidpersonne, int pidprofil) {
+	nom=pnom;
+	prenom=pprenom;
+	fonction=pfonction; 
+	idpersonne=pidpersonne;
+	idprofil=pidprofil;
+}
 
 /** Récupération de Idprofil
  * 

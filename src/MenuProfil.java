@@ -86,7 +86,7 @@ public class MenuProfil extends JFrame implements ActionListener {
 			}else if(ae.getSource() == boutonMenu3) {
 				HubProg.SupreProfil();
 			}else if(ae.getSource() == boutonMenu4) {
-				
+				HubProg.ListeProfil();
 			}else if(ae.getSource() == boutonMenu5) {
 				HubProg.setProfil();
 			}

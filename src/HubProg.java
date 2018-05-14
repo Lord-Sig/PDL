@@ -22,6 +22,9 @@ public class HubProg {
 	static selectionProfilS selectionProfilS;
 	static selectionProfilP selectionProfilP;
 	static ModifProfil ModifProfil;
+	static selectionProfilL selectionProfilL;
+	static selectionProfilL2 selectionProfilL2;
+	//static selectionProfilL3 selectionProfilL3;
 	
 	public HubProg() {
 		ConnectionFen= new ConnectionFen(); 
@@ -247,6 +250,26 @@ public class HubProg {
 		selectionProfilP.dispose();
 		return;
 	}
+	public static void ListeProfil() {
+		Menu.setVisible(false);
+		selectionProfilL= new selectionProfilL();
+		Menu.dispose();
+		return ;
+	}
+	public static int ListeProfil2(String nomprof) {
+		selectionProfilL.setVisible(false);
+		int id = Profildao.getIdprofil(nomprof);
+		selectionProfilL2= new selectionProfilL2(id);
+		return id;
+	}
+	public static void 	ListeProfil3() {
+		selectionProfilL2.setVisible(false);
+		Menu = new Menu();
+		selectionProfilL2.dispose();
+		selectionProfilL.dispose();
+		return ;
+	}
+
 	
 }
 

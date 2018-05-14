@@ -2,6 +2,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -13,28 +14,16 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class selectionProfil extends JFrame implements ActionListener{
+public class selectionProfilL2 extends JFrame implements ActionListener{
  
 	private static final long serialVersionUID = 1L;
-	/**
-	 *C'est le panel qui va contenir les objet
-	 */
+	
 	private JPanel containerPanel;
-	/**
-	 * On a le texte que l'on va récupérer
-	 */
-	private JTextField textFieldNom;
-	/**
-	 * On a le texte que l'on va afficher
-	 */
-	private JLabel labelNom;
-	/**
-	 * cette variable permet de return Id du profil selectionner
-	 */
+	
+	private JLabel label;
+	
 	private static int id;
-	/**
-	 * le bouton valide la selection
-	 */
+	
 	private JButton boutonValider;
 	
 	JTextArea zoneTextListConnection;
@@ -43,10 +32,7 @@ public class selectionProfil extends JFrame implements ActionListener{
 
 	JScrollPane zoneDefilement;
 	
-	/**
-	 * Classe constructeur affiche la fenettre
-	 */
-	public selectionProfil() {
+	public selectionProfilL2(int idprofil) {
 		
 		// on fixe le titre
 		this.setTitle("Menu selection profil");
@@ -62,42 +48,33 @@ public class selectionProfil extends JFrame implements ActionListener{
 		containerPanel.setBackground(Color.WHITE);
 		this.setContentPane(containerPanel);
 		//this.setVisible(true);
-		
-		textFieldNom = new JTextField();
 		//textFieldConnection = new JTextField();
-		boutonValider = new JButton("Valider");
+		boutonValider = new JButton("Menu");
 		
-		
-		
-		
-		labelNom = new JLabel("Nom :");
-		
-		//labelConnection = new JLabel(":");
-		
-		containerPanel.add(labelNom);
-		containerPanel.add(Box.createRigidArea(new Dimension(0, 10)));
-		containerPanel.add(textFieldNom);
-		containerPanel.add(Box.createRigidArea(new Dimension(0, 10))); 
-		
+		ArrayList<Personne> listpers = new ArrayList<Personne>();
+		listpers= Profildao.ListePersonneparProfil(idprofil);
+		boutonValider.addActionListener(this);
+		for (int i =0; i< listpers.size(); i=i+1) {
+			label = new JLabel(listpers.get(i).getnom()+"  "+listpers.get(i).getprenom()+"   "+listpers.get(i).getfonction());
+			
+			containerPanel.add(label);
+			containerPanel.add(Box.createRigidArea(new Dimension(0, 10)));  
+		}
 		containerPanel.add(boutonValider);
 		
 		boutonValider.addActionListener(this);
-		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setTitle("Menu modif profil");
 		this.setVisible(true);
 		
 		
 	}
-	/**
-	 * Cette methode attend qu'on apuis sur le bouton et actualise id si on apuis
-	 */
 public void actionPerformed(ActionEvent ae) {
 		
 		try {
 			
 			if(ae.getSource() == boutonValider) {
-				id=HubProg.ModifProfil2(textFieldNom.getText());
+				HubProg.ListeProfil3();
 				
 			}else {
 				
@@ -106,13 +83,6 @@ public void actionPerformed(ActionEvent ae) {
 		}catch (Exception e) {
 			
 		}
-}
-/**
- *donne l'idProfil selectionner
- * @return id 
- */
-public static int getID() {
-	return id;
 }
 	
 }

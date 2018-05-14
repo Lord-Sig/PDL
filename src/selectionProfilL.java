@@ -13,28 +13,18 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class selectionProfil extends JFrame implements ActionListener{
+public class selectionProfilL extends JFrame implements ActionListener{
  
 	private static final long serialVersionUID = 1L;
-	/**
-	 *C'est le panel qui va contenir les objet
-	 */
+	
 	private JPanel containerPanel;
-	/**
-	 * On a le texte que l'on va récupérer
-	 */
+
 	private JTextField textFieldNom;
-	/**
-	 * On a le texte que l'on va afficher
-	 */
+	
 	private JLabel labelNom;
-	/**
-	 * cette variable permet de return Id du profil selectionner
-	 */
+	
 	private static int id;
-	/**
-	 * le bouton valide la selection
-	 */
+	
 	private JButton boutonValider;
 	
 	JTextArea zoneTextListConnection;
@@ -43,10 +33,7 @@ public class selectionProfil extends JFrame implements ActionListener{
 
 	JScrollPane zoneDefilement;
 	
-	/**
-	 * Classe constructeur affiche la fenettre
-	 */
-	public selectionProfil() {
+	public selectionProfilL() {
 		
 		// on fixe le titre
 		this.setTitle("Menu selection profil");
@@ -89,15 +76,12 @@ public class selectionProfil extends JFrame implements ActionListener{
 		
 		
 	}
-	/**
-	 * Cette methode attend qu'on apuis sur le bouton et actualise id si on apuis
-	 */
 public void actionPerformed(ActionEvent ae) {
 		
 		try {
 			
 			if(ae.getSource() == boutonValider) {
-				id=HubProg.ModifProfil2(textFieldNom.getText());
+				id=HubProg.ListeProfil2(textFieldNom.getText());
 				
 			}else {
 				
@@ -107,12 +91,9 @@ public void actionPerformed(ActionEvent ae) {
 			
 		}
 }
-/**
- *donne l'idProfil selectionner
- * @return id 
- */
-public static int getID() {
+public  int getId () {
 	return id;
 }
-	
 }
+
+	

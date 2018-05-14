@@ -19,12 +19,25 @@ public class SupressionBadge extends JFrame implements ActionListener{
  
 	private static final long serialVersionUID = 1L;
 	
+	/**
+	 * containerPanel 
+	 * Ce paremettre crée un panel pour contenir les objets
+	 */
 	private JPanel containerPanel;
-
+	
+	/**
+	 * On a le texte que l'on va récupérer 
+	 */
 	private JTextField textFieldIdBadge;
 	
+	/**
+	 * On a le texte que l'on va afficher
+	 */
 	private JLabel labelIdBadge;
 	
+	/**
+	 * On a le bouton que l'on utilise pour validé la supréstion 
+	 */
 	private JButton boutonValider;
 	
 	JTextArea zoneTextListConnection;
@@ -32,7 +45,9 @@ public class SupressionBadge extends JFrame implements ActionListener{
 	//private JLabel labelConnection;
 
 	JScrollPane zoneDefilement;
-	
+	/**
+	 *  constructeur 
+	 */
 	public SupressionBadge() {
 		
 		// on fixe le titre
@@ -72,7 +87,9 @@ public class SupressionBadge extends JFrame implements ActionListener{
 		this.setVisible(true);
 		
 	}
-	
+	/**
+	 * Cette fonction attend que l'on apuis sur le bouton
+	 */
 public void actionPerformed(ActionEvent ae) {
 		
 		try {

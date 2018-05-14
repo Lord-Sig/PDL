@@ -18,33 +18,60 @@ import java.util.List;
 public class selectionPersonneP extends JFrame implements ActionListener{
  
 	private static final long serialVersionUID = 1L;
-	
+	/**
+	 * Le panel qui contient les objets
+	 */
 	private JPanel containerPanel;
-
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JTextField textFieldNom;
-
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JTextField textFieldPrenom;
-
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JTextField textFieldDateDeNaissanceJ;
-	
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JTextField textFieldDateDeNaissanceM;
 	
-	private JTextField textFieldDateDeNaissanceA;
+	/**
+	 * C'est du texte qu'on va récupérer 
+	 */private JTextField textFieldDateDeNaissanceA;
 	
 	private JTextField textFieldFonction;
-	
+	/**
+	 * C'est du texte qu'on va afficher
+	 */
 	private JLabel labelNom;
-
+	/**
+	 * C'est du texte qu'on va afficher
+	 */
 	private JLabel labelPrenom;
-	
+	/**
+	 * C'est du texte qu'on va afficher
+	 */
 	private JLabel labelDateDeNaissanceJ;
-	
+	/**
+	 * C'est du texte qu'on va afficher
+	 */
 	private JLabel labelDateDeNaissanceM;
-	
+	/**
+	 * C'est du texte qu'on va afficher
+	 */
 	private JLabel labelDateDeNaissanceA;
-	
+	/**
+	 * C'est du texte qu'on va afficher
+	 */
 	private JLabel labelFonction;
 	
+	/**
+	 * C'est le bouton qui valide la selection de la personne
+	 */
 	private JButton boutonValider;
 	
 	public static int id;
@@ -54,7 +81,9 @@ public class selectionPersonneP extends JFrame implements ActionListener{
 	//private JLabel labelConnection;
 
 	JScrollPane zoneDefilement;
-	
+	/**
+	 * constructeur qui crée  la fenetre 
+	 */
 	public selectionPersonneP() {
 		
 		// on fixe le titre
@@ -133,12 +162,15 @@ public class selectionPersonneP extends JFrame implements ActionListener{
 		
 	}
 	
+	/**
+	 * Cette fonction attend qu'on apuis sur le bouton et actualise l'id que l'on vas retourner
+	 */
 public void actionPerformed(ActionEvent ae) {
 		
 		try {
 			
 			if(ae.getSource() == boutonValider) {
-				id=HubProg.setProfil2(textFieldNom.getText(), textFieldPrenom.getText(), textFieldDateDeNaissanceA.getText(), textFieldDateDeNaissanceM.getText(),textFieldDateDeNaissanceJ.getText());
+				id=HubProg.modifPersonne2(textFieldNom.getText(), textFieldPrenom.getText(), textFieldDateDeNaissanceA.getText(), textFieldDateDeNaissanceM.getText(),textFieldDateDeNaissanceJ.getText());
 			}else {
 				
 				
@@ -148,7 +180,10 @@ public void actionPerformed(ActionEvent ae) {
 		}
 		
 }
-
+/** 
+ * Retourne l'id  du profil a selectionner 
+ * @return id
+ */
 public static int getID() {
 	return id;
 }

@@ -18,29 +18,53 @@ import java.util.List;
 public class SelectionPersonneB extends JFrame implements ActionListener{
  
 	private static final long serialVersionUID = 1L;
-	
+	/**
+	 * Le panel qui contient les objets
+	 */
 	private JPanel containerPanel;
-
+	/**
+	 * Le panel qui contient du texte qu'on va récupérer 
+	 */
 	private JTextField textFieldNom;
-
+	/**
+	 * Le panel qui contient du texte qu'on va récupérer 
+	 */
 	private JTextField textFieldPrenom;
-
+	/**
+	 * Le panel qui contient du texte qu'on va récupérer 
+	 */
 	private JTextField textFieldDateDeNaissanceJ;
-	
+	/**
+	 * Le panel qui contient du texte qu'on va récupérer 
+	 */
 	private JTextField textFieldDateDeNaissanceM;
-	
+	/**
+	 * Le panel qui contient du texte qu'on va récupérer 
+	 */
 	private JTextField textFieldDateDeNaissanceA;
-	
+	/**
+	 * Le panel qui contient du texte qui indique  
+	 */
 	private JLabel labelNom;
-
+	/**
+	 * On a le texte que l'on va afficher
+	 */
 	private JLabel labelPrenom;
-	
+	/**
+	 * On a le texte que l'on va afficher
+	 */
 	private JLabel labelDateDeNaissanceJ;
-	
+	/**
+	 * On a le texte que l'on va afficher
+	 */
 	private JLabel labelDateDeNaissanceM;
-	
+	/**
+	 * On a le texte que l'on va afficher
+	 */
 	private JLabel labelDateDeNaissanceA;
-	
+	/**
+	 * Le bouton pour valider la selection
+	 */
 	private JButton boutonValider;
 	
 	JTextArea zoneTextListConnection;
@@ -48,7 +72,9 @@ public class SelectionPersonneB extends JFrame implements ActionListener{
 	//private JLabel labelConnection;
 
 	JScrollPane zoneDefilement;
-	
+	/**
+	 * constructeur
+	 */
 	public SelectionPersonneB() {
 		
 		// on fixe le titre
@@ -121,7 +147,9 @@ public class SelectionPersonneB extends JFrame implements ActionListener{
 		this.setVisible(true);
 		
 	}
-	
+	/**
+	 * cette méthode attend qu'on apuis sur le bouton
+	 */
 public void actionPerformed(ActionEvent ae) {
 		
 		try {

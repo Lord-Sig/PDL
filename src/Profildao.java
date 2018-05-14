@@ -27,10 +27,12 @@ public class Profildao {
 	System.err.println("Impossible de charger le pilote de BDD, ne pas oublier d'importer le fichier .jar dans le projet");
 	} 
 	}
-	/** cette commande cr√©e dans la BDD la personne
-	 * 
-	 * @param personne
-	 * @return none
+	/**
+	 * Cette commande crÈe un profil dans la BDD
+	 * @param nomprofil
+	 * @param acceslieu
+	 * @param heuredebut
+	 * @param heurefin
 	 */
 	public static void ajouter(String nomprofil,ArrayList<String> acceslieu,String heuredebut,String heurefin) {
 		Connection con = null;
@@ -74,10 +76,9 @@ public class Profildao {
 		}
 		return ;
 		}
-	/** cette commande supprime dans la BDD la personne
-	 * 
-	 * @param personne	
-	 * @return
+	/**
+	 * cette commande supprime dans la BDD le profil
+	 * @param idprofil
 	 */
 	public static int supprime(int idprofil) {
 		Connection con = null;
@@ -104,10 +105,13 @@ public class Profildao {
 		}
 		return retour;
 		}
-	/** cette commande modifi√©  dans la BDD la personne
-	 * personne 2 est celle qu'on modifie la 1 les nouvelle valeurs 
-	 * @param personne1(personne que l'on veut 
-	 * @param idpersonnep  id de la personne a modifi√© 
+	/**
+	 * Cette commande suprime d'abord le profil qu'on modifie puis on recrÈ avec les valeurs voulue 
+	 * @param nomprofil
+	 * @param acceslieu
+	 * @param heuredebut
+	 * @param heurefin
+	 * @param idprofil
 	 * @return
 	 */
 public static int modifie(String nomprofil,ArrayList<String> acceslieu,String heuredebut,String heurefin, int idprofil ) {
@@ -155,6 +159,10 @@ public static int modifie(String nomprofil,ArrayList<String> acceslieu,String he
 		}
 		return retour;
 		}
+/**RÈcupere l'id d'un profil grace a nomprofil 
+ * @param nomprofil
+ * @return
+ */
 public static int getIdprofil(String nomprofil) {
 	int idprofil = 0 ;
 	java.sql.Connection con = null;
@@ -182,6 +190,7 @@ public static int getIdprofil(String nomprofil) {
 		}
 		return 0;
 }
+/*
 public String getheuredebut(int idprofil) {
 	java.sql.Connection con = null;
 	PreparedStatement ps = null;
@@ -209,6 +218,8 @@ public String getheuredebut(int idprofil) {
 		}
 		return "null";
 }
+*/
+/*
 public String getheurefin(int idprofil) {
 	java.sql.Connection con = null;
 	PreparedStatement ps = null;
@@ -236,6 +247,7 @@ public String getheurefin(int idprofil) {
 		}
 		return "null";
 }
+*/
 /*
 public  int modifielieu(ArrayList<String> acceslieu , int idprofil,String nomp) {
 	Connection con = null;
@@ -274,6 +286,11 @@ public  int modifielieu(ArrayList<String> acceslieu , int idprofil,String nomp) 
 	}
 	return retour;*
 	}*/
+/**
+ * Cette fonction trouve toutes les personnes lier a un profil
+ * @param profil
+ * @return liste de personne
+ */
 public static ArrayList<Personne> ListePersonneparProfil(int profil) {
 	ArrayList<Personne> personnetrouve =new ArrayList<Personne>();
 	java.sql.Connection con = null;
@@ -289,7 +306,7 @@ public static ArrayList<Personne> ListePersonneparProfil(int profil) {
 	//retourn√©e
 	rs= ps.executeQuery();
 	while (rs.next())
-		personnetrouve.add(new Personne (rs.getString("nomp"),rs.getString("prenomp"),rs.getString("fonction"),rs.getInt("annep"),rs.getInt("moisp"),rs.getInt("joursp"),rs.getInt("idpersonne"),rs.getInt("idprofil")));
+		personnetrouve.add(new Personne (rs.getString("nomp"),rs.getString("prenomp"),rs.getString("fonction"),rs.getInt("idpersonne"),rs.getInt("idprofil")));
 		
 	} catch (Exception ee) {
 		ee.printStackTrace();
@@ -302,6 +319,12 @@ public static ArrayList<Personne> ListePersonneparProfil(int profil) {
 		return personnetrouve;
 	
 }
+/**
+ * Change le profil d'une personne 
+ * @param idprofils
+ * @param idpersonnep
+ * @return
+ */
 public static int modifieprofilpersonne(int idprofils, int idpersonnep ) {
 	Connection con = null;
 	PreparedStatement ps = null;
