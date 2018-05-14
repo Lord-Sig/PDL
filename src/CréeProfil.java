@@ -16,25 +16,45 @@ import javax.swing.JTextField;
 public class CréeProfil extends JFrame implements ActionListener{
  
 	private static final long serialVersionUID = 1L;
-	
+	/**
+	 * Le panel qui contient les objets
+	 */
 	private JPanel containerPanel;
-
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JTextField textFieldNom;
-
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JTextField textFieldLieu;
-
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JTextField textFieldheuredébut;
-	
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JTextField textFieldheurefin;
-	
+	/**
+	 * C'est du texte qu'on va afficher
+	 */
 	private JLabel labelNom;
-	
+	/**
+	 * C'est du texte qu'on va afficher
+	 */
 	private JLabel labelheuredebut;
-	
+	/**
+	 * C'est du texte qu'on va afficher
+	 */
 	private JLabel labelheurefin;
-	
+	/**
+	 * C'est du texte qu'on va afficher
+	 */
 	private JLabel labelLieu;
-	
+	/**
+	 *Ce bouton valide la création de profil
+	 */
 	private JButton boutonValider;
 	
 	JTextArea zoneTextListConnection;
@@ -42,7 +62,9 @@ public class CréeProfil extends JFrame implements ActionListener{
 	//private JLabel labelConnection;
 
 	JScrollPane zoneDefilement;
-	
+	/**
+	 * classe constructeur
+	 */
 	public CréeProfil() {
 		
 		// on fixe le titre
@@ -107,6 +129,9 @@ public class CréeProfil extends JFrame implements ActionListener{
 		
 		
 	}
+	/**
+	 * Cette methode attend que l'on apuis sur un bouton et quand on appuis retourne sur menu et crée personne
+	 */
 public void actionPerformed(ActionEvent ae) {
 		
 		try {

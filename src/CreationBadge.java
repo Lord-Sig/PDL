@@ -18,7 +18,9 @@ public class CreationBadge extends JFrame {
    * 
    */
   private JLabel label = new JLabel("Badge créé");
-
+/**
+ *  classe constructeur
+ */
   public CreationBadge(){
     this.setTitle("Animation");
     this.setSize(300, 75);

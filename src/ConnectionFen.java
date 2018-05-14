@@ -17,19 +17,33 @@ import java.util.List;
 
 public class ConnectionFen extends JFrame implements ActionListener{
 
-	
+	/**
+	 * Le panel qui contient les objets
+	 */
 	private JPanel containerPanel;
-
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JTextField textFieldIdentifiant;
-
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JTextField textFieldMotDePasse;
-
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JTextField textFieldConnection;
-	
+	/**
+	 * C'est du texte qu'on va afficher
+	 */
 	private JLabel labelIdentifiant;
-
+	/**
+	 * C'est du texte qu'on va afficher
+	 */
 	private JLabel labelMotDePasse;
-	
+	/**
+	 * Bouton qui permet de valider la connection
+	 */
 	private JButton boutonConnexion;
 	
 	JTextArea zoneTextListConnection;
@@ -38,6 +52,9 @@ public class ConnectionFen extends JFrame implements ActionListener{
 
 	JScrollPane zoneDefilement;
 	
+	/**
+	 * classe constructeur
+	 */
 	public ConnectionFen() {
 		
 		// on fixe le titre
@@ -87,7 +104,9 @@ public class ConnectionFen extends JFrame implements ActionListener{
 		
 	}
 	
-	
+	/**
+	 * Cette fonction attend qu'on appuis sur le bouton et va au menu quand on apuis
+	 */
 	public void actionPerformed(ActionEvent ae) {
 		
 		try {

@@ -90,6 +90,11 @@ public class Badgedao {
 		}
 		return retour;
 		}
+	/** 
+	 * Cette fonction dit si un badge existe 
+	 * @param idpersonne
+	 * @return boolean 
+	 */
 	public boolean ExisteBadge (int idpersonne) {
 		Connection con = null;
 		PreparedStatement ps = null;

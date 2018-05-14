@@ -18,35 +18,65 @@ import java.util.List;
 public class CreationPersonne extends JFrame implements ActionListener{
  
 	private static final long serialVersionUID = 1L;
-	
+	/**
+	 * Le panel qui contient les objets
+	 */
 	private JPanel containerPanel;
-
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JTextField textFieldNom;
-
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JTextField textFieldPrenom;
-
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JTextField textFieldDateDeNaissanceJ;
-	
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JTextField textFieldDateDeNaissanceM;
-	
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JTextField textFieldDateDeNaissanceA;
-	
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JTextField textFieldFonction;
-	
+	/**
+	 * C'est du texte qu'on va afficher
+	 */
 	private JLabel labelNom;
-	
+	/**
+	 * C'est du texte qu'on va afficher
+	 */
 	private JLabel labelIdprofil;
-	
+	/**
+	 * C'est du texte qu'on va afficher
+	 */
 	private JLabel labelPrenom;
-	
+	/**
+	 * C'est du texte qu'on va afficher
+	 */
 	private JLabel labelDateDeNaissanceJ;
-	
+	/**
+	 * C'est du texte qu'on va afficher
+	 */
 	private JLabel labelDateDeNaissanceM;
-	
+	/**
+	 * C'est du texte qu'on va afficher
+	 */
 	private JLabel labelDateDeNaissanceA;
-	
+	/**
+	 * C'est du texte qu'on va afficher
+	 */
 	private JLabel labelFonction;
-	
+	/**
+	 * Ce bouton valide la création d'une personne
+	 */
 	private JButton boutonValider;
 	
 	JTextArea zoneTextListConnection;
@@ -54,7 +84,9 @@ public class CreationPersonne extends JFrame implements ActionListener{
 	//private JLabel labelConnection;
 
 	JScrollPane zoneDefilement;
-	
+	/**
+	 * classe constructeur
+	 */
 	public CreationPersonne() {
 		
 		// on fixe le titre
@@ -134,6 +166,9 @@ public class CreationPersonne extends JFrame implements ActionListener{
 		
 		
 	}
+	/** 
+	 * Cette méthode attend que l'on apuis et quand ça arrive crée la personne et va au menu
+	 */
 public void actionPerformed(ActionEvent ae) {
 		
 		try {

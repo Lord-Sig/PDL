@@ -18,7 +18,9 @@ public class CreationPersoInfo extends JFrame {
    * 
    */
   private JLabel label = new JLabel("Personne crée");
-
+/**
+ * classe constructeur
+ */
   public CreationPersoInfo(){
     this.setTitle("Animation");
     this.setSize(300, 75);

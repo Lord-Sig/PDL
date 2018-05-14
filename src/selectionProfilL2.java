@@ -17,9 +17,13 @@ import javax.swing.JTextField;
 public class selectionProfilL2 extends JFrame implements ActionListener{
  
 	private static final long serialVersionUID = 1L;
-	
+	/**
+	 * Le panel qui contient les objets
+	 */
 	private JPanel containerPanel;
-	
+	/**
+	 * C'est du texte qu'on va afficher
+	 */
 	private JLabel label;
 	
 	private static int id;
@@ -69,6 +73,9 @@ public class selectionProfilL2 extends JFrame implements ActionListener{
 		
 		
 	}
+	/**
+	 *  Cette fonction attend qu'on apuis sur le bouton
+	 */
 public void actionPerformed(ActionEvent ae) {
 		
 		try {
