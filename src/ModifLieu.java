@@ -52,7 +52,9 @@ public class ModifLieu extends JFrame implements ActionListener {
 	 * bouton
 	 */	
 	private JButton boutonretour;
-	
+	/**
+	 * Classe constructeur
+	 */
 	public ModifLieu() {
 		
 		
@@ -108,7 +110,7 @@ public class ModifLieu extends JFrame implements ActionListener {
 	}
 	
 	/**
-	 * Cette méthode attend que l'on apuis sur le bouton et éxécute des actions
+	 * Cette méthode attend que l'on apuis sur le bouton et éxécute des actions en fonction du bouton
 	 */
 public void actionPerformed(ActionEvent ae) {
 		

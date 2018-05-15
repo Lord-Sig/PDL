@@ -44,12 +44,16 @@ public class MenuProfil extends JFrame implements ActionListener {
 	 * C'est le bouton qui valide la selection de la personne
 	 */
 	private JButton boutonMenu5;
+	/**
+	 * bouton
+	 */	
+	private JButton boutonretour;
 	
 	JTextArea zoneTextListConnection;
 
 	JScrollPane zoneDefilement;
 	/**
-	 * classe créateur
+	 * classe constructeur
 	 */
 	public MenuProfil() {
 		
@@ -84,12 +88,14 @@ public class MenuProfil extends JFrame implements ActionListener {
 	boutonMenu4.addActionListener(this);
 	boutonMenu5.addActionListener(this);
 	
+	boutonretour= new JButton("Retour");
+	containerPanel.add(boutonretour);
 	this.setTitle("Menu Profil");
 	this.setVisible(true);
 	
 	}
 	/**
-	 * Cette méthode attend que l'on apuis sur un bouto pour passer un menu de gestion
+	 * Cette méthode attend que l'on apuis sur le bouton et éxécute des actions
 	 */
 	public void actionPerformed(ActionEvent ae) {
 		
@@ -106,6 +112,9 @@ public class MenuProfil extends JFrame implements ActionListener {
 				HubProg.ListeProfil();
 			}else if(ae.getSource() == boutonMenu5) {
 				HubProg.setProfil();
+			}else if (ae.getSource()== boutonretour){
+				Menu Menu=new Menu();
+				this.dispose();
 			}
 		
 	

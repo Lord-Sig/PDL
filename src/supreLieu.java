@@ -18,22 +18,35 @@ import java.util.List;
 public class supreLieu extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
-	
+	/**
+	 * containerPanel 
+	 * Ce paremettre crée un panel pour contenir les objets
+	 */
 	private JPanel containerPanel;
-	
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JTextField textFieldNom;
-	
+	/**
+	 * On a le texte que l'on va afficher
+	 */
 	private JLabel labelNom;
-	private JLabel labelAdresse;
-	
-	
+	/**
+	 * bouton
+	 */	
 	private JButton boutonModifier;
-	
+	/**
+	 * bouton
+	 */	
+	private JButton boutonretour;
+	/**
+	 * classe constructeur
+	 */
 	public supreLieu() {
 		
 		
 		// on fixe le titre		
-		this.setTitle("Menu crée lieu");
+		this.setTitle("Menu supprimer lieu");
 		// initialisation de la taille
 		this.setSize(500, 500);
 		
@@ -48,14 +61,11 @@ public class supreLieu extends JFrame implements ActionListener {
 		
 		textFieldNom = new JTextField();
 		
-		labelNom = new JLabel("Nom du profil a modifier  :");
-		labelAdresse = new JLabel("Adresse :");
+		
+		boutonModifier = new JButton("supprimer lieu");
 		
 		
-		boutonModifier = new JButton("Modifier lieu");
-		
-		
-		labelNom = new JLabel("Nouveau Nom :");
+		labelNom = new JLabel(" Nom du lieu a suprimer:");
 		containerPanel.add(labelNom);
 		containerPanel.add(Box.createRigidArea(new Dimension(0, 10)));
 		containerPanel.add(textFieldNom);
@@ -65,14 +75,19 @@ public class supreLieu extends JFrame implements ActionListener {
 		
 		
 		boutonModifier.addActionListener(this);
+		boutonretour= new JButton("Retour");
+		containerPanel.add(boutonretour);
+		boutonretour.addActionListener(this);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setTitle("Menu modifier lieu");
+		this.setTitle("Menu supprimer lieu");
 		this.setVisible(true);
 		
 		
 	}
 	
-	
+	/**
+	 * Cette méthode attend que l'on apuis sur le bouton et éxécute des actions en fonction du bouton
+	 */
 public void actionPerformed(ActionEvent ae) {
 		
 		try {
@@ -80,6 +95,9 @@ public void actionPerformed(ActionEvent ae) {
 			if(ae.getSource() == boutonModifier) {
 				System.out.println("z");
 			HubProg.supreLieu2(textFieldNom.getText());
+		}else if (ae.getSource()== boutonretour){
+			Menu Menu=new Menu();
+			this.dispose();
 		}
 		
 		
