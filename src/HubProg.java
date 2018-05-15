@@ -8,7 +8,7 @@ public class HubProg {
 	/**
 	 * initialiser une fenêtre
 	 */
-	static ConnectionFen ConnectionFen;
+	 static  ConnectionFen ConnectionFen;
 	/**
 	 * initialiser une fenêtre
 	 */
@@ -102,7 +102,6 @@ public class HubProg {
 	 * initialiser une fenêtre
 	 */
 	static selectionProfilL2 selectionProfilL2;
-	//static selectionProfilL3 selectionProfilL3;
 	
 	/**
 	 * Classe constructeur

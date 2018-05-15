@@ -33,6 +33,10 @@ public class selectionPersonneL2 extends JFrame implements ActionListener{
 	 * bouton
 	 */
 	private JButton boutonValider;
+	/**
+	 * bouton retour menu
+	 */	
+	private JButton boutonretour;
 	
 	JTextArea zoneTextListConnection;
 
@@ -64,7 +68,7 @@ public class selectionPersonneL2 extends JFrame implements ActionListener{
 
 		boutonValider.addActionListener(this);
 		for (int i =0; i< listpers.size(); i=i+1) {
-			label = new JLabel(listpers.get(i).getnom()+"  "+listpers.get(i).getprenom()+"   "+listpers.get(i).getfonction()+listpers.get(i).getNaissance() +"    "+Profildao.getNProfil(listpers.get(i).getIdprofil()));
+			label = new JLabel("nom :"+listpers.get(i).getnom()+"Prenom : "+listpers.get(i).getprenom()+" Fonction : "+listpers.get(i).getfonction()+" naissance :"+ listpers.get(i).getNaissance() +"  Profil: "+Profildao.getNProfil(listpers.get(i).getIdprofil()));
 			
 			containerPanel.add(label);
 			containerPanel.add(Box.createRigidArea(new Dimension(0, 10)));  
@@ -72,14 +76,18 @@ public class selectionPersonneL2 extends JFrame implements ActionListener{
 		containerPanel.add(boutonValider);
 		
 		boutonValider.addActionListener(this);
+		
+		boutonretour= new JButton("Retour");
+		containerPanel.add(boutonretour);
+		boutonretour.addActionListener(this);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setTitle("Menu modif profil");
+		this.setTitle("affichage des personnes  ");
 		this.setVisible(true);
 		
 		
 	}
 	/**
-	 *  Cette fonction attend qu'on apuis sur le bouton
+	 * Cette méthode attend que l'on apuis sur le bouton et éxécute des actions en fonction du bouton
 	 */
 public void actionPerformed(ActionEvent ae) {
 		
@@ -88,10 +96,10 @@ public void actionPerformed(ActionEvent ae) {
 			if(ae.getSource() == boutonValider) {
 				HubProg.ListePersonne3();
 				
-			}else {
-				
-				
-				}
+			}else if (ae.getSource()== boutonretour){
+				Menu Menu=new Menu();
+				this.dispose();
+			}
 		}catch (Exception e) {
 			
 		}

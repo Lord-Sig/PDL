@@ -65,7 +65,7 @@ public class Personnedao {
 	/** cette commande supprime dans la BDD la personne
 	 * 
 	 * @param personne
-	 * @return
+	 * @return none 
 	 */
 	public static int supprime(int idpersonnep) {
 		Connection con = null;
@@ -96,9 +96,11 @@ public class Personnedao {
 		}
 	/** cette commande modifié  dans la BDD la personne
 	 * personne 2 est celle qu'on modifie la 1 les nouvelle valeurs 
-	 * @param personne1(personne que l'on veut 
-	 * @param idpersonnep  id de la personne a modifié 
-	 * @return
+	 * @param personne1
+	 * personne que l'on veut 
+	 * @param idpersonnep  
+	 *id de la personne a modifié 
+	 * @return none
 	 */
 public static int modifie(String nomp,String prenomp,String fonction,String joursp,String moisp,String annep, int idpersonnep ) {
 		Connection con = null;
@@ -139,7 +141,7 @@ public static int modifie(String nomp,String prenomp,String fonction,String jour
  * @param annep
  * @param moisp
  * @param joursp
- * @return
+ * @return none
  */
 public static ArrayList<Personne> Trouvepersonne(String nomp,String prenomp) {
 	ArrayList<Personne> personnetrouve =new ArrayList<Personne>();
@@ -170,14 +172,14 @@ public static ArrayList<Personne> Trouvepersonne(String nomp,String prenomp) {
 		return personnetrouve;
 	
 }
-/**trouve l'id d'une personne
+/**trouve l'id d'une personne dans la dao
  * 
  * @param nomp
  * @param prenomp
  * @param annep
  * @param moisp
  * @param joursp
- * @return
+ * @return none
  */
 public static int getIdpersonne(String nomp,String prenomp,String joursp,String moisp,String annep) {
 	int idpersonner = 0 ;

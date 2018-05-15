@@ -74,6 +74,10 @@ public class selectionPersonneL extends JFrame implements ActionListener{
 	 */
 	private JButton boutonValider;
 	/**
+	 * bouton retour menu
+	 */	
+	private JButton boutonretour;
+	/**
 	 * cette variable stock l'id de la personne selectionné
 	 */
 	public static int id;
@@ -88,8 +92,6 @@ public class selectionPersonneL extends JFrame implements ActionListener{
 	 */
 	public selectionPersonneL() {
 		
-		// on fixe le titre
-		this.setTitle("Menu sélectionner modification d'une personne");
 		// initialisation de la taille
 		this.setSize(500, 500);
 		
@@ -143,15 +145,17 @@ public class selectionPersonneL extends JFrame implements ActionListener{
 		containerPanel.add(boutonValider);
 		
 		boutonValider.addActionListener(this);
-		
+		boutonretour= new JButton("Retour");
+		containerPanel.add(boutonretour);
+		boutonretour.addActionListener(this);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setTitle("Menu selectionner la modification personne");
+		this.setTitle("Menu selectionner personne");
 		this.setVisible(true);
 		
 	}
 	
 	/**
-	 * Cette fonction attend qu'on apuis sur le bouton et actualise l'id que l'on vas retourner
+	 * Cette méthode attend que l'on apuis sur le bouton et éxécute des actions en fonction du bouton
 	 */
 public void actionPerformed(ActionEvent ae) {
 		
@@ -159,10 +163,10 @@ public void actionPerformed(ActionEvent ae) {
 			
 			if(ae.getSource() == boutonValider) {
 				HubProg.ListePersonne2(textFieldNom.getText(), textFieldPrenom.getText());
-			}else {
-				
-				
-				}
+			}else if (ae.getSource()== boutonretour){
+				Menu Menu=new Menu();
+				this.dispose();
+			}
 		}catch (Exception e) {
 			
 		}

@@ -112,7 +112,7 @@ public class Profildao {
 	 * @param heuredebut
 	 * @param heurefin
 	 * @param idprofil
-	 * @return
+	 * @return none 
 	 */
 public static int modifie(String nomprofil,ArrayList<String> acceslieu,String heuredebut,String heurefin, int idprofil ) {
 		Connection con = null;
@@ -161,7 +161,7 @@ public static int modifie(String nomprofil,ArrayList<String> acceslieu,String he
 		}
 /**Récupere l'id d'un profil grace a nomprofil 
  * @param nomprofil
- * @return
+ * @return id id du profil
  */
 public static int getIdprofil(String nomprofil) {
 	int idprofil = 0 ;
@@ -190,6 +190,11 @@ public static int getIdprofil(String nomprofil) {
 		}
 		return 0;
 }
+/**
+ *  retourne le nom du profil
+ * @param idprofil
+ * @return NProfil le nom du profil voulue 
+ */
 public static String getNProfil(int idprofil) {
 	String nprofil = null ;
 	java.sql.Connection con = null;
@@ -255,7 +260,7 @@ public static ArrayList<Personne> ListePersonneparProfil(int profil) {
  * Change le profil d'une personne 
  * @param idprofils
  * @param idpersonnep
- * @return
+ * @return none
  */
 public static int modifieprofilpersonne(int idprofils, int idpersonnep ) {
 	Connection con = null;

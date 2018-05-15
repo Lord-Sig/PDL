@@ -27,7 +27,11 @@ public class LieuDAO {
 			System.err.println("Impossible de charger le pilote de BDD, il est indispensable d'importer un .jar dans le projet");
 			} 
 	}
-	
+	/**
+	 * Ajoute un lieu dans la dao
+	 * @param nomp
+	 * @param emplacementp
+	 */
 	public static void ajouter(String nomp, String emplacementp) {
 		Connection con = null;
 		PreparedStatement ps = null;
@@ -56,7 +60,11 @@ public class LieuDAO {
 		return ;
 		}
 	
-	
+	/** 
+	 * supprime un personne de la dao
+	 * @param nomp
+	 * @return none
+	 */
 	public static int supprimerLieu(String nomp) {
 		Connection con = null;
 		PreparedStatement ps = null;
@@ -80,6 +88,13 @@ public class LieuDAO {
 
 	
 	}
+	/**
+	 * Modifie une personne dans la dao
+	 * @param nomp
+	 * @param adresse
+	 * @param noms
+	 * @return none
+	 */
 	public static int modifie(String nomp,String adresse,String noms ) {
 		Connection con = null;
 		PreparedStatement ps = null;

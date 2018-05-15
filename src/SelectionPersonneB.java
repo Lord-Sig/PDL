@@ -68,6 +68,10 @@ public class SelectionPersonneB extends JFrame implements ActionListener{
 	 * Le bouton pour valider la selection
 	 */
 	private JButton boutonValider;
+	/**
+	 * bouton retour personne 
+	 */	
+	private JButton boutonretour;
 	
 	JTextArea zoneTextListConnection;
 
@@ -80,7 +84,7 @@ public class SelectionPersonneB extends JFrame implements ActionListener{
 	public SelectionPersonneB() {
 		
 		// on fixe le titre
-		this.setTitle("Menu sélectionner modification d'une personne");
+		this.setTitle("Menu sélection personne ");
 		// initialisation de la taille
 		this.setSize(500, 500);
 		
@@ -143,14 +147,16 @@ public class SelectionPersonneB extends JFrame implements ActionListener{
 		containerPanel.add(boutonValider);
 		
 		boutonValider.addActionListener(this);
-		
+		boutonretour= new JButton("Retour");
+		containerPanel.add(boutonretour);
+		boutonretour.addActionListener(this);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setTitle("Menu selectionner la modification personne");
+		this.setTitle("Menu sélection personne");
 		this.setVisible(true);
 		
 	}
 	/**
-	 * cette méthode attend qu'on apuis sur le bouton
+	 * Cette méthode attend que l'on apuis sur le bouton et éxécute des actions en fonction du bouton
 	 */
 public void actionPerformed(ActionEvent ae) {
 		
@@ -160,10 +166,10 @@ public void actionPerformed(ActionEvent ae) {
 				id =Personnedao.getIdpersonne(textFieldNom.getText(), textFieldPrenom.getText(), textFieldDateDeNaissanceJ.getText(), textFieldDateDeNaissanceM.getText(), textFieldDateDeNaissanceA.getText());
 				System.out.println(id);
 				HubProg.creeBadge2();
-			}else {
-				
-				
-				}
+			}else if (ae.getSource()== boutonretour){
+				Menu Menu=new Menu();
+				this.dispose();
+			}
 		}catch (Exception e) {
 			
 		}

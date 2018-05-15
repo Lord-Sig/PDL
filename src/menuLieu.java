@@ -59,7 +59,7 @@ public class menuLieu extends JFrame implements ActionListener {
 		
 	
 
-	this.setTitle("Menu personne");
+	this.setTitle("Menu lieu");
 	this.setSize(300, 200);
 	
 	this.setLocationRelativeTo(null);
@@ -91,13 +91,13 @@ public class menuLieu extends JFrame implements ActionListener {
 	boutonMenuPers3.addActionListener(this);
 	boutonretour.addActionListener(this);
 	
-	this.setTitle("Menu modifier personne");
+	this.setTitle("Menu Lieu");
 	this.setVisible(true);
 	
 	}
 	
 	/**
-	 * Cette fonction attend qu'on apuis sur le bouton et va vers crée personne modif personne ou supre personne
+	 * Cette méthode attend que l'on apuis sur le bouton et éxécute des actions en fonction du bouton
 	 */
 	public void actionPerformed(ActionEvent ae) {
 		

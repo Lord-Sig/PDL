@@ -32,6 +32,11 @@ public class MenuBadge extends JFrame implements ActionListener {
 	 * C'est le bouton qui va a Supression Badge
 	 */
 	private JButton boutonMenu2;
+	/**
+	 * bouton retour menu
+	 */	
+	private JButton boutonretour;
+	
 	
 	JTextArea zoneTextListConnection;
 
@@ -68,7 +73,7 @@ public class MenuBadge extends JFrame implements ActionListener {
 	
 	}
 	/**
-	 * Cette fonction attend qu'on apuis sur le bouton et envois sur créer badge ou suprimer badge
+	 * Cette fonction attend qu'on apuis sur le bouton et va vers crée personne modif personne ou supre personne
 	 */
 	public void actionPerformed(ActionEvent ae) {
 		
@@ -78,6 +83,9 @@ public class MenuBadge extends JFrame implements ActionListener {
 				HubProg.creeBadge1();
 			}else if(ae.getSource() == boutonMenu2) {
 				HubProg.supreBadge1();
+			}else if (ae.getSource()== boutonretour){
+				Menu Menu=new Menu();
+				this.dispose();
 			}
 	
 		

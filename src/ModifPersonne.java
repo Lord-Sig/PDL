@@ -78,6 +78,10 @@ public class ModifPersonne extends JFrame implements ActionListener {
 	 *Bouton qui valide la selection personne
 	 */
 	private JButton boutonValider;
+	/**
+	 * bouton retour menu
+	 */	
+	private JButton boutonretour;
 	
 	JTextArea zoneTextListConnection;
 
@@ -159,14 +163,16 @@ public class ModifPersonne extends JFrame implements ActionListener {
 		containerPanel.add(boutonValider);
 		
 		boutonValider.addActionListener(this);
-		
+		boutonretour= new JButton("Retour");
+		containerPanel.add(boutonretour);
+		boutonretour.addActionListener(this);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setTitle("Menu modifier personne");
 		this.setVisible(true);
 		
 	}
 	/**
-	 * Cette methode attend que l'on apuis sur le bouton pour passer et retourne au menu apres que l'on est appuyé sur le bouton 
+	 * Cette méthode attend que l'on apuis sur le bouton et éxécute des actions en fonction du bouton
 	 */
 public void actionPerformed(ActionEvent ae) {
 		
@@ -174,10 +180,10 @@ public void actionPerformed(ActionEvent ae) {
 			
 			if(ae.getSource() == boutonValider) {
 				HubProg.modifPersonne3(textFieldNom.getText(), textFieldPrenom.getText(), textFieldFonction.getText(), textFieldDateDeNaissanceJ.getText(), textFieldDateDeNaissanceM.getText(), textFieldDateDeNaissanceA.getText(),SelectionPersonneM.getID());
-			}else {
-				
-				
-				}
+			}else if (ae.getSource()== boutonretour){
+				Menu Menu=new Menu();
+				this.dispose();
+			}
 		}catch (Exception e) {
 			
 		}

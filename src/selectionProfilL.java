@@ -36,6 +36,10 @@ public class selectionProfilL extends JFrame implements ActionListener{
 	 * C'est le bouton qui valide la selection du profil
 	 */
 	private JButton boutonValider;
+	/**
+	 * bouton retour menu
+	 */	
+	private JButton boutonretour;
 	
 	JTextArea zoneTextListConnection;
 
@@ -81,15 +85,19 @@ public class selectionProfilL extends JFrame implements ActionListener{
 		containerPanel.add(boutonValider);
 		
 		boutonValider.addActionListener(this);
+		boutonretour= new JButton("Retour");
+		containerPanel.add(boutonretour);
+		this.setTitle("Menu Profil");
+		this.setVisible(true);
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setTitle("Menu modif profil");
+		this.setTitle("Menu selection profil");
 		this.setVisible(true);
 		
 		
 	}
 	/**
-	 * Cette fonction attend qu'on apuis sur le bouton et quand on apuis actualise l'id
+	 * Cette méthode attend que l'on apuis sur le bouton et éxécute des actions en fonction du bouton
 	 */
 public void actionPerformed(ActionEvent ae) {
 		
@@ -98,10 +106,10 @@ public void actionPerformed(ActionEvent ae) {
 			if(ae.getSource() == boutonValider) {
 				id=HubProg.ListeProfil2(textFieldNom.getText());
 				
-			}else {
-				
-				
-				}
+			}else if (ae.getSource()== boutonretour){
+				Menu Menu=new Menu();
+				this.dispose();
+			}
 		}catch (Exception e) {
 			
 		}

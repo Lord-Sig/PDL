@@ -56,6 +56,10 @@ public class ModifProfil extends JFrame implements ActionListener{
 	 * C'est le bouton qui valida la modification 
 	 */
 	private JButton boutonValider;
+	/**
+	 * bouton retour menu
+	 */	
+	private JButton boutonretour;
 	
 	JTextArea zoneTextListConnection;
 
@@ -67,8 +71,6 @@ public class ModifProfil extends JFrame implements ActionListener{
 	 */
 	public ModifProfil() {
 		
-		// on fixe le titre
-		this.setTitle("Menu créer profil");
 		// initialisation de la taille
 		this.setSize(500, 500);
 		
@@ -123,14 +125,18 @@ public class ModifProfil extends JFrame implements ActionListener{
 		
 		boutonValider.addActionListener(this);
 		
+		boutonretour= new JButton("Retour");
+		containerPanel.add(boutonretour);
+		boutonretour.addActionListener(this);
+		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setTitle("Modif profil");
+		this.setTitle("Menu modification profil");
 		this.setVisible(true);
 		
 		
 	}
-	/** 
-	 * Cette méthode attend que l'on apuis sur le bouton 
+	/**
+	 * Cette méthode attend que l'on apuis sur le bouton et éxécute des actions en fonction du bouton
 	 */
 public void actionPerformed(ActionEvent ae) {
 		
@@ -139,10 +145,10 @@ public void actionPerformed(ActionEvent ae) {
 			if(ae.getSource() == boutonValider) {
 				HubProg.ModifProfil3(textFieldNom.getText(),textFieldLieu.getText(),textFieldheuredébut.getText(),textFieldheurefin.getText(),selectionProfil.getID());
 				
-			}else {
-				
-				
-				}
+			}else if (ae.getSource()== boutonretour){
+				Menu Menu=new Menu();
+				this.dispose();
+			}
 		}catch (Exception e) {
 			
 		}

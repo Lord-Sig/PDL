@@ -56,7 +56,10 @@ public class CréeProfil extends JFrame implements ActionListener{
 	 *Ce bouton valide la création de profil
 	 */
 	private JButton boutonValider;
-	
+	/**
+	 * bouton retour menu
+	 */	
+	private JButton boutonretour;
 	JTextArea zoneTextListConnection;
 
 	//private JLabel labelConnection;
@@ -122,7 +125,9 @@ public class CréeProfil extends JFrame implements ActionListener{
 		containerPanel.add(boutonValider);
 		
 		boutonValider.addActionListener(this);
-		
+		boutonretour= new JButton("Retour");
+		containerPanel.add(boutonretour);
+		boutonretour.addActionListener(this);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setTitle("Menu créer profil");
 		this.setVisible(true);
@@ -130,7 +135,7 @@ public class CréeProfil extends JFrame implements ActionListener{
 		
 	}
 	/**
-	 * Cette methode attend que l'on apuis sur un bouton et quand on appuis retourne sur menu et crée personne
+	 * Cette méthode attend que l'on apuis sur le bouton et éxécute des actions en fonction du bouton
 	 */
 public void actionPerformed(ActionEvent ae) {
 		
@@ -139,10 +144,10 @@ public void actionPerformed(ActionEvent ae) {
 			if(ae.getSource() == boutonValider) {
 				HubProg.CréeProfil2(textFieldNom.getText(),textFieldLieu.getText(),textFieldheuredébut.getText(),textFieldheurefin.getText());
 				
-			}else {
-				
-				
-				}
+			}else if (ae.getSource()== boutonretour){
+				Menu Menu=new Menu();
+				this.dispose();
+			}
 		}catch (Exception e) {
 			
 		}

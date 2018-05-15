@@ -18,18 +18,38 @@ import java.util.List;
 public class créeLieu extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
-	
+	/**
+	 * Ce panel contient les objets
+	 */
 	private JPanel containerPanel;
-	
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JTextField textFieldNom;
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JTextField textFieldAdresse;
-	
+	/**
+	 * C'est du texte qu'on va afficher
+	 */
 	private JLabel labelNom;
+	/**
+	 * C'est du texte qu'on va afficher
+	 */
 	private JLabel labelAdresse;
 	
-	
+	/**
+	 * bouton retour menu
+	 */	
 	private JButton boutonModifier;
-	
+	/**
+	 * bouton retour menu
+	 */	
+	private JButton boutonretour;
+	/**
+	 * classe constructeur
+	 */
 	public créeLieu() {
 		
 		
@@ -70,13 +90,18 @@ public class créeLieu extends JFrame implements ActionListener {
 		
 		
 		boutonModifier.addActionListener(this);
+		boutonretour= new JButton("Retour");
+		containerPanel.add(boutonretour);
+		boutonretour.addActionListener(this);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setTitle("Menu modifier lieu");
 		this.setVisible(true);
 		
 		
 	}
-	
+	/**
+	 * Cette méthode attend que l'on apuis sur le bouton et éxécute des actions en fonction du bouton
+	 */
 	
 public void actionPerformed(ActionEvent ae) {
 		
@@ -85,6 +110,9 @@ public void actionPerformed(ActionEvent ae) {
 			if(ae.getSource() == boutonModifier) {
 				System.out.println("z");
 			HubProg.CréeLieu2(textFieldNom.getText(),textFieldAdresse.getText());
+		}else if (ae.getSource()== boutonretour){
+			Menu Menu=new Menu();
+			this.dispose();
 		}
 		
 		

@@ -19,7 +19,7 @@ public class ModifPersoInfo extends JFrame {
    */
   private JLabel label = new JLabel("Personne Modifié");
 /** 
- * classe créateur
+ * classe constructeur
  */
   public ModifPersoInfo(){
     this.setTitle("Animation");

@@ -49,7 +49,7 @@ public class ModifLieu extends JFrame implements ActionListener {
 	 */
 	private JButton boutonModifier;
 	/**
-	 * bouton
+	 * bouton retour menu
 	 */	
 	private JButton boutonretour;
 	/**
@@ -98,8 +98,12 @@ public class ModifLieu extends JFrame implements ActionListener {
 		containerPanel.add(Box.createRigidArea(new Dimension(0, 10)));
 		
 		containerPanel.add(boutonModifier);
+		
+		
 		boutonretour= new JButton("Retour");
 		containerPanel.add(boutonretour);
+		boutonretour.addActionListener(this);
+		
 		
 		boutonModifier.addActionListener(this);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

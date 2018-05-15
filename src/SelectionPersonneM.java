@@ -74,7 +74,13 @@ public class SelectionPersonneM extends JFrame implements ActionListener{
 	 * Ce bouton valide la selection du personnage 
 	 */
 	private JButton boutonValider;
-	
+	/**
+	 * bouton retour menu
+	 */	
+	private JButton boutonretour;
+	/**
+	 * id du profil choisi
+	 */
 	public static int id;
 	
 	JTextArea zoneTextListConnection;
@@ -89,7 +95,7 @@ public class SelectionPersonneM extends JFrame implements ActionListener{
 	public SelectionPersonneM() {
 		
 		// on fixe le titre
-		this.setTitle("Menu sélectionner modification d'une personne");
+		this.setTitle("Menu sélection personne");
 		// initialisation de la taille
 		this.setSize(500, 500);
 		
@@ -157,14 +163,17 @@ public class SelectionPersonneM extends JFrame implements ActionListener{
 		containerPanel.add(boutonValider);
 		
 		boutonValider.addActionListener(this);
+		boutonretour= new JButton("Retour");
+		containerPanel.add(boutonretour);
+		boutonretour.addActionListener(this);
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setTitle("Menu selectionner la modification personne");
+		this.setTitle("Menu selection personne");
 		this.setVisible(true);
 		
 	}
 	/**
-	 * attend que l'on apuis sur le bouton et quand on apuis actualise l'id
+	 * Cette méthode attend que l'on apuis sur le bouton et éxécute des actions en fonction du bouton
 	 */
 public void actionPerformed(ActionEvent ae) {
 		
@@ -172,10 +181,10 @@ public void actionPerformed(ActionEvent ae) {
 			
 			if(ae.getSource() == boutonValider) {
 				id=HubProg.modifPersonne2(textFieldNom.getText(), textFieldPrenom.getText(), textFieldDateDeNaissanceJ.getText(), textFieldDateDeNaissanceM.getText(),textFieldDateDeNaissanceA.getText());
-			}else {
-				
-				
-				}
+			}else if (ae.getSource()== boutonretour){
+				Menu Menu=new Menu();
+				this.dispose();
+			}
 		}catch (Exception e) {
 			
 		}

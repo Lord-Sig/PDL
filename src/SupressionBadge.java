@@ -39,6 +39,10 @@ public class SupressionBadge extends JFrame implements ActionListener{
 	 * On a le bouton que l'on utilise pour validé la supréstion 
 	 */
 	private JButton boutonValider;
+	/**
+	 * bouton retour menu
+	 */	
+	private JButton boutonretour;
 	
 	JTextArea zoneTextListConnection;
 
@@ -81,6 +85,10 @@ public class SupressionBadge extends JFrame implements ActionListener{
 		containerPanel.add(boutonValider);
 		
 		boutonValider.addActionListener(this);
+		boutonretour= new JButton("Retour");
+		containerPanel.add(boutonretour);
+		this.setTitle("Menu Profil");
+		this.setVisible(true);
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setTitle("Menu supression badge");
@@ -88,7 +96,7 @@ public class SupressionBadge extends JFrame implements ActionListener{
 		
 	}
 	/**
-	 * Cette fonction attend que l'on apuis sur le bouton
+	 * Cette méthode attend que l'on apuis sur le bouton et éxécute des actions en fonction du bouton
 	 */
 public void actionPerformed(ActionEvent ae) {
 		
@@ -96,10 +104,10 @@ public void actionPerformed(ActionEvent ae) {
 			
 			if(ae.getSource() == boutonValider) {
 				HubProg.supreBadge2(Integer.parseInt(textFieldIdBadge.getText()));
-			}else {
-				
-				
-				}
+			}else if (ae.getSource()== boutonretour){
+				Menu Menu=new Menu();
+				this.dispose();
+			}
 		}catch (Exception e) {
 			
 		}

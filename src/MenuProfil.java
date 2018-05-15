@@ -45,7 +45,7 @@ public class MenuProfil extends JFrame implements ActionListener {
 	 */
 	private JButton boutonMenu5;
 	/**
-	 * bouton
+	 * bouton retour menu
 	 */	
 	private JButton boutonretour;
 	
@@ -95,7 +95,7 @@ public class MenuProfil extends JFrame implements ActionListener {
 	
 	}
 	/**
-	 * Cette méthode attend que l'on apuis sur le bouton et éxécute des actions
+	 * Cette méthode attend que l'on apuis sur le bouton et éxécute des actions en fonction du bouton
 	 */
 	public void actionPerformed(ActionEvent ae) {
 		

@@ -78,6 +78,10 @@ public class CreationPersonne extends JFrame implements ActionListener{
 	 * Ce bouton valide la création d'une personne
 	 */
 	private JButton boutonValider;
+	/**
+	 * bouton retour menu
+	 */	
+	private JButton boutonretour;
 	
 	JTextArea zoneTextListConnection;
 
@@ -159,15 +163,17 @@ public class CreationPersonne extends JFrame implements ActionListener{
 		containerPanel.add(boutonValider);
 		
 		boutonValider.addActionListener(this);
-		
+		boutonretour= new JButton("Retour");
+		containerPanel.add(boutonretour);
+		boutonretour.addActionListener(this);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setTitle("Menu créer personne");
 		this.setVisible(true);
 		
 		
 	}
-	/** 
-	 * Cette méthode attend que l'on apuis et quand ça arrive crée la personne et va au menu
+	/**
+	 * Cette méthode attend que l'on apuis sur le bouton et éxécute des actions en fonction du bouton
 	 */
 public void actionPerformed(ActionEvent ae) {
 		
@@ -176,10 +182,10 @@ public void actionPerformed(ActionEvent ae) {
 			if(ae.getSource() == boutonValider) {
 				HubProg.creePersonne2(textFieldNom.getText(), textFieldPrenom.getText(), textFieldFonction.getText(), textFieldDateDeNaissanceJ.getText(), textFieldDateDeNaissanceM.getText(),  textFieldDateDeNaissanceA.getText());
 				
-			}else {
-				
-				
-				}
+			}else if (ae.getSource()== boutonretour){
+				Menu Menu=new Menu();
+				this.dispose();
+			}
 		}catch (Exception e) {
 			
 		}

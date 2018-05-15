@@ -21,7 +21,7 @@ public class MenuPersonne extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * bouton
+	 * Ce panel contient les objets
 	 */
 	private JPanel containerPanel;
 	/**
@@ -42,6 +42,10 @@ public class MenuPersonne extends JFrame implements ActionListener {
 	 * bouton
 	 */	
 	private JButton boutonMenuPers4;
+	/**
+	 * bouton retour menu
+	 */	
+	private JButton boutonretour;
 	
 	
 	JTextArea zoneTextListConnection;
@@ -85,14 +89,17 @@ public class MenuPersonne extends JFrame implements ActionListener {
 	boutonMenuPers3.addActionListener(this);
 	boutonMenuPers4.addActionListener(this);
 	
+	boutonretour= new JButton("Retour");
+	containerPanel.add(boutonretour);
+	boutonretour.addActionListener(this);
 	
-	this.setTitle("Menu modifier personne");
+	this.setTitle("Menu personne");
 	this.setVisible(true);
 	
 	}
 	
 	/**
-	 * Cette fonction attend qu'on apuis sur le bouton et va vers crée personne modif personne ou supre personne
+	 * Cette méthode attend que l'on apuis sur le bouton et éxécute des actions en fonction du bouton
 	 */
 	public void actionPerformed(ActionEvent ae) {
 		
@@ -107,6 +114,9 @@ public class MenuPersonne extends JFrame implements ActionListener {
 					HubProg.suprefPersonne1();
 				}else if (ae.getSource()== boutonMenuPers4){					
 					HubProg.ListePersonne();
+				}else if (ae.getSource()== boutonretour){
+					Menu Menu=new Menu();
+					this.dispose();
 				}
 						
 		}catch (Exception e) {	

@@ -36,6 +36,10 @@ public class selectionProfil extends JFrame implements ActionListener{
 	 * le bouton valide la selection
 	 */
 	private JButton boutonValider;
+	/**
+	 * bouton
+	 */	
+	private JButton boutonretour;
 	
 	JTextArea zoneTextListConnection;
 
@@ -82,15 +86,17 @@ public class selectionProfil extends JFrame implements ActionListener{
 		containerPanel.add(boutonValider);
 		
 		boutonValider.addActionListener(this);
-		
+		boutonretour= new JButton("Retour");
+		containerPanel.add(boutonretour);
+		boutonretour.addActionListener(this);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setTitle("Menu modif profil");
+		this.setTitle("Menu selection profil");
 		this.setVisible(true);
 		
 		
 	}
 	/**
-	 * Cette methode attend qu'on apuis sur le bouton et actualise id si on apuis
+	 * Cette méthode attend que l'on apuis sur le bouton et éxécute des actions en fonction du bouton
 	 */
 public void actionPerformed(ActionEvent ae) {
 		
@@ -99,10 +105,10 @@ public void actionPerformed(ActionEvent ae) {
 			if(ae.getSource() == boutonValider) {
 				id=HubProg.ModifProfil2(textFieldNom.getText());
 				
-			}else {
-				
-				
-				}
+			}else if (ae.getSource()== boutonretour){
+				Menu Menu=new Menu();
+				this.dispose();
+			}
 		}catch (Exception e) {
 			
 		}

@@ -74,6 +74,10 @@ public class SelectionPersonneS extends JFrame implements ActionListener{
 	 * C'est le bouton qui valide la selection de la personne
 	 */
 	private JButton boutonValider;
+	/**
+	 * bouton
+	 */	
+	private JButton boutonretour;
 	
 	JTextArea zoneTextListConnection;
 
@@ -86,7 +90,7 @@ public class SelectionPersonneS extends JFrame implements ActionListener{
 	public SelectionPersonneS() {
 		
 		// on fixe le titre
-		this.setTitle("Menu sélectionner supression d'une personne");
+		this.setTitle("Menu sélectionner d'une personne");
 		// initialisation de la taille
 		this.setSize(500, 500);
 		
@@ -148,16 +152,17 @@ public class SelectionPersonneS extends JFrame implements ActionListener{
 		
 			
 		containerPanel.add(boutonValider);
-		
-		boutonValider.addActionListener(this);
+
+		boutonretour= new JButton("Retour");
+		containerPanel.add(boutonretour);
+		boutonretour.addActionListener(this);
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 		
 	}
-	
 	/**
-	 * Cette fonction attend qu'on apuis sur le bouton et supprime la personne choisi et va au menu
+	 * Cette méthode attend que l'on apuis sur le bouton et éxécute des actions en fonction du bouton
 	 */
 public void actionPerformed(ActionEvent ae) {
 		
@@ -165,10 +170,10 @@ public void actionPerformed(ActionEvent ae) {
 			
 			if(ae.getSource() == boutonValider) {
 				HubProg.suprePersonne2(textFieldNom.getText(), textFieldPrenom.getText(), textFieldDateDeNaissanceJ.getText(), textFieldDateDeNaissanceM.getText(),textFieldDateDeNaissanceA.getText());
-			}else {
-				
-				
-				}
+			}else if (ae.getSource()== boutonretour){
+				Menu Menu=new Menu();
+				this.dispose();
+			}
 					
 		}catch (Exception e) {	
 		}
