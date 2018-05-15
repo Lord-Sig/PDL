@@ -13,9 +13,21 @@ public class HubProg {
 	 * initialiser une fenêtre
 	 */
 	static selectionPersonneL selectionPersonneL;
+	/**
+	 * initialiser une fenêtre
+	 */
 	static Menu Menu;
+	/**
+	 * initialiser une fenêtre
+	 */
 	static ModifLieu ModifLieu;
+	/**
+	 * initialiser une fenêtre
+	 */
 	static supreLieu supreLieu;
+	/**
+	 * initialiser une fenêtre
+	 */
 	static menuLieu menuLieu;
 	/**
 	 * initialiser une fenêtre
@@ -148,8 +160,7 @@ public class HubProg {
 		return;
 	}
 	/**
-	 * action du bouton validé de crée personne et retourne sur la fenêtre menu
-	 * il ordone de mettre les donné dans la dao
+	 * Cette fonction envoi dans la fenêtre et crée dans la dao la personne
 	 * @param pnom
 	 * @param pprenom
 	 * @param pfonction
@@ -160,9 +171,6 @@ public class HubProg {
 	 */
 	public static void creePersonne2(String pnom,String pprenom, String pfonction,String jnaissancep,String mnaissancep,String anaissancep){
 		CreationPersonne.setVisible(false);
-		System.out.println(anaissancep);
-		System.out.println(mnaissancep);
-		System.out.println(jnaissancep);
 		Personnedao.ajouter( pnom, pprenom,  pfonction, jnaissancep, mnaissancep, anaissancep);
 		 Menu=new Menu();
 		CreationPersonne.dispose();
@@ -188,7 +196,7 @@ public class HubProg {
 	 * @param jnaissancep
 	 * @param mnaissancep
 	 * @param anaissancep
-	 * @return
+	 * @return id de la personne a modifier 
 	 */
 	public static int modifPersonne2(String pnom,String pprenom,String jnaissancep,String mnaissancep,String anaissancep) {
 		SelectionPersonneM.setVisible(false);
@@ -221,7 +229,7 @@ public class HubProg {
 		return;
 	}
 	/**
-	 * ouvre la fenêtre selection personne
+	 * passe à la fenêtre selection personne
 	 */
 	public static void suprefPersonne1() {
 		MenuPersonne.setVisible(false);
@@ -230,7 +238,7 @@ public class HubProg {
 		return;
 	}
 	/**
-	 * Suprime la personne et retourne a la fenêtre menu
+	 * Suprime la personne et passe à la fenêtre menu
 	 * @param pnom
 	 * @param pprenom
 	 * @param jnaissancep
@@ -249,7 +257,7 @@ public class HubProg {
 		return ;
 	}
 	/**
-	 * ouvre la fenêtre crée badge 
+	 * passe à la fenêtre crée badge 
 	 */
 	public static  void creeBadge1() {
 		MenuBadge.setVisible(false);
@@ -258,8 +266,8 @@ public class HubProg {
 		return;
 	}
 	/**
-	 * crée le badge
-	 * ouvre la fenêtre menu
+	 * crée le badge dans la dao
+	 * passe à la fenêtre menu
 	 * @param pnom
 	 * @param pprenom
 	 * @param jnaissancep
@@ -274,7 +282,7 @@ public class HubProg {
 		return;
 	}
 	/**
-	 * ouvre la fenêtre selection badge
+	 * passe à la fenêtre selection badge
 	 */
 	public static void supreBadge1() {
 		MenuBadge.setVisible(false);
@@ -283,8 +291,8 @@ public class HubProg {
 		return;
 	}
 	/**
-	 * supprime le badge 
-	 * ouvre la fenêtre menu
+	 * supprime le badge dans la dao
+	 * passe à la fenêtre menu
 	 * @param idbadge
 	 */
 	public static void supreBadge2(int idbadge) {
@@ -296,7 +304,7 @@ public class HubProg {
 		return;
 	}
 	/**
-	 * ouvre la fenêtre gerer profil 
+	 * passe à la fenêtre gerer profil 
 	 */
 	public static void gererProfil() {
 		Menu.setVisible(false);
@@ -305,7 +313,7 @@ public class HubProg {
 		return;
 	}
 	/**
-	 * Ouvre la fenêtre crée un badge
+	 * passe à la fenêtre crée un profil
 	 */
 	public static void CréeProfil() {
 		MenuProfil.setVisible(false);
@@ -314,7 +322,7 @@ public class HubProg {
 	}
 	/**
 	 * crée un profil 
-	 * ouvre la fenêtre menu
+	 * passe à la fenêtre menu
 	 * @param nomp
 	 * @param lieu
 	 * @param heuredebut
@@ -328,15 +336,12 @@ public class HubProg {
 			Lieu.add(mots[i]);
 			System.out.println(mots[i]);
         }
-		System.out.println(nomp);
-		System.out.println(heuredebut);
-		System.out.println(heurefin);
 		Menu = new Menu();
 		Profildao.ajouter(nomp, Lieu, heuredebut, heurefin);
 		CréeProfil.dispose();
 	}
 	/**
-	 * ouvre la fenêtre lection profil
+	 * passe à la fenêtre selection profil
 	 */
 	public static void ModifProfil() {
 		MenuProfil.setVisible(false);
@@ -345,7 +350,7 @@ public class HubProg {
 	}
 	/**
 	 * selectionne le profil
-	 * ouvre la fenêtre modif profil
+	 * passe à la fenêtre modifier profil
 	 * @param nomp
 	 * @return
 	 */
@@ -357,7 +362,7 @@ public class HubProg {
 	}
 	/**
 	 * modifie la personne 
-	 * ovre la fenêtre menu
+	 * passe à la fenêtre menu
 	 * @param nomp
 	 * @param lieu
 	 * @param heuredebut
@@ -380,7 +385,7 @@ public class HubProg {
 		return;
 	}
 	/**
-	 * ouvre la fenêtre selection profil
+	 * passe à la fenêtre selection profil
 	 */
 	public static void SupreProfil() {
 		MenuProfil.setVisible(false);
@@ -388,8 +393,8 @@ public class HubProg {
 		return;
 	}
 	/**
-	 * suprime le profil
-	 * ouvre la fenêtre menu
+	 * suprime le profil dans la dao
+	 * passe à la fenêtre menu
 	 * @param nomp
 	 */
 	public static void SupreProfil2() {
@@ -402,7 +407,7 @@ public class HubProg {
 		return;
 	}
 	/**
-	 * ouvre la fenêtre selection personne
+	 * passe à la fenêtre selection personne
 	 */
 	public static void setProfil() {
 		MenuProfil.setVisible(false);
@@ -412,13 +417,13 @@ public class HubProg {
 	}
 	/**
 	 * selectionne la personne 
-	 * ouvre la fenêtre selection profil
+	 * passe à la fenêtre selection profil
 	 * @param nomp
 	 * @param prenom
 	 * @param anne
 	 * @param mois
 	 * @param jour
-	 * @return
+	 * @return id de la personne selectioné 
 	 */
 	public static int setProfil2(String nomp, String prenom, String anne, String mois, String jour) {
 		selectionPersonneP.setVisible(false);
@@ -428,8 +433,8 @@ public class HubProg {
 		
 	}
 	/**
-	 * ouvre la fenêtre menu
-	 * uptade le profil
+	 * passe à la fenêtre menu
+	 * modifie le profil
 	 * @param profil
 	 * @param idpersonne
 	 */
@@ -442,7 +447,7 @@ public class HubProg {
 		return;
 	}
 	/**
-	 * ouvre la fenêtre selection profil
+	 * passe à la fenêtre selection profil
 	 */
 	public static void ListeProfil() {
 		MenuProfil.setVisible(false);
@@ -451,9 +456,9 @@ public class HubProg {
 		return ;
 	}
 	/**
-	 * ouvre la fenêtre affichage des personne
+	 * passe à la fenêtre affichage des personne
 	 * @param nomprof
-	 * @return
+	 * @return id du profil selectionné
 	 */
 	public static int ListeProfil2(String nomprof) {
 		selectionProfilL.setVisible(false);
@@ -462,7 +467,7 @@ public class HubProg {
 		return id;
 	}
 	/**
-	 * ouvre la fenêtre menu
+	 * passe à la fenêtre menu
 	 */
 	public static void 	ListeProfil3() {
 		selectionProfilL2.setVisible(false);
@@ -478,13 +483,13 @@ public class HubProg {
 		return ;
 	}
 	/**
-	 * ouvre la fenêtre affichage des personne
+	 * passe à la fenêtre affichage des personne
 	 * @param nomprof
 	 * @param string4 
 	 * @param string3 
 	 * @param string2 
 	 * @param string 
-	 * @return
+	 * @return ArrayList<Personne> des personnes selectionné
 	 */
 	public static void  ListePersonne2(String nomp, String prenomp) {
 		selectionPersonneL.setVisible(false);
@@ -494,7 +499,7 @@ public class HubProg {
 		return ;
 	}
 	/**
-	 * ouvre la fenêtre menu
+	 * passe à la fenêtre menu
 	 */
 	public static void 	ListePersonne3() {
 		selectionPersonneL2.setVisible(false);
@@ -502,18 +507,30 @@ public class HubProg {
 		selectionPersonneL2.dispose();
 		selectionPersonneL.dispose();
 		return ;
-	}
+	} 
+	/**
+	 * passe à la fenêtre Menu Lieu
+	 */
 	public static void MenuLieu() {
 		Menu.setVisible(false);
 		menuLieu = new menuLieu();
 		Menu.dispose();
 	}
+	/**
+	 * Passe à la fenêtre Crée Lieu
+	 */
 	public static void CréeLieu() {
 		menuLieu.setVisible(false);
 		créeLieu=new créeLieu();
 		menuLieu.dispose();
 		return ;
 	}
+	/**
+	 * Passe à la fenêtre Menu
+	 * crée le Lieu dans la Dao
+	 * @param nom
+	 * @param adresse
+	 */
 	public static void CréeLieu2(String nom, String adresse) {
 		créeLieu.setVisible(false);
 		LieuDAO.ajouter(nom, adresse);
@@ -521,12 +538,21 @@ public class HubProg {
 		créeLieu.dispose();
 		return ;
 	}
+	/**
+	 * Passe à la fenêtre modifié personne 
+	 */
 	public static void ModifLieu() {
 		menuLieu.setVisible(false);
 		ModifLieu=new ModifLieu();
 		menuLieu.dispose();
 		return ;
 	}
+	/**
+	 * passe à la fenêtre Menu
+	 * @param nomm nom du lieu à modifier 
+	 * @param nom le nouveau nom du lieu
+	 * @param adresse
+	 */
 	public static void ModifLieu2(String nomm, String nom, String adresse) {
 		ModifLieu.setVisible(false);
 		LieuDAO.modifie(nom, adresse,nomm);
@@ -534,12 +560,20 @@ public class HubProg {
 		ModifLieu.dispose();
 		return ;
 	}
+	/**
+	 * Passe à la fenêtre Selection Lieu
+	 */
 	public static void supreLieu() {
 		menuLieu.setVisible(false);
 		supreLieu=new supreLieu();
 		menuLieu.dispose();
 		return ;
 	}
+	/**
+	 * Supprime le lieu dans le dao
+	 * Passe à la fenêtre Menu
+	 * @param nom
+	 */
 	public static void supreLieu2(String nom) {
 		supreLieu.setVisible(false);
 		LieuDAO.supprimerLieu(nom);
