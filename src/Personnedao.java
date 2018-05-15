@@ -141,7 +141,7 @@ public static int modifie(String nomp,String prenomp,String fonction,String jour
  * @param joursp
  * @return
  */
-public ArrayList<Personne> Trouvepersonne(String nomp,String prenomp,String fonction,String annep,String moisp,String joursp) {
+public static ArrayList<Personne> Trouvepersonne(String nomp,String prenomp) {
 	ArrayList<Personne> personnetrouve =new ArrayList<Personne>();
 	java.sql.Connection con = null;
 	PreparedStatement ps = null;
@@ -149,19 +149,15 @@ public ArrayList<Personne> Trouvepersonne(String nomp,String prenomp,String fonc
 	// connexion à la base de données
 	try {
 	con = DriverManager.getConnection(URL, LOGIN, PASS);
-	ps = con.prepareStatement("SELECT * FROM PERSONNE WHERE nomp=? and prenomp=? and fonction=? and annep=? and moisp=? and joursp=?");
+	ps = con.prepareStatement("SELECT * FROM PERSONNE WHERE nomp=? and prenomp=? ");
 	ps.setString(1, nomp);
 	ps.setString(2, prenomp);
-	ps.setString(3, fonction);
-	ps.setString(4, annep);
-	ps.setString(5, moisp);
-	ps.setString(6, joursp);
 	//on exécute la requête
 	//rs contient un pointeur situé jusute avant la première ligne
 	//retournée
 	rs= ps.executeQuery();
 	while (rs.next())
-		personnetrouve.add(new Personne (rs.getString("nomp"),rs.getString("prenomp"),rs.getString("fonction"),rs.getInt("annep"),rs.getInt("moisp"),rs.getInt("joursp"),rs.getInt("idpersonne"),rs.getInt("idprofil")));
+		personnetrouve.add(new Personne(rs.getString("nomp"),rs.getString("prenomp"),rs.getString("fonction"),rs.getString("naissance"),rs.getInt("idpersonne"),rs.getInt("idprofil")));
 		
 	} catch (Exception ee) {
 		ee.printStackTrace();

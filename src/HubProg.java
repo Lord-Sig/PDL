@@ -12,7 +12,12 @@ public class HubProg {
 	/**
 	 * initialiser une fenêtre
 	 */
+	static selectionPersonneL selectionPersonneL;
 	static Menu Menu;
+	/**
+	 * initialiser une fenêtre
+	 */
+	static selectionPersonneL2 selectionPersonneL2;
 	/**
 	 * initialiser une fenêtre
 	 */
@@ -396,9 +401,9 @@ public class HubProg {
 	 * ouvre la fenêtre selection personne
 	 */
 	public static void setProfil() {
-		Menu.setVisible(false);
+		MenuProfil.setVisible(false);
 		selectionPersonneP= new selectionPersonneP();
-		Menu.dispose();
+		MenuProfil.dispose();
 		return ;
 	}
 	/**
@@ -436,9 +441,9 @@ public class HubProg {
 	 * ouvre la fenêtre selection profil
 	 */
 	public static void ListeProfil() {
-		Menu.setVisible(false);
+		MenuProfil.setVisible(false);
 		selectionProfilL= new selectionProfilL();
-		Menu.dispose();
+		MenuProfil.dispose();
 		return ;
 	}
 	/**
@@ -460,6 +465,38 @@ public class HubProg {
 		Menu = new Menu();
 		selectionProfilL2.dispose();
 		selectionProfilL.dispose();
+		return ;
+	}
+	public static void ListePersonne() {
+		MenuPersonne.setVisible(false);
+		selectionPersonneL= new selectionPersonneL();
+		MenuPersonne.dispose();
+		return ;
+	}
+	/**
+	 * ouvre la fenêtre affichage des personne
+	 * @param nomprof
+	 * @param string4 
+	 * @param string3 
+	 * @param string2 
+	 * @param string 
+	 * @return
+	 */
+	public static void  ListePersonne2(String nomp, String prenomp) {
+		selectionPersonneL.setVisible(false);
+		ArrayList<Personne> listpers = new ArrayList<Personne>();
+		listpers= Personnedao.Trouvepersonne(nomp, prenomp);
+		selectionPersonneL2= new selectionPersonneL2(listpers);
+		return ;
+	}
+	/**
+	 * ouvre la fenêtre menu
+	 */
+	public static void 	ListePersonne3() {
+		selectionPersonneL2.setVisible(false);
+		Menu = new Menu();
+		selectionPersonneL2.dispose();
+		selectionPersonneL.dispose();
 		return ;
 	}
 

@@ -14,7 +14,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class selectionProfilL2 extends JFrame implements ActionListener{
+public class selectionPersonneL2 extends JFrame implements ActionListener{
  
 	private static final long serialVersionUID = 1L;
 	/**
@@ -25,9 +25,13 @@ public class selectionProfilL2 extends JFrame implements ActionListener{
 	 * C'est du texte qu'on va afficher
 	 */
 	private JLabel label;
-	
+	/**
+	 * l'id du profil qu'on va retourner 
+	 */
 	private static int id;
-	
+	/**
+	 * bouton
+	 */
 	private JButton boutonValider;
 	
 	JTextArea zoneTextListConnection;
@@ -35,8 +39,11 @@ public class selectionProfilL2 extends JFrame implements ActionListener{
 	//private JLabel labelConnection;
 
 	JScrollPane zoneDefilement;
-	
-	public selectionProfilL2(int idprofil) {
+	/**
+	 * classe constructeur
+	 * @param idprofil
+	 */
+	public selectionPersonneL2(ArrayList<Personne> listpers) {
 		
 		// on fixe le titre
 		this.setTitle("Menu selection profil");
@@ -54,12 +61,10 @@ public class selectionProfilL2 extends JFrame implements ActionListener{
 		//this.setVisible(true);
 		//textFieldConnection = new JTextField();
 		boutonValider = new JButton("Menu");
-		
-		ArrayList<Personne> listpers = new ArrayList<Personne>();
-		listpers= Profildao.ListePersonneparProfil(idprofil);
+
 		boutonValider.addActionListener(this);
 		for (int i =0; i< listpers.size(); i=i+1) {
-			label = new JLabel(listpers.get(i).getnom()+"  "+listpers.get(i).getprenom()+"   "+listpers.get(i).getfonction());
+			label = new JLabel(listpers.get(i).getnom()+"  "+listpers.get(i).getprenom()+"   "+listpers.get(i).getfonction()+listpers.get(i).getNaissance() +"    "+Profildao.getNProfil(listpers.get(i).getIdprofil()));
 			
 			containerPanel.add(label);
 			containerPanel.add(Box.createRigidArea(new Dimension(0, 10)));  
@@ -81,7 +86,7 @@ public void actionPerformed(ActionEvent ae) {
 		try {
 			
 			if(ae.getSource() == boutonValider) {
-				HubProg.ListeProfil3();
+				HubProg.ListePersonne3();
 				
 			}else {
 				

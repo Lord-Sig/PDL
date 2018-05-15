@@ -106,7 +106,7 @@ public class MenuPersonne extends JFrame implements ActionListener {
 				}else if (ae.getSource()== boutonMenuPers3){					
 					HubProg.suprefPersonne1();
 				}else if (ae.getSource()== boutonMenuPers4){					
-					HubProg.suprefPersonne1();
+					HubProg.ListePersonne();
 				}
 						
 		}catch (Exception e) {	

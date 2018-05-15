@@ -15,15 +15,8 @@ String fonction;
 /**
  * jours de naissance
  */
-int jnaissance;
-/**
- * mois de naissance 
- */
-int mnaissance;
-/**
- * année de naissance
- */
-int anaissance;
+String naissance;
+
 /** id de lpersonne généré dans le sql
  * 
  */
@@ -43,12 +36,10 @@ int idprofil;
  * @param pidpersonne
  * @param pidprofil
  */
-public Personne(String pnom,String pprenom, String pfonction,int jnaissancep,int mnaissancep,int anaissancep,int pidpersonne, int pidprofil) {
+public Personne(String pnom,String pprenom, String pfonction,String naissancep,int pidpersonne, int pidprofil) {
 	nom=pnom;
 	prenom=pprenom;
-	jnaissance=jnaissancep;
-	mnaissance=mnaissancep;
-	anaissance=anaissancep;
+	naissance=naissancep;
 	fonction=pfonction; 
 	idpersonne=pidpersonne;
 	idprofil=pidprofil;
@@ -100,21 +91,8 @@ public String getnom() {
  * 
  * @return jnaissance
  */
-public int getJNaissance() {
-	return jnaissance;
+public String getNaissance() {
+	return naissance;
 }
-/** RÃ©cupÃ©ration de mnaissance
- * 
- * @return mnaissance
- */
-public int getMNaissance() {
-	return mnaissance;
-}
-/** RÃ©cupÃ©ration de anaissance
- * 
- * @return anaissance
- */
-public int getANaissance() {
-	return anaissance;
-}
+
 }
