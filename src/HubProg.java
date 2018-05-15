@@ -14,6 +14,7 @@ public class HubProg {
 	 */
 	static selectionPersonneL selectionPersonneL;
 	static Menu Menu;
+	static menuLieu menuLieu;
 	/**
 	 * initialiser une fenêtre
 	 */
@@ -498,6 +499,11 @@ public class HubProg {
 		selectionPersonneL2.dispose();
 		selectionPersonneL.dispose();
 		return ;
+	}
+	public static void MenuLieu() {
+		Menu.setVisible(false);
+		menuLieu = new menuLieu();
+		Menu.dispose();
 	}
 
 	

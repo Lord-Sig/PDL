@@ -91,15 +91,12 @@ public class Menu extends JFrame implements ActionListener {
 			
 			if(ae.getSource() == boutonMenu) {
 			HubProg.gererProfil();
-				
 			}else if(ae.getSource() == boutonMenu2) {
-				HubProg.gerePersonne();
+			HubProg.gerePersonne();
 			}else if(ae.getSource() == boutonMenu3) {
 			HubProg.gereBadge();
-					
-					
 			}else if(ae.getSource() == boutonMenu4) {
-					
+			HubProg.MenuLieu();
 					
 			}
 	}catch (Exception e) {	

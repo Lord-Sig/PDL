@@ -1,3 +1,10 @@
+import java.sql.*;
+import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.List;
+public class LieuDAO {
+	/**
+	 * url de connection a la BDD
 	 */
 	final static String URL = "jdbc:oracle:thin:@localhost:1521:xe";
 	/**
@@ -21,7 +28,7 @@
 			} 
 	}
 	
-	public void ajouter(int idp, String emplacementp, String horairesp, int nombreAccesp) {
+	public void ajouter(String nomp, String emplacementp) {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int retour = 0; 
@@ -33,11 +40,9 @@
 		// à communiquer dans l'insertion
 		// les getters permettent de récupérer les valeurs des attributs
 		// souhaités
-		ps = con.prepareStatement("INSERT INTO PERSONNE (id, emplacement, horaires, nombreAcces) VALUES(?,?,?,?,?,?,LIEU_SEQ.nextval,?)");
-		ps.setInt(1, idp);
+		ps = con.prepareStatement("INSERT INTO LIEU (nom, adresse, idlieu) VALUES(?,?,LIEU_SEQ.nextval)");
+		ps.setString(1, nomp);
 		ps.setString(2, emplacementp);
-		ps.setString(3, horairesp);
-		ps.setInt(4, nombreAccesp);
 
 		// Ex�cution de la requ�te
 		retour = ps.executeUpdate();
@@ -52,15 +57,15 @@
 		}
 	
 	
-	public int supprimerLieu(int idp) {
+	public int supprimerLieu(String nomp) {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int retour = 0;
 		try {
 
 			con = DriverManager.getConnection(URL, LOGIN, PASS);
-			ps = con.prepareStatement("DELETE FROM LIEU EMPLACEMENT = ? ");
-			ps.setInt(1, idp);
+			ps = con.prepareStatement("DELETE FROM LIEU WHERE nom = ? ");
+			ps.setString(1, nomp);
 
 		// Ex�cution de la requ�te
 			retour = ps.executeUpdate();
@@ -75,7 +80,35 @@
 
 	
 	}
+	public static int modifie(String nomp,String adresse,String noms ) {
+		Connection con = null;
+		PreparedStatement ps = null;
+		int retour = 0;
+		// connexion à la base de données
+		try {
+		// tentative de connexion
+		con = DriverManager.getConnection(URL, LOGIN, PASS);
+		// préparation de l'instruction SQL, chaque ? représente une valeur
+		// à communiquer dans l'insertion
+		// les getters permettent de récupérer les valeurs des attributs
+		// souhaités
+		ps = con.prepareStatement("UPDATE Lieu SET nom=?, adresse=? where nom=?");
+		ps.setString(1,nomp);
+		ps.setString(2, adresse);
+		ps.setString(3,noms);
+		// Exécution de la requête
+		retour = ps.executeUpdate();
+		} catch (Exception e) {
+		e.printStackTrace();
+		} finally {
+		// fermeture du preparedStatement et de la connexion
+		try {if (ps != null) ps.close(); } catch (Exception ignore) {}
+		try {if (con != null) con.close();} catch (Exception ignore) {}
+		}
+		return retour;
+		}
 	
 	
 		
 	}
+

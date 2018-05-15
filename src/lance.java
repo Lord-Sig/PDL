@@ -5,7 +5,7 @@ public class lance {
 	public static void main(String[] args) {
 		//int id =Personnedao.getIdpersonne( "nomp", "prenomp", "01", "01","97");
 		//System.out.println(id);
-		HubProg h=new HubProg();
+		//HubProg h=new HubProg();
 		//Personnedao.ajouter("nomp", "prenomp", "onction", "01", "01", "97");
 		//System.out.println(Personnedao.getIdpersonne("a", "a", "01", "02","98"));//MenuProfil MenuProfil= new MenuProfil();
 		//Menu Me= new Menu();
@@ -28,5 +28,7 @@ public class lance {
 		//Profildao Profildao =new Profildao();
 		//HubProg.CréeProfil2("eleve", "a/z/er/t", "01", "11");
 		//Profildao.modifieprofilpersonne(23, 92);
+		//LieuDAO lieu =new LieuDAO();
+		//lieu.supprimerLieu("zzzz");
 	}
 }
