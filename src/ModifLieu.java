@@ -18,24 +18,46 @@ import java.util.List;
 public class ModifLieu extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
-	
+	/**
+	 * containerPanel 
+	 * Ce paremettre crée un panel pour contenir les objets
+	 */
 	private JPanel containerPanel;
-	
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JTextField textFieldNom;
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JTextField textFieldNomm;
+	/**
+	 * C'est du texte qu'on va récuperer
+	 */
 	private JTextField textFieldAdresse;
-	
+	/**
+	 * On a le texte que l'on va afficher
+	 */
 	private JLabel labelNom;
+	/**
+	 * On a le texte que l'on va afficher
+	 */
 	private JLabel labelAdresse;
 	
-	
+	/**
+	 * bouton qui valide la modification
+	 */
 	private JButton boutonModifier;
+	/**
+	 * bouton
+	 */	
+	private JButton boutonretour;
 	
 	public ModifLieu() {
 		
 		
 		// on fixe le titre		
-		this.setTitle("Menu crée lieu");
+		this.setTitle("Menu Modifié lieu");
 		// initialisation de la taille
 		this.setSize(500, 500);
 		
@@ -52,7 +74,7 @@ public class ModifLieu extends JFrame implements ActionListener {
 		textFieldNom = new JTextField();
 		textFieldAdresse = new JTextField();
 		
-		labelNom = new JLabel("Nom du profil a modifier  :");
+		labelNom = new JLabel("Nom du lieu a modifier  :");
 		labelAdresse = new JLabel("Adresse :");
 		
 		
@@ -74,7 +96,8 @@ public class ModifLieu extends JFrame implements ActionListener {
 		containerPanel.add(Box.createRigidArea(new Dimension(0, 10)));
 		
 		containerPanel.add(boutonModifier);
-		
+		boutonretour= new JButton("Retour");
+		containerPanel.add(boutonretour);
 		
 		boutonModifier.addActionListener(this);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -84,7 +107,9 @@ public class ModifLieu extends JFrame implements ActionListener {
 		
 	}
 	
-	
+	/**
+	 * Cette méthode attend que l'on apuis sur le bouton et éxécute des actions
+	 */
 public void actionPerformed(ActionEvent ae) {
 		
 		try {
@@ -92,6 +117,9 @@ public void actionPerformed(ActionEvent ae) {
 			if(ae.getSource() == boutonModifier) {
 				System.out.println("z");
 			HubProg.ModifLieu2(textFieldNomm.getText(),textFieldNom.getText(),textFieldAdresse.getText());
+		}else if (ae.getSource()== boutonretour){
+			Menu Menu=new Menu();
+			this.dispose();
 		}
 		
 		

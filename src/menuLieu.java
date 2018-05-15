@@ -19,9 +19,9 @@ public class menuLieu extends JFrame implements ActionListener {
 
 	
 	private static final long serialVersionUID = 1L;
-
 	/**
-	 * bouton
+	 * containerPanel 
+	 * Ce paremettre crée un panel pour contenir les objets
 	 */
 	private JPanel containerPanel;
 	/**
@@ -42,6 +42,10 @@ public class menuLieu extends JFrame implements ActionListener {
 	 * bouton
 	 */	
 	private JButton boutonMenuPers4;
+	/**
+	 * bouton
+	 */	
+	private JButton boutonretour;
 	
 	
 	JTextArea zoneTextListConnection;
@@ -76,11 +80,16 @@ public class menuLieu extends JFrame implements ActionListener {
 	containerPanel.add(boutonMenuPers2);
 	containerPanel.add(boutonMenuPers3);
 	
+	boutonretour= new JButton("Retour");
+	containerPanel.add(boutonretour);
+
+	
 	
 	boutonMenuPers.addActionListener(this);
 	//boutonMenuPers2.addActionListener(this);
 	boutonMenuPers2.addActionListener(this);
 	boutonMenuPers3.addActionListener(this);
+	boutonretour.addActionListener(this);
 	
 	this.setTitle("Menu modifier personne");
 	this.setVisible(true);
@@ -100,7 +109,11 @@ public class menuLieu extends JFrame implements ActionListener {
 					HubProg.ModifLieu();
 				}else if (ae.getSource()== boutonMenuPers3){
 					HubProg.supreLieu	();
+				}else if (ae.getSource()== boutonretour){
+					Menu Menu=new Menu();
+					this.dispose();
 				}
+				
 			
 						
 		}catch (Exception e) {	
