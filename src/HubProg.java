@@ -151,6 +151,9 @@ public class HubProg {
 	 */
 	public static void creePersonne2(String pnom,String pprenom, String pfonction,String jnaissancep,String mnaissancep,String anaissancep){
 		CreationPersonne.setVisible(false);
+		System.out.println(anaissancep);
+		System.out.println(mnaissancep);
+		System.out.println(jnaissancep);
 		Personnedao.ajouter( pnom, pprenom,  pfonction, jnaissancep, mnaissancep, anaissancep);
 		 Menu=new Menu();
 		CreationPersonne.dispose();
@@ -182,6 +185,8 @@ public class HubProg {
 		SelectionPersonneM.setVisible(false);
 		int id =Personnedao.getIdpersonne( pnom, pprenom, jnaissancep, mnaissancep, anaissancep);
 		ModifPersonne= new ModifPersonne();
+
+		 System.out.println(id);
 		return id;
 	}
 	/**
@@ -198,6 +203,7 @@ public class HubProg {
 	public static void modifPersonne3(String pnom,String pprenom,String fonction,String jnaissancep,String mnaissancep,String anaissancep,int idpersonne) {
 		ModifPersonne.setVisible(false);
 		 Menu=new Menu();
+		 System.out.println(idpersonne);
 		Personnedao.modifie(pnom,pprenom,fonction,jnaissancep,mnaissancep,anaissancep, idpersonne);
 		ModifPersonne.dispose();
 		SelectionPersonneM.dispose();
@@ -224,7 +230,7 @@ public class HubProg {
 	 */
 	public static void suprePersonne2(String pnom,String pprenom,String jnaissancep,String mnaissancep,String anaissancep) {
 		SelectionPersonneS.setVisible(false);
-		int id =Personnedao.getIdpersonne( pnom, pprenom, anaissancep, mnaissancep, jnaissancep);
+		int id =Personnedao.getIdpersonne( pnom, pprenom, jnaissancep, mnaissancep, anaissancep);
 		System.out.println(id);
 		Personnedao.supprime(id);
 		Menu Menu= new Menu();
@@ -251,10 +257,9 @@ public class HubProg {
 	 * @param mnaissancep
 	 * @param anaissancep
 	 */
-	public static void creeBadge2(String pnom,String pprenom,String jnaissancep,String mnaissancep,String anaissancep) {
+	public static void creeBadge2() {
 		SelectionPersonneB.setVisible(false);
-		int id =Personnedao.getIdpersonne( pnom, pprenom, jnaissancep, mnaissancep, anaissancep);
-		Badgedao.ajouter(id);
+		Badgedao.ajouter(SelectionPersonneB.getID());
 		 Menu= new Menu();
 		SelectionPersonneB.dispose();
 		return;
@@ -378,13 +383,13 @@ public class HubProg {
 	 * ouvre la fenêtre menu
 	 * @param nomp
 	 */
-	public static void SupreProfil2(String nomp) {
+	public static void SupreProfil2() {
+		System.out.println("z");
 		selectionProfil.setVisible(false);
-		Menu =new Menu();
-		int id =Profildao.getIdprofil(nomp);
-		System.out.println(id);
-		Profildao.supprime(id);
+		Menu m=new Menu();
+		Profildao.supprime(selectionProfil.getID());
 		selectionProfil.dispose();
+		selectionProfilS.dispose();
 		return;
 	}
 	/**

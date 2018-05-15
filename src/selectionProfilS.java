@@ -89,15 +89,16 @@ public class selectionProfilS extends JFrame implements ActionListener{
 		
 	}
 	/**
-	 * Cette fonction attend qu'on apuis sur le bouton et supprim profil
+	 * Cette fonction attend qu'on apuis sur le bouton et supprime profil et ouvre le menu0
 	 */
 public void actionPerformed(ActionEvent ae) {
 		
 		try {
 			
 			if(ae.getSource() == boutonValider) {
-
-				HubProg.SupreProfil2(textFieldNom.getText());
+				int id =Profildao.getIdprofil(textFieldNom.getText());
+				System.out.println(id);
+				HubProg.SupreProfil2();
 				
 			}else {
 				

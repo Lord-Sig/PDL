@@ -21,23 +21,27 @@ public class MenuPersonne extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * C'est du texte qu'on va récuperer
+	 * bouton
 	 */
 	private JPanel containerPanel;
 	/**
-	 * cette variable stock l'id de la personne selectionné
+	 *bouton
 	 */
 	private JButton boutonMenuPers;
 	/**
-	 * cette variable stock l'id de la personne selectionné
+	 *bouton
 	 */
 	private JButton boutonMenuPers2;
 
 
 	/**
-	 * cette variable stock l'id de la personne selectionné
+	 * bouton
 	 */	
 	private JButton boutonMenuPers3;
+	/**
+	 * bouton
+	 */	
+	private JButton boutonMenuPers4;
 	
 	
 	JTextArea zoneTextListConnection;
@@ -64,19 +68,22 @@ public class MenuPersonne extends JFrame implements ActionListener {
 	boutonMenuPers = new JButton("Créer personne");
 	//boutonMenuPers2 = new JButton("Sélectionner personne");
 	boutonMenuPers2 = new JButton("Modifier personne");
-	boutonMenuPers3 = new JButton("Supprimer badge");
+	boutonMenuPers3 = new JButton("Supprimer personne");
+	boutonMenuPers4 = new JButton("liste les personnes");
 	
 	
 	containerPanel.add(boutonMenuPers);
 	//containerPanel.add(boutonMenuPers2);
 	containerPanel.add(boutonMenuPers2);
 	containerPanel.add(boutonMenuPers3);
+	containerPanel.add(boutonMenuPers4);
 	
 	
 	boutonMenuPers.addActionListener(this);
 	//boutonMenuPers2.addActionListener(this);
 	boutonMenuPers2.addActionListener(this);
 	boutonMenuPers3.addActionListener(this);
+	boutonMenuPers4.addActionListener(this);
 	
 	
 	this.setTitle("Menu modifier personne");
@@ -97,6 +104,8 @@ public class MenuPersonne extends JFrame implements ActionListener {
 					HubProg.modifPersonne1();
 					
 				}else if (ae.getSource()== boutonMenuPers3){					
+					HubProg.suprefPersonne1();
+				}else if (ae.getSource()== boutonMenuPers4){					
 					HubProg.suprefPersonne1();
 				}
 						

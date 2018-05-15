@@ -46,7 +46,7 @@ public class Personnedao {
 		// les getters permettent de récupérer les valeurs des attributs
 		// souhaités
 		String date = joursp +"/"+moisp+"/"+annep;
-		ps = con.prepareStatement("INSERT INTO PERSONNE (nomp, prenomp, fonction, naissance, idpersonne) VALUES(?,?,?,TO_DATE(?, 'DD/MM/YYYY'),PERSONNE_SEQ.nextval)");
+		ps = con.prepareStatement("INSERT INTO PERSONNE (nomp, prenomp, fonction, naissance, idpersonne) VALUES(?,?,?,TO_DATE(?, 'DD/MM/YY'),PERSONNE_SEQ.nextval)");
 		ps.setString(1, nomp);
 		ps.setString(2, prenomp);
 		ps.setString(3, fonction);
@@ -114,7 +114,7 @@ public static int modifie(String nomp,String prenomp,String fonction,String jour
 
 		String date = joursp +"/"+moisp+"/"+annep;
 		// souhaités
-		ps = con.prepareStatement("UPDATE PERSONNE SET nomp=?, prenomp=?, fonction=?,naissance=TO_DATE(?, 'DD/MM/YYYY') WHERE idpersonne=?");
+		ps = con.prepareStatement("UPDATE PERSONNE SET nomp=?, prenomp=?, fonction=?,naissance=TO_DATE(?, 'DD/MM/YY') WHERE idpersonne=?");
 		ps.setString(1,nomp);
 		ps.setString(2, prenomp);
 		ps.setString(3, fonction);
@@ -183,7 +183,7 @@ public ArrayList<Personne> Trouvepersonne(String nomp,String prenomp,String fonc
  * @param joursp
  * @return
  */
-public static int getIdpersonne(String nomp,String prenomp,String annep,String moisp,String joursp) {
+public static int getIdpersonne(String nomp,String prenomp,String joursp,String moisp,String annep) {
 	int idpersonner = 0 ;
 	java.sql.Connection con = null;
 	PreparedStatement ps = null;
@@ -192,7 +192,7 @@ public static int getIdpersonne(String nomp,String prenomp,String annep,String m
 	// connexion à la base de données
 	try {
 	con = DriverManager.getConnection(URL, LOGIN, PASS);
-	ps = con.prepareStatement("SELECT idpersonne FROM PERSONNE WHERE nomp=? and prenomp=? and naissance=TO_DATE(?, 'DD/MM/YYYY') ");
+	ps = con.prepareStatement("SELECT idpersonne FROM PERSONNE WHERE nomp=? and prenomp=? and naissance=TO_DATE(?, 'DD/MM/YY') ");
 	ps.setString(1, nomp);
 	ps.setString(2, prenomp);
 	ps.setString(3, date);

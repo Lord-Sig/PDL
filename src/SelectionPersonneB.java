@@ -61,6 +61,8 @@ public class SelectionPersonneB extends JFrame implements ActionListener{
 	/**
 	 * On a le texte que l'on va afficher
 	 */
+	private int id;
+	
 	private JLabel labelDateDeNaissanceA;
 	/**
 	 * Le bouton pour valider la selection
@@ -155,7 +157,9 @@ public void actionPerformed(ActionEvent ae) {
 		try {
 			
 			if(ae.getSource() == boutonValider) {
-				HubProg.creeBadge2(textFieldNom.getText(), textFieldPrenom.getText(), textFieldDateDeNaissanceJ.getText(), textFieldDateDeNaissanceM.getText(), textFieldDateDeNaissanceA.getText());
+				id =Personnedao.getIdpersonne(textFieldNom.getText(), textFieldPrenom.getText(), textFieldDateDeNaissanceJ.getText(), textFieldDateDeNaissanceM.getText(), textFieldDateDeNaissanceA.getText());
+				System.out.println(id);
+				HubProg.creeBadge2();
 			}else {
 				
 				
@@ -164,5 +168,8 @@ public void actionPerformed(ActionEvent ae) {
 			
 		}
 		
+}
+public int getID() {
+	return id;
 }
 }

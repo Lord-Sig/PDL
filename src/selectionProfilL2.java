@@ -25,9 +25,13 @@ public class selectionProfilL2 extends JFrame implements ActionListener{
 	 * C'est du texte qu'on va afficher
 	 */
 	private JLabel label;
-	
+	/**
+	 * l'id du profil qu'on va retourner 
+	 */
 	private static int id;
-	
+	/**
+	 * bouton
+	 */
 	private JButton boutonValider;
 	
 	JTextArea zoneTextListConnection;
@@ -35,7 +39,10 @@ public class selectionProfilL2 extends JFrame implements ActionListener{
 	//private JLabel labelConnection;
 
 	JScrollPane zoneDefilement;
-	
+	/**
+	 * classe constructeur
+	 * @param idprofil
+	 */
 	public selectionProfilL2(int idprofil) {
 		
 		// on fixe le titre

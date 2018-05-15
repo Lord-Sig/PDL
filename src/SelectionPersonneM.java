@@ -171,7 +171,7 @@ public void actionPerformed(ActionEvent ae) {
 		try {
 			
 			if(ae.getSource() == boutonValider) {
-				id=HubProg.modifPersonne2(textFieldNom.getText(), textFieldPrenom.getText(), textFieldDateDeNaissanceA.getText(), textFieldDateDeNaissanceM.getText(),textFieldDateDeNaissanceJ.getText());
+				id=HubProg.modifPersonne2(textFieldNom.getText(), textFieldPrenom.getText(), textFieldDateDeNaissanceJ.getText(), textFieldDateDeNaissanceM.getText(),textFieldDateDeNaissanceA.getText());
 			}else {
 				
 				
@@ -186,6 +186,7 @@ public void actionPerformed(ActionEvent ae) {
  * @return id
  */
 public static int getID() {
+	System.out.println(id);
 	return id;
 }
 }
