@@ -28,7 +28,7 @@ public class LieuDAO {
 			} 
 	}
 	
-	public void ajouter(String nomp, String emplacementp) {
+	public static void ajouter(String nomp, String emplacementp) {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int retour = 0; 
@@ -57,7 +57,7 @@ public class LieuDAO {
 		}
 	
 	
-	public int supprimerLieu(String nomp) {
+	public static int supprimerLieu(String nomp) {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int retour = 0;

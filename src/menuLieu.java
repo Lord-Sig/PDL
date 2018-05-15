@@ -95,11 +95,11 @@ public class menuLieu extends JFrame implements ActionListener {
 		try {
 				
 				if(ae.getSource() == boutonMenuPers) {
-
+					HubProg.CréeLieu();
 				}else if (ae.getSource() == boutonMenuPers2){
-
+					HubProg.ModifLieu();
 				}else if (ae.getSource()== boutonMenuPers3){
-
+					HubProg.supreLieu	();
 				}
 			
 						

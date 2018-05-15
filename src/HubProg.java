@@ -14,6 +14,8 @@ public class HubProg {
 	 */
 	static selectionPersonneL selectionPersonneL;
 	static Menu Menu;
+	static ModifLieu ModifLieu;
+	static supreLieu supreLieu;
 	static menuLieu menuLieu;
 	/**
 	 * initialiser une fenêtre
@@ -55,6 +57,7 @@ public class HubProg {
 	 * initialiser une fenêtre
 	 */
 	static MenuProfil MenuProfil;
+	static créeLieu créeLieu;
 	/**
 	 * initialiser une fenêtre
 	 */
@@ -505,7 +508,45 @@ public class HubProg {
 		menuLieu = new menuLieu();
 		Menu.dispose();
 	}
-
+	public static void CréeLieu() {
+		menuLieu.setVisible(false);
+		créeLieu=new créeLieu();
+		menuLieu.dispose();
+		return ;
+	}
+	public static void CréeLieu2(String nom, String adresse) {
+		créeLieu.setVisible(false);
+		LieuDAO.ajouter(nom, adresse);
+		Menu = new Menu();
+		créeLieu.dispose();
+		return ;
+	}
+	public static void ModifLieu() {
+		menuLieu.setVisible(false);
+		ModifLieu=new ModifLieu();
+		menuLieu.dispose();
+		return ;
+	}
+	public static void ModifLieu2(String nomm, String nom, String adresse) {
+		ModifLieu.setVisible(false);
+		LieuDAO.modifie(nom, adresse,nomm);
+		Menu = new Menu();
+		ModifLieu.dispose();
+		return ;
+	}
+	public static void supreLieu() {
+		menuLieu.setVisible(false);
+		supreLieu=new supreLieu();
+		menuLieu.dispose();
+		return ;
+	}
+	public static void supreLieu2(String nom) {
+		supreLieu.setVisible(false);
+		LieuDAO.supprimerLieu(nom);
+		Menu =new Menu();
+		supreLieu.dispose();
+		return ;
+	}
 	
 }
 
