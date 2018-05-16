@@ -45,7 +45,8 @@ public class selectionPersonneL2 extends JFrame implements ActionListener{
 	JScrollPane zoneDefilement;
 	/**
 	 * classe constructeur
-	 * @param idprofil
+	 * @param listpers
+	 * liste de personnes 
 	 */
 	public selectionPersonneL2(ArrayList<Personne> listpers) {
 		

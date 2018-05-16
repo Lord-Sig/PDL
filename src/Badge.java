@@ -11,7 +11,9 @@ public class Badge {
 	/** constructeurs de la classe
 	 * 
 	 * @param pidpersonne
+	 * id de la personne lié au badge
 	 * @param pidbadge
+	 * id du badge 
 	 */  
 	public Badge(int pidpersonne, int pidbadge) {
 		idpersonne=pidpersonne;

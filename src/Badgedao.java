@@ -30,7 +30,8 @@ public class Badgedao {
 	}
 	/**crÃ©e un badge dans la BDD
 	 * 
-	 * @param badge
+	 * @param idpersonne
+	 * id de la personne lié au badge
 	 * @return none
 	 */
 	public static int ajouter(int idpersonne) {
@@ -62,7 +63,8 @@ public class Badgedao {
 		}
 	/** supprime le badge dans la BDD
 	 * 
-	 * @param badge
+	 * @param idbadge
+	 * Id du badge
 	 * @return none
 	 */
 	public static int supprime(int idbadge) {
@@ -93,6 +95,7 @@ public class Badgedao {
 	/** 
 	 * Cette fonction dit si un badge existe 
 	 * @param idpersonne
+	 * id de la personne dons on verif l'existance
 	 * @return boolean 
 	 */
 	public boolean ExisteBadge (int idpersonne) {

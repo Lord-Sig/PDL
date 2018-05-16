@@ -30,7 +30,9 @@ public class LieuDAO {
 	/**
 	 * Ajoute un lieu dans la dao
 	 * @param nomp
+	 * nom du lieu
 	 * @param emplacementp
+	 * adresse du lieu
 	 */
 	public static void ajouter(String nomp, String emplacementp) {
 		Connection con = null;
@@ -63,6 +65,7 @@ public class LieuDAO {
 	/** 
 	 * supprime un personne de la dao
 	 * @param nomp
+	 * nom du lieu a supprimer
 	 * @return none
 	 */
 	public static int supprimerLieu(String nomp) {
@@ -91,8 +94,11 @@ public class LieuDAO {
 	/**
 	 * Modifie une personne dans la dao
 	 * @param nomp
+	 * nouveau nom
 	 * @param adresse
+	 * nouvelle adresse
 	 * @param noms
+	 * nom du lieu a modifier
 	 * @return none
 	 */
 	public static int modifie(String nomp,String adresse,String noms ) {

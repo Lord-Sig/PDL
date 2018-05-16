@@ -28,10 +28,20 @@ public class Personnedao {
 	System.err.println("Impossible de charger le pilote de BDD, ne pas oublier d'importer le fichier .jar dans le projet");
 	} 
 	}
-	/** cette commande crÃ©e dans la BDD la personne
-	 * 
-	 * @param personne
-	 * @return none
+	/**
+	 * cette commande crÃ©e dans la BDD la personne
+	 * @param nomp
+	 * nom de la personne 
+	 * @param prenomp
+	 * prenom de la personne
+	 * @param fonction
+	 * fonction de la personne
+	 * @param joursp
+	 * jours de naissance de la personne
+	 * @param moisp
+	 * mois de naissance de la personne
+	 * @param annep
+	 * année de naissance de la personne
 	 */
 	public static void ajouter(String nomp,String prenomp,String fonction,String joursp,String moisp,String annep) {
 		Connection con = null;
@@ -64,7 +74,8 @@ public class Personnedao {
 		}
 	/** cette commande supprime dans la BDD la personne
 	 * 
-	 * @param personne
+	 * @param idpersonnep
+	 * id de la personne a supprimé
 	 * @return none 
 	 */
 	public static int supprime(int idpersonnep) {
@@ -94,12 +105,22 @@ public class Personnedao {
 		}
 		return retour;
 		}
-	/** cette commande modifiÃ©  dans la BDD la personne
-	 * personne 2 est celle qu'on modifie la 1 les nouvelle valeurs 
-	 * @param personne1
-	 * personne que l'on veut 
-	 * @param idpersonnep  
-	 *id de la personne a modifiÃ© 
+	/**
+	 * cette commande modifiÃ©  dans la BDD la personne
+	 * @param nomp
+	 * nouveau nom
+	 * @param prenomp
+	 * nouveau prenomp
+	 * @param fonction
+	 * nouvelle fonction
+	 * @param joursp
+	 * nouveau jours de naissance
+	 * @param moisp
+	 * nouveau mois de naissance
+	 * @param annep
+	 * nouvelle année de naissance
+	 * @param idpersonnep 
+	 * id de la personne a modifié
 	 * @return none
 	 */
 public static int modifie(String nomp,String prenomp,String fonction,String joursp,String moisp,String annep, int idpersonnep ) {
@@ -134,14 +155,13 @@ public static int modifie(String nomp,String prenomp,String fonction,String jour
 		return retour;
 		}
 /**
- *  Cette commande Retourne les personne corespondant a une entré
+ * Cette commande Retourne les personne corespondant a une entré
  * @param nomp
+ * nom de la personne a selectionner
  * @param prenomp
- * @param fonction
- * @param annep
- * @param moisp
- * @param joursp
- * @return none
+ * prenom de la personne a selectionner
+ * @return personnetrouve
+ *  liste de personne
  */
 public static ArrayList<Personne> Trouvepersonne(String nomp,String prenomp) {
 	ArrayList<Personne> personnetrouve =new ArrayList<Personne>();
@@ -175,10 +195,15 @@ public static ArrayList<Personne> Trouvepersonne(String nomp,String prenomp) {
 /**trouve l'id d'une personne dans la dao
  * 
  * @param nomp
+ * nom de la personne  dons on veut l'id
  * @param prenomp
+ * prenom de la personne  dons on veut l'id
  * @param annep
+ * annéede naissance de la personne  dons on veut l'id
  * @param moisp
+ * mois de naissance  de la personne  dons on veut l'id
  * @param joursp
+ * jours de naissance  de la personne  dons on veut l'id
  * @return none
  */
 public static int getIdpersonne(String nomp,String prenomp,String joursp,String moisp,String annep) {

@@ -25,7 +25,9 @@ public class Connection {
 	/** Fonction de vérification lors de la connection 
 	 * 
 	 * @param compte
+	 * nom de compte
 	 * @param code
+	 * code du compte
 	 * @return true si le nom de compte et le code sont juste false sinon
 	 */
 	public static boolean VerrifieCompte(String compte, String code) {

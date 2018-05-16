@@ -128,7 +128,7 @@ public class ModifProfil extends JFrame implements ActionListener{
 		boutonretour= new JButton("Retour");
 		containerPanel.add(boutonretour);
 		boutonretour.addActionListener(this);
-		
+		boutonValider.addActionListener(this);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setTitle("Menu modification profil");
 		this.setVisible(true);
@@ -143,6 +143,7 @@ public void actionPerformed(ActionEvent ae) {
 		try {
 			
 			if(ae.getSource() == boutonValider) {
+				System.out.println("s");
 				HubProg.ModifProfil3(textFieldNom.getText(),textFieldLieu.getText(),textFieldheuredébut.getText(),textFieldheurefin.getText(),selectionProfil.getID());
 				
 			}else if (ae.getSource()== boutonretour){

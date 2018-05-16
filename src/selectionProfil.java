@@ -104,7 +104,7 @@ public void actionPerformed(ActionEvent ae) {
 			
 			if(ae.getSource() == boutonValider) {
 				id=HubProg.ModifProfil2(textFieldNom.getText());
-				
+				HubProg.ModifProfil2(textFieldNom.getText());
 			}else if (ae.getSource()== boutonretour){
 				Menu Menu=new Menu();
 				this.dispose();

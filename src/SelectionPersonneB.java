@@ -111,9 +111,9 @@ public class SelectionPersonneB extends JFrame implements ActionListener{
 		
 		labelNom = new JLabel("Nom :");
 		labelPrenom = new JLabel("Prenom :");
-		labelDateDeNaissanceJ = new JLabel("Jour de naissance :");
-		labelDateDeNaissanceM = new JLabel("Mois de naissance :");
-		labelDateDeNaissanceA = new JLabel("Année de naissance :");
+		labelDateDeNaissanceJ = new JLabel("Jour de naissance sous la forme dd:");
+		labelDateDeNaissanceM = new JLabel("Mois de naissance sous la forme mm :");
+		labelDateDeNaissanceA = new JLabel("Année de naissance sous la forme aa:");
 		
 		//labelConnection = new JLabel(":");
 		

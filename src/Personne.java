@@ -28,13 +28,17 @@ int idprofil;
 /** classe constructeur
  *  
  * @param pnom
+ * nom de la personne
  * @param pprenom
+ * prenom de la personne
  * @param pfonction
- * @param jnaissancep
- * @param mnaissancep
- * @param anaissancep
+ * fonction de la personne
+ * @param naissancep
+ * naissance de la personne 
  * @param pidpersonne
+ * id de la personne
  * @param pidprofil
+ * id du profil de la personne
  */
 public Personne(String pnom,String pprenom, String pfonction,String naissancep,int pidpersonne, int pidprofil) {
 	nom=pnom;
@@ -54,7 +58,8 @@ public Personne(String pnom,String pprenom, String pfonction,int pidpersonne, in
 
 /** Récupération de Idprofil
  * 
- * @return
+ * @return id
+ * id du profil
  */
 public int getIdprofil() {
 	return idprofil;

@@ -30,9 +30,13 @@ public class Profildao {
 	/**
 	 * Cette commande crée un profil dans la BDD
 	 * @param nomprofil
+	 * nom de profil
 	 * @param acceslieu
+	 * liste des lieux 
 	 * @param heuredebut
+	 * heure de début d'entré
 	 * @param heurefin
+	 * heure de fin d'entré
 	 */
 	public static void ajouter(String nomprofil,ArrayList<String> acceslieu,String heuredebut,String heurefin) {
 		Connection con = null;
@@ -79,6 +83,8 @@ public class Profildao {
 	/**
 	 * cette commande supprime dans la BDD le profil
 	 * @param idprofil
+	 * id du profil voulue
+	 * @return id
 	 */
 	public static int supprime(int idprofil) {
 		Connection con = null;
@@ -108,10 +114,15 @@ public class Profildao {
 	/**
 	 * Cette commande suprime d'abord le profil qu'on modifie puis on recré avec les valeurs voulue 
 	 * @param nomprofil
+	 * nouveau nom du profil
 	 * @param acceslieu
+	 * nouvelle liste de lieu
 	 * @param heuredebut
+	 * nouvelle horaire
 	 * @param heurefin
+	 * nouvelle horaire
 	 * @param idprofil
+	 * id du profil a modifier
 	 * @return none 
 	 */
 public static int modifie(String nomprofil,ArrayList<String> acceslieu,String heuredebut,String heurefin, int idprofil ) {
@@ -161,7 +172,9 @@ public static int modifie(String nomprofil,ArrayList<String> acceslieu,String he
 		}
 /**Récupere l'id d'un profil grace a nomprofil 
  * @param nomprofil
- * @return id id du profil
+ * nom du profil du qu'elle on veut l'id
+ * @return id 
+ * id du profil
  */
 public static int getIdprofil(String nomprofil) {
 	int idprofil = 0 ;
@@ -193,7 +206,9 @@ public static int getIdprofil(String nomprofil) {
 /**
  *  retourne le nom du profil
  * @param idprofil
- * @return NProfil le nom du profil voulue 
+ * id du profil voulue
+ * @return NProfil
+ *le nom du profil voulue 
  */
 public static String getNProfil(int idprofil) {
 	String nprofil = null ;
@@ -226,7 +241,9 @@ public static String getNProfil(int idprofil) {
 /**
  * Cette fonction trouve toutes les personnes lier a un profil
  * @param profil
- * @return liste de personne
+ * profil pour le quels on veut une liste
+ * @return personnetrouve
+ *  liste de personne
  */
 public static ArrayList<Personne> ListePersonneparProfil(int profil) {
 	ArrayList<Personne> personnetrouve =new ArrayList<Personne>();
@@ -259,7 +276,9 @@ public static ArrayList<Personne> ListePersonneparProfil(int profil) {
 /**
  * Change le profil d'une personne 
  * @param idprofils
+ * id du profil a mmetre
  * @param idpersonnep
+ * id de la personne a modifié
  * @return none
  */
 public static int modifieprofilpersonne(int idprofils, int idpersonnep ) {
